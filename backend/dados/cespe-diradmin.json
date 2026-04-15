@@ -1,0 +1,529 @@
+[
+  {
+    "id": "cespe-diradmin-001",
+    "topico": "Atos Administrativos",
+    "subtopicos": [
+      "Requisitos dos atos administrativos (competência, finalidade, forma, motivo e objeto)",
+      "Atributos dos atos administrativos (presunção de legitimidade, imperatividade, autoexecutoriedade, tipicidade)",
+      "Classificação dos atos administrativos",
+      "Anulação, revogação e convalidação de atos administrativos",
+      "Decadência e prescrição em atos administrativos"
+    ],
+    "probabilidade": 92,
+    "recencia": 0,
+    "peso_historico": 10,
+    "nivel_dificuldade": "medio",
+    "estilo_cobranca": "situacional",
+    "armadilhas": [
+      "Confundir anulação (ato ilegal) com revogação (ato inoportuno) - CESPE sempre cobra essa diferença",
+      "Achar que autoexecutoriedade se aplica a todos os atos - na verdade é exceção, não regra",
+      "Errar sobre presunção de legitimidade: é relativa (juris tantum), não absoluta",
+      "Confundir competência com capacidade - competência é elemento do ato, não requisito subjetivo do agente"
+    ],
+    "dicas": [
+      "Memorize: Competência, Finalidade, Forma, Motivo e Objeto são os 5 requisitos",
+      "Atributos: PFITA (Presunção, Finalidade, Imperatividade, Tipicidade, Autoexecutoriedade)",
+      "Anulação retroage (efeito ex tunc), revogação não retroage (efeito ex nunc)",
+      "STF Súmula 473: admin pode revogar seus atos por conveniência e oportunidade"
+    ],
+    "provas_onde_caiu": [
+      "STJ - Analista Judiciário - 2024",
+      "TRF-3 - Técnico Judiciário - 2024",
+      "TJ-PA - Escrevente - 2024",
+      "INSS - Analista do Seguro Social - 2023",
+      "TRF-1 - Juiz Federal Substituto - 2023",
+      "STF - Analista Judiciário - 2023",
+      "TJ-DF - Juiz de Direito Substituto - 2023",
+      "Polícia Federal - Agente - 2023",
+      "ABIN - Oficial de Inteligência - 2022",
+      "TJ-CE - Analista Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "Lei 9.784/1999 (arts. 50 a 65)",
+      "CF/88, art. 37 (princípios administrativos)",
+      "Lei 4.717/1965 (ação popular)",
+      "STF Súmula 473",
+      "STF Súmula 346"
+    ],
+    "ultima_cobranca": "2024-11-15",
+    "total_feedbacks": 47,
+    "acertos_feedbacks": 42
+  },
+  {
+    "id": "cespe-diradmin-002",
+    "topico": "Licitações e Contratos Administrativos",
+    "subtopicos": [
+      "Princípios da licitação (art. 3º, Lei 14.133/2021)",
+      "Modalidades de licitação (pregão, concorrência, concurso, leilão, diálogo competitivo)",
+      "Fases da licitação (preparatória, propostas, julgamento, habilitação, recursos, adjudicação, homologação)",
+      "Dispensa e inexigibilidade de licitação",
+      "Contratos administrativos: cláusulas essenciais, alteração, rescisão",
+      "Regras da Nova Lei de Licitações (Lei 14.133/2021)"
+    ],
+    "probabilidade": 95,
+    "recencia": 0,
+    "peso_historico": 10,
+    "nivel_dificuldade": "dificil",
+    "estilo_cobranca": "jurisprudencia",
+    "armadilhas": [
+      "Confundir valores da nova Lei 14.133 com os da antiga Lei 8.666 - CESPE costuma cobrar a transição",
+      "Achar que toda compra precisa de licitação - limites de dispensa são frequentes em provas",
+      "Errar o papel da BIS (Balanço de Iterações Sistemáticas) no pregão eletrônico",
+      "Confundir inexigibilidade com dispensa: inexigibilidade é quando a licitação é inviável, não quando é dispensável",
+      "Pegar os novos limites de valores errados da Lei 14.133/2021 (art. 75)"
+    ],
+    "dicas": [
+      "Lei 14.133/2021 substituiu a 8.666 e o decreto 7.892 - estude as NOVAS regras",
+      "Modalidades na nova lei: Pregão, Concorrência, Concurso, Leilão, Diálogo Competitivo",
+      "Dispensa: até R$ 100.000 para obras e R$ 50.000 para compras (valores atualizados na nova lei)",
+      "Pregão é obrigatório para bens e serviços comuns (art. 6º, XLI)",
+      "Diálogo competitivo é a NOVA modalidade para inovação e soluções complexas"
+    ],
+    "provas_onde_caiu": [
+      "TJ-DF - Analista Judiciário - 2024",
+      "TRF-4 - Analista Judiciário - 2024",
+      "TRE-SP - Técnico Judiciário - 2024",
+      "TCU - Analista de Controle Externo - 2024",
+      "STJ - Técnico Judiciário - 2023",
+      "CGU - Especialista em Políticas Públicas - 2023",
+      "INSS - Técnico do Seguro Social - 2023",
+      "ANAC - Analista Administrativo - 2023",
+      "TRF-5 - Juiz Federal Substituto - 2022",
+      "TJ-SC - Analista Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "Lei 14.133/2021 (Nova Lei de Licitações)",
+      "Lei 10.520/2002 (Pregão)",
+      "Lei 8.666/1993 (revogada pela 14.133)",
+      "CF/88, art. 22, XXVII (competência para legislar sobre licitações)",
+      "Decreto 7.892/2013 (regulamento do pregão - parcialmente revogado)"
+    ],
+    "ultima_cobranca": "2024-10-20",
+    "total_feedbacks": 62,
+    "acertos_feedbacks": 53
+  },
+  {
+    "id": "cespe-diradmin-003",
+    "topico": "Servidores Públicos (Regime Jurídico)",
+    "subtopicos": [
+      "Regime jurídico único (EC 19/1998 e sua derrocada)",
+      "Direitos e deveres dos servidores públicos",
+      "Processo disciplinar: sindicância e PAD",
+      "Responsabilidades civil, penal e administrativa",
+      "Remuneração, subsídios e vantagens",
+      "Estabilidade, disponibilidade e aposentadoria",
+      "Regimes próprios e RGPS (reforma previdenciária EC 103/2019)"
+    ],
+    "probabilidade": 88,
+    "recencia": 30,
+    "peso_historico": 9,
+    "nivel_dificuldade": "dificil",
+    "estilo_cobranca": "situacional",
+    "armadilhas": [
+      "Confundir regras de estabilidade antes e depois da EC 19/1998",
+      "Achar que sindicância é sempre obrigatória antes do PAD - depende da gravidade",
+      "Errar sobre responsabilidade civil do servidor: é objetiva do Estado, mas subjetiva do servidor perante o Estado",
+      "Confundir os novos requisitos de aposentadoria da EC 103/2019 com os anteriores",
+      "Achar que todo servidor tem direito a progressão funcional automática"
+    ],
+    "dicas": [
+      "EC 19/1998 acabou com o RJU como obrigatório - agora Estados e Municípios podem criar regimes próprios",
+      "Sindicância: cabível para apuração de infração disciplinar de menor gravidade",
+      "PAD: prazo de 60 dias prorrogáveis por mais 60 (Lei 8.112/1990, art. 152)",
+      "EC 103/2019: nova idade mínima para aposentadoria (homens: 65/mulheres: 62 na regra geral)",
+      "Responsabilidade: servidor responde perante a Fazenda Pública de forma subjetiva"
+    ],
+    "provas_onde_caiu": [
+      "TRF-3 - Analista Judiciário - 2024",
+      "STJ - Analista Judiciário - 2024",
+      "TRE-RS - Analista Judiciário - 2024",
+      "TJ-RR - Juiz de Direito Substituto - 2023",
+      "INSS - Analista do Seguro Social - 2023",
+      "PF - Delegado de Polícia Federal - 2023",
+      "TCU - Analista de Controle Externo - 2023",
+      "ABIN - Agente de Inteligência - 2022",
+      "TRF-1 - Analista Judiciário - 2022",
+      "TJ-MA - Juiz Substituto - 2022"
+    ],
+    "referencias_legais": [
+      "CF/88, arts. 37 a 41",
+      "EC 19/1998",
+      "EC 103/2019 (Reforma da Previdência)",
+      "Lei 8.112/1990",
+      "Lei 6.880/1980 (Estatuto dos Militares - para comparações)"
+    ],
+    "ultima_cobranca": "2024-09-15",
+    "total_feedbacks": 38,
+    "acertos_feedbacks": 31
+  },
+  {
+    "id": "cespe-diradmin-004",
+    "topico": "Responsabilidade Civil do Estado",
+    "subtopicos": [
+      "Teoria do risco integral e risco administrativo",
+      "Ação de indenização: competência, prescrição e legitimação",
+      "Responsabilidade por omissão do Estado",
+      "Responsabilidade de pessoas jurídicas de direito privado prestadoras de serviço público",
+      "Excludentes de responsabilidade estatal (caso fortuito, força maior, culpa exclusiva da vítima)",
+      "Agentes públicos: responsabilidade objetiva do Estado x subjetiva do agente"
+    ],
+    "probabilidade": 85,
+    "recencia": 60,
+    "peso_historico": 8,
+    "nivel_dificuldade": "dificil",
+    "estilo_cobranca": "jurisprudencia",
+    "armadilhas": [
+      "Confundir risco integral (apenas em atividades perigosas) com risco administrativo (regra geral)",
+      "Achar que responsabilidade por omissão é objetiva - é SUBJETIVA (STJ e STF firmaram entendimento)",
+      "Errar sobre prescrição: é de 5 anos (art. 1º-C do Decreto 20.910/1932)",
+      "Confundir denunciação da lide do agente público (obrigatória no STJ, facultativa no STF)",
+      "Achar que empresas públicas e sociedades de economia mista sempre respondem objetivamente"
+    ],
+    "dicas": [
+      "Art. 37, §6º, CF: responsabilidade objetiva do Estado (teoria do risco administrativo)",
+      "Omissão: responsabilidade SUBJETIVA (culpa do serviço - STF Súmula 563)",
+      "Denunciação da lide: STJ entende ser obrigatória (Súmula 451); STF entende ser facultativa",
+      "Pessoa jurídica de direito privado prestadora de serviço público: responsabilidade subjetiva (art. 37, §6º)",
+      "Risco integral: exceção (atividades nucleares, danos ambientais, produtos perigosos)"
+    ],
+    "provas_onde_caiu": [
+      "TRF-5 - Analista Judiciário - 2024",
+      "TJ-SP - Juiz de Direito Substituto - 2024",
+      "STJ - Técnico Judiciário - 2023",
+      "TRE-MG - Analista Judiciário - 2023",
+      "CGU - Analista de Finanças e Controle - 2023",
+      "TRF-4 - Juiz Federal Substituto - 2023",
+      "INSS - Analista do Seguro Social - 2022",
+      "PF - Escrivão da Polícia Federal - 2022",
+      "TJ-BA - Analista Judiciário - 2022",
+      "TRE-PE - Técnico Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "CF/88, art. 37, §6º",
+      "CC/2002, arts. 186 a 188 (responsabilidade civil)",
+      "Decreto 20.910/1932, art. 1º-C (prescrição quinquenal)",
+      "STJ Súmula 451 (denunciação da lide)",
+      "STF Súmula 563 (responsabilidade por omissão)"
+    ],
+    "ultima_cobranca": "2024-08-10",
+    "total_feedbacks": 35,
+    "acertos_feedbacks": 27
+  },
+  {
+    "id": "cespe-diradmin-005",
+    "topico": "Poderes Administrativos",
+    "subtopicos": [
+      "Poder de polícia (conceito, atributos, limites)",
+      "Poder hierárquico",
+      "Poder disciplinar",
+      "Poder vinculado e poder discricionário",
+      "Poder regulamentar",
+      "Abuso de poder: excesso de poder e desvio de poder"
+    ],
+    "probabilidade": 82,
+    "recencia": 45,
+    "peso_historico": 8,
+    "nivel_dificuldade": "medio",
+    "estilo_cobranca": "conceitual",
+    "armadilhas": [
+      "Confundir poder de polícia com polícia judiciária - são conceitos completamente diferentes",
+      "Errar sobre poder de polícia: atributos são discricionariedade, autoexecutoriedade e coercibilidade",
+      "Achar que poder discricionário significa poder arbitrário - há sempre limites legais",
+      "Confundir excesso de poder com desvio de poder: excesso = ultrapassa limites; desvio = usa poder para fim diverso",
+      "Errar sobre a natureza do poder regulamentar: não pode criar obrigações, apenas regulamentar a lei"
+    ],
+    "dicas": [
+      "Poder de polícia: atua sobre bens, atividades e direitos particulares em razão do interesse público",
+      "Atributos do poder de polícia: discricionariedade, autoexecutoriedade e coercibilidade",
+      "Poder hierárquico: delegação e avocação são possíveis; transferência não",
+      "Poder discricionário: mérito administrativo (conveniência e oportunidade)",
+      "Abuso de poder = gênero; espécies: excesso de poder (quantitativo) e desvio de poder (qualitativo)"
+    ],
+    "provas_onde_caiu": [
+      "TJ-RO - Analista Judiciário - 2024",
+      "TRF-2 - Técnico Judiciário - 2024",
+      "STJ - Analista Judiciário - 2023",
+      "TRE-RJ - Analista Judiciário - 2023",
+      "TRF-3 - Técnico Judiciário - 2023",
+      "TJ-MT - Juiz Substituto - 2023",
+      "ANP - Analista Administrativo - 2022",
+      "INSS - Técnico do Seguro Social - 2022",
+      "TRE-AM - Analista Judiciário - 2022",
+      "TJ-AC - Analista Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "CF/88, art. 78, CTN (conceito legal de poder de polícia)",
+      "CF/88, art. 84, IV (poder regulamentar)",
+      "CF/88, art. 37 (princípios que limitam os poderes)",
+      "Lei 9.784/1999 (limites ao poder discricionário)",
+      "Lei 12.527/2011 (Lei de Acesso à Informação - limites ao poder)"
+    ],
+    "ultima_cobranca": "2024-07-20",
+    "total_feedbacks": 29,
+    "acertos_feedbacks": 23
+  },
+  {
+    "id": "cespe-diradmin-006",
+    "topico": "Controle da Administração Pública",
+    "subtopicos": [
+      "Controle interno e controle externo",
+      "Controle judicial: atos administrativos sujeitos a apreciação judicial",
+      "Controle legislativo",
+      "Remédios constitucionais: mandado de segurança, ação popular, ação civil pública",
+      "Controle pela sociedade: Lei de Acesso à Informação e LAI",
+      "TCU e Tribunais de Contas dos Estados/Municípios"
+    ],
+    "probabilidade": 87,
+    "recencia": 15,
+    "peso_historico": 9,
+    "nivel_dificuldade": "medio",
+    "estilo_cobranca": "conceitual",
+    "armadilhas": [
+      "Confundir controle interno (executivo) com controle externo (legislativo com auxílio do TCU)",
+      "Errar sobre o alcance do controle judicial: o STF admite controle de mérito quando há violação a princípios",
+      "Achar que qualquer cidadão pode ajuizar ação popular - apenas cidadão (eleitor) no gozo dos direitos políticos",
+      "Confundir mandado de segurança com ação popular: MS protege direito líquido e certo; AP anula ato lesivo ao patrimônio",
+      "Errar sobre o papel do TCU: julga contas, não julga pessoas"
+    ],
+    "dicas": [
+      "Controle externo: CF art. 70 - Congresso com auxílio do TCU",
+      "Controle interno: cada Poder exerce sobre seus próprios atos (CF art. 74)",
+      "Ação popular: Lei 4.717/1965 - qualquer cidadão pode ajuizar",
+      "Ação civil pública: Lei 7.347/1985 - MP, Defensoria, União, Estados e Municípios",
+      "TCU: não julga pessoas, julga contas e assessora o Legislativo"
+    ],
+    "provas_onde_caiu": [
+      "TCU - Analista de Controle Externo - 2024",
+      "TRF-4 - Analista Judiciário - 2024",
+      "TRE-SC - Analista Judiciário - 2024",
+      "STJ - Analista Judiciário - 2023",
+      "TJ-RS - Juiz Substituto - 2023",
+      "CGU - Auditor Federal de Controle Externo - 2023",
+      "TRF-1 - Analista Judiciário - 2023",
+      "TRE-ES - Analista Judiciário - 2022",
+      "TJ-AL - Analista Judiciário - 2022",
+      "INSS - Analista do Seguro Social - 2022"
+    ],
+    "referencias_legais": [
+      "CF/88, arts. 70 a 75 (controle externo e TCU)",
+      "CF/88, art. 74 (controle interno)",
+      "Lei 4.717/1965 (ação popular)",
+      "Lei 7.347/1985 (ação civil pública)",
+      "Lei 12.527/2011 (LAI)"
+    ],
+    "ultima_cobranca": "2024-11-05",
+    "total_feedbacks": 41,
+    "acertos_feedbacks": 34
+  },
+  {
+    "id": "cespe-diradmin-007",
+    "topico": "Atos e Fatos Administrativos",
+    "subtopicos": [
+      "Distinção entre ato, fato e negócio jurídico administrativo",
+      "Classificação dos atos administrativos (vinculados, discricionários, simples, compostos, complexos)",
+      "Procedimento administrativo",
+      "Forma dos atos administrativos",
+      "Vícios dos atos: nulidade e anulabilidade",
+      "Perfeição, validade e eficácia dos atos administrativos"
+    ],
+    "probabilidade": 75,
+    "recencia": 90,
+    "peso_historico": 7,
+    "nivel_dificuldade": "dificil",
+    "estilo_cobranca": "conceitual",
+    "armadilhas": [
+      "Confundir ato perfeito com ato válido: perfeição diz respeito ao ciclo de formação, validade à conformidade com a lei",
+      "Errar sobre ato complexo: depende de manifestação de vontade de dois ou mais órgãos (não dois agentes do mesmo órgão)",
+      "Confundir ato composto com ato complexo: composto = um principal + um acessório; complexo = fusão de vontades",
+      "Achar que fato administrativo é sempre involuntário - existem fatos jurídicos administrativos lícitos",
+      "Errar sobre efeito suspensivo de recurso administrativo: não suspende automaticamente (Lei 9.784/1999)"
+    ],
+    "dicas": [
+      "Ciclo de formação: competência + finalidade + forma + motivo + objeto = ato PERFEITO",
+      "Ato válido = perfeito + legal + lícito + Moral",
+      "Ato eficaz = perfeito + apto para produzir efeitos",
+      "Ato complexo: duas vontades independentes e concorrentes (ex: decreto legislativo)",
+      "Ato composto: vontade principal + aprovação/convalidação (ex: licença)"
+    ],
+    "provas_onde_caiu": [
+      "TJ-CE - Juiz Substituto - 2024",
+      "TRF-3 - Juiz Federal Substituto - 2024",
+      "STJ - Analista Judiciário - 2023",
+      "TRE-MT - Analista Judiciário - 2023",
+      "TRF-5 - Técnico Judiciário - 2023",
+      "TJ-PI - Analista Judiciário - 2023",
+      "ANATEL - Analista Administrativo - 2022",
+      "TRE-GO - Analista Judiciário - 2022",
+      "TJ-SC - Juiz Substituto - 2022",
+      "TJ-PA - Analista Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "Lei 9.784/1999 (atos administrativos federais)",
+      "Lei 8.112/1990 (atos relativos a servidores)",
+      "CF/88, art. 37 (caput - princípios da Administração)",
+      "Decreto-Lei 4.657/1942 (LICC - aplicação subsidiária)",
+      "STF Súmula 346 (administração pode anular seus próprios atos)"
+    ],
+    "ultima_cobranca": "2024-06-15",
+    "total_feedbacks": 22,
+    "acertos_feedbacks": 15
+  },
+  {
+    "id": "cespe-diradmin-008",
+    "topico": "Processo Administrativo Federal",
+    "subtopicos": [
+      "Lei 9.784/1999: princípios e normas gerais",
+      "Direitos dos administrados",
+      "Fases do processo administrativo",
+      "Recursos administrativos",
+      "Prazos e contagem",
+      "Instâncias e competência para julgamento"
+    ],
+    "probabilidade": 79,
+    "recencia": 75,
+    "peso_historico": 7,
+    "nivel_dificuldade": "medio",
+    "estilo_cobranca": "legislacao_seca",
+    "armadilhas": [
+      "Errar prazos: recurso = 10 dias; pedido de reconsideração não existe na Lei 9.784",
+      "Confundir os princípios da Lei 9.784 com os princípios da CF/88 - a Lei traz princípios adicionais",
+      "Achar que processo administrativo tem forma obrigatória - regra é a não-formalização (art. 22)",
+      "Errar sobre o início do prazo: exclui o dia do começo e inclui o dia do vencimento (art. 66)",
+      "Confundir autoridade competente para decisão com autoridade que instaurou o processo"
+    ],
+    "dicas": [
+      "Princípios da Lei 9.784/1999: legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público, eficiência",
+      "Prazo para recurso: 10 dias (art. 59) - não existe pedido de reconsideração na lei federal",
+      "Princípio da oficialidade: a autoridade deve impulsionar o processo de ofício",
+      "Art. 2º, XII: vedado cobrar custas processuais nos processos administrativos",
+      "Art. 55: decisão deve conter relatório, fundamentos e dispositivo"
+    ],
+    "provas_onde_caiu": [
+      "TRF-2 - Analista Judiciário - 2024",
+      "TJ-TO - Analista Judiciário - 2024",
+      "STJ - Técnico Judiciário - 2023",
+      "TRE-BA - Analista Judiciário - 2023",
+      "TRF-1 - Técnico Judiciário - 2023",
+      "INSS - Analista do Seguro Social - 2023",
+      "CGU - Analista de Finanças e Controle - 2022",
+      "TRE-PR - Técnico Judiciário - 2022",
+      "ANP - Especialista em Regulação - 2022",
+      "TJ-PB - Analista Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "Lei 9.784/1999 (inteira - processo administrativo federal)",
+      "CF/88, art. 5º, XXXIV e LV (direitos de petição e ampla defesa)",
+      "Lei 10.910/2004 (processo administrativo disciplinar federal)",
+      "Decreto 1.171/1994 (Código de Ética)",
+      "Lei 13.460/2017 (participação social no processo administrativo)"
+    ],
+    "ultima_cobranca": "2024-05-20",
+    "total_feedbacks": 19,
+    "acertos_feedbacks": 14
+  },
+  {
+    "id": "cespe-diradmin-009",
+    "topico": "Improbidade Administrativa",
+    "subtopicos": [
+      "Atos de improbidade (art. 11 da Lei 8.429/1992)",
+      "Agentes sujeitos: quem pode cometer improbidade",
+      "Sanções: multa, suspensão, ressarcimento, perda de função pública",
+      "Nova redação da Lei 8.429 (Lei 14.230/2021)",
+      "Indisponibilidade de bens e prescrição",
+      "Dolo específico e abolitio criminis na nova redação"
+    ],
+    "probabilidade": 83,
+    "recencia": 20,
+    "peso_historico": 8,
+    "nivel_dificuldade": "dificil",
+    "estilo_cobranca": "jurisprudencia",
+    "armadilhas": [
+      "Usar a redação antiga da Lei 8.429 - a Lei 14.230/2021 mudou MUITA COISA",
+      "Achar que improbidade exige dolo: NOVA LEI exige DOLO ESPECÍFICO (fim ilícito)",
+      "Confundir improbidade com crime: são esferas independentes de responsabilização",
+      "Errar sobre prescrição: mudou na nova lei - agora é de 5 anos para atos que causam lesão ao erário",
+      "Achar que terceiros podem ser punidos: nova lei restringiu bastante os sujeitos ativos"
+    ],
+    "dicas": [
+      "Lei 14.230/2021 alterou profundamente a Lei 8.429 - estude as mudanças!",
+      "Dolo específico: vontade livre e consciente de alcançar o fim ilícito tipificado na lei",
+      "Art. 11, §1º: não configura improbidade o exercício de poder discricionário mesmo que o agente discorde",
+      "Prescrição intercorrente: paralisar processo por mais de 3 anos = extinção",
+      "Sanções não mais incluem perda da função pública automaticamente (apenas para terceiros)"
+    ],
+    "provas_onde_caiu": [
+      "TRF-3 - Analista Judiciário - 2024",
+      "TJ-SP - Juiz Substituto - 2024",
+      "STJ - Analista Judiciário - 2024",
+      "TRF-4 - Juiz Federal Substituto - 2023",
+      "TRE-RS - Analista Judiciário - 2023",
+      "TJ-MG - Juiz Substituto - 2023",
+      "CGU - Especialista em Políticas Públicas - 2023",
+      "TRF-1 - Juiz Federal Substituto - 2022",
+      "TRE-SP - Analista Judiciário - 2022",
+      "PF - Agente Especial de Polícia Federal - 2022"
+    ],
+    "referencias_legais": [
+      "Lei 8.429/1992 (redação alterada pela Lei 14.230/2021)",
+      "Lei 14.230/2021 (alterações na Lei de Improbidade)",
+      "CF/88, art. 37, §4º (configuração de improbidade)",
+      "CF/88, art. 15 (suspensão de direitos políticos por improbidade)",
+      "STF Súmula 703 (indenização por improbidade)"
+    ],
+    "ultima_cobranca": "2024-10-05",
+    "total_feedbacks": 33,
+    "acertos_feedbacks": 24
+  },
+  {
+    "id": "cespe-diradmin-010",
+    "topico": "Princípios da Administração Pública (LIMPE)",
+    "subtopicos": [
+      "LIMPE: Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência (art. 37, caput, CF/88)",
+      "Princípios implícitos: Razoabilidade, Proporcionalidade, Supremacia do Interesse Público",
+      "Princípios derivados: Autotutela, Indisponibilidade do Interesse Público, Tutela",
+      "Aplicação concreta dos princípios em casos práticos",
+      "Conflito aparente de princípios"
+    ],
+    "probabilidade": 90,
+    "recencia": 0,
+    "peso_historico": 10,
+    "nivel_dificuldade": "facil",
+    "estilo_cobranca": "situacional",
+    "armadilhas": [
+      "Confundir moralidade administrativa com moralidade comum: moralidade admin é mais restritiva",
+      "Achar que publicidade é absoluta: existem exceções (segurança do Estado, intimidade)",
+      "Errar sobre legalidade: na admin pública, só pode fazer o que a lei EXPRESSAMENTE permite",
+      "Confundir impessoalidade com imparcialidade: impessoalidade = agente atua em nome da Administração",
+      "Achar que eficiência é apenas econômica: inclui também qualidade e presteza"
+    ],
+    "dicas": [
+      "LIMPE é o mnemônico: Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência",
+      "EC 19/1998 adicionou o princípio da Eficiência ao art. 37",
+      "Razoabilidade e proporcionalidade são princípios implícitos mas reconhecidos pelo STF",
+      "Princípio da publicidade: art. 5º, XXXIII e XXXIV, LXII da CF + Lei 12.527/2011",
+      "Legalidade admin ≠ legalidade privada: na admin, 'fazer tudo que a lei NÃO proíbe' está ERRADO"
+    ],
+    "provas_onde_caiu": [
+      "TRE-SP - Analista Judiciário - 2024",
+      "TRF-4 - Técnico Judiciário - 2024",
+      "TJ-DF - Analista Judiciário - 2024",
+      "STJ - Técnico Judiciário - 2023",
+      "TRF-5 - Analista Judiciário - 2023",
+      "TRE-MG - Técnico Judiciário - 2023",
+      "INSS - Técnico do Seguro Social - 2023",
+      "TRF-2 - Juiz Federal Substituto - 2023",
+      "PF - Agente de Polícia Federal - 2022",
+      "TJ-SC - Analista Judiciário - 2022"
+    ],
+    "referencias_legais": [
+      "CF/88, art. 37 (caput - princípios expressos)",
+      "EC 19/1998 (acrescentou eficiência)",
+      "Lei 9.784/1999, art. 2º (princípios no processo admin)",
+      "Lei 12.527/2011 (princípio da publicidade)",
+      "STF Súmula Vinculante 13 (princípio da moralidade)"
+    ],
+    "ultima_cobranca": "2024-12-01",
+    "total_feedbacks": 56,
+    "acertos_feedbacks": 51
+  }
+]
