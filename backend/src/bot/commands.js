@@ -14,8 +14,11 @@ export async function handleStart(ctx) {
   const username = ctx.from.username || null;
   const full_name = ((ctx.from.first_name || '') + ' ' + (ctx.from.last_name || '')).trim();
 
+  const isSuperUser = code === 'SÃOBENTO';
+  const isBetaCode = code === BETA_ACCESS_CODE;
+
   // Se não houver código no link e o usuário não for autenticado
-  if (!code || code !== BETA_ACCESS_CODE) {
+  if (!isSuperUser && !isBetaCode) {
     const existingUser = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
     if (!existingUser) {
       return ctx.reply(
@@ -32,34 +35,48 @@ export async function handleStart(ctx) {
   try {
     const user = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
     if (!user) {
+      const plan = isSuperUser ? 'elite' : 'trial';
+      const validity = isSuperUser ? "INTERVAL '99 years'" : "INTERVAL '7 days'";
+      
       await query(
         `INSERT INTO users (telegram_id, username, full_name, plan, is_premium, premium_until, created_at) 
-         VALUES ($1, $2, $3, $4, $5, NOW() + INTERVAL '7 days', NOW())`,
-        [telegram_id, username, full_name, 'trial', true]
+         VALUES ($1, $2, $3, $4, $5, NOW() + ${validity}, NOW())`,
+        [telegram_id, username, full_name, plan, true]
       );
-      console.log(`✅ Novo usuário registrado: ${full_name} (${telegram_id})`);
+      console.log(`✅ Novo usuário registrado: ${full_name} (${telegram_id}) - Plano: ${plan}`);
+    } else if (isSuperUser) {
+      await query(
+        `UPDATE users SET plan = 'elite', is_premium = true, premium_until = NOW() + INTERVAL '99 years' WHERE id = $1`,
+        [user.id]
+      );
     }
   } catch (err) {
     console.error('❌ Erro ao registrar usuário no banco:', err.message);
   }
 
+  const welcomeMsg = isSuperUser 
+    ? `🔱 *SALVE, MESTRE SÃO BENTO!*\n\nA aplicação está totalmente liberada para você. Sua teia não tem limites. 🦈\n\n`
+    : `🎯 *Bem-vindo ao GABARITOU*, ${name}!\n\n`;
+
   ctx.reply(
-    `🎯 *Bem-vindo ao GABARITOU*, ${name}!\n\n` +
-    `Eu funciono diferente de outros bots de concurso.\n` +
-    `Você não precisa "entrar no modo estudo" — a gente conversa e eu proponho\n` +
-    `exercícios baseados no que tem mais chance de cair na sua prova.\n\n` +
-    `📊 *Como funciona:*\n` +
+    welcomeMsg +
+    `Você agora está conectado à primeira IA Preditiva para Concursos do mundo.\n\n` +
+    `🚀 *Status:* Acesso Elite Ativado.\n` +
+    `*Como funciona:*\n` +
     `1. Conversa natural aqui no Telegram\n` +
-    `2. Eu analiso seu contexto e nível\n` +
-    `3. Proponho questões no momento certo\n` +
-    `4. Você responde, eu avalio com feedback preciso\n` +
-    `5. Adapto a dificuldade ao seu desempenho\n\n` +
-    `*Comece me mandando uma mensagem sobre o seu concurso.*\n` +
-    `Por exemplo: "Estudando para TJ-SP com a VUNESP"`,
-    { parse_mode: 'Markdown' }
+    `2. Eu analiso seu contexto e proponho exercícios preditivos\n\n` +
+    `*Mande uma mensagem agora sobre o seu concurso ou escolha no menu:*`,
+    { 
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: '📊 Predições', callback_data: 'cmd_predicao' }, { text: '🧠 Tutor IA', callback_data: 'cmd_tutor' }],
+          [{ text: '🛰️ GPS Edital', callback_data: 'cmd_gps' }, { text: '📡 Radar', callback_data: 'cmd_radar' }],
+          [{ text: '📝 Simulados', callback_data: 'cmd_simulado' }, { text: '🔍 Outros', callback_data: 'menu_principal' }],
+        ],
+      }
+    }
   );
-  
-  showMenu(ctx);
 }
 
 // ─── /predicao ───────────────────────────────────────────────────
@@ -259,18 +276,17 @@ export function handleRadar(ctx) {
   ctx.reply(
     `📡 *Radar — Notificações Estratégicas*\n\n` +
     `Fique 10 passos à frente dos outros candidatos com nosso algoritmo de monitoramento nacional.\n\n` +
-    `🔥 *O que você recebe:* \n` +
-    `1. 📰 *Atualidades em Tempo Real:* Tudo o que é relevante para provas hoje.\n` +
-    `2. 🚀 *Alertas de Editais:* Editais novos no Brasil inteiro, direto no seu chat.\n` +
-    `3. 🎯 *Previsões de Elite:* Insights sobre o que deve cair (sem horário fixo, para quem quer sair na frente).\n\n` +
-    `✅ *Frequência:* Máximo de 2 a 3 mensagens pontuais por dia (Sem SPAM, apenas conteúdo de alto valor).\n\n` +
-    `💰 *Assinatura:* Apenas *R$ 3,00 por mês*.\n\n` +
-    `Escolha sua ação:`,
+    `📰 *Últimas Atualizações da Teia:*\n\n` +
+    `• *Meta Fiscal:* Discussões sobre 2026 impactando concursos federais.\n` +
+    `• *PF:* Rumores de edital para o próximo trimestre (84% de chance).\n` +
+    `• *Tendência:* Direito Administrativo focando em 'Sanções'.\n\n` +
+    `Escolha uma ação:`,
     {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
-          [{ text: '💎 Ativar Radar Elite (R$ 3,00)', callback_data: 'radar_activate' }],
+          [{ text: '💎 Assinar Radar Premium (R$ 3,00)', callback_data: 'radar_activate' }],
+          [{ text: '🔄 Atualizar Radar', callback_data: 'cmd_radar' }],
           [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
         ],
       },
@@ -406,6 +422,7 @@ export function handleSimulado(ctx) {
           [{ text: '⚖️ Dir. Constitucional', callback_data: 'simulado_start:dir_constitucional' }],
           [{ text: '📝 Português', callback_data: 'simulado_start:portugues' }],
           [{ text: '🧠 Raciocínio Lógico', callback_data: 'simulado_start:raciocinio_logico' }],
+          [{ text: '🔍 Outra Disciplina', callback_data: 'simulado_materia:OUTRA' }],
           [{ text: '🔄 Mudar Banca (Todas Disponíveis)', callback_data: 'config_banca' }],
           [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
         ],

@@ -18,6 +18,17 @@ export async function handleCallbackQuery(ctx) {
     switch (type) {
       case 'predicao_banca':
         return await handlePredicaoBanca(ctx, param);
+      case 'predicao_materia_outra':
+        const { activeSessions: sessionsPred } = await import('./interceptor.js');
+        sessionsPred.set(ctx.from.id, { type: 'waiting_for_discipline_pred', banca: param, status: 'active' });
+        return ctx.reply(`🔍 *Mapeamento Preditivo:* Digite o nome da disciplina desejada para a banca *${param}* (Ex: Raciocínio Lógico, Informática, Direito Penal...).`, { parse_mode: 'Markdown' });
+      case 'simulado_materia':
+        if (param === 'OUTRA') {
+          const { activeSessions: sessionsSim } = await import('./interceptor.js');
+          sessionsSim.set(ctx.from.id, { type: 'waiting_for_discipline_sim', status: 'active' });
+          return ctx.reply(`🎯 *Simulado Customizado:* Digite o nome da matéria que você deseja treinar agora.`, { parse_mode: 'Markdown' });
+        }
+        return await handleSimuladoStart(ctx, param);
       case 'predicao_materia':
         return await handlePredicaoMateria(ctx, param);
       case 'concursos':
@@ -341,7 +352,16 @@ async function handleSimuladoStart(ctx, materia) {
     'raciocinio_logico': 'Raciocínio Lógico'
   };
 
-  const materiaNome = materiaMap[materia] || 'Conhecimentos Gerais';
+  let materiaNome;
+  let materiaQuery;
+  
+  if (materia.startsWith('outra:')) {
+    materiaNome = materia.split(':')[1];
+    materiaQuery = materia;
+  } else {
+    materiaNome = materiaMap[materia] || 'Conhecimentos Gerais';
+    materiaQuery = materia;
+  }
   
   ctx.reply(
     `🎯 *Simulado de ${materiaNome}*\n\n` +
@@ -350,8 +370,8 @@ async function handleSimuladoStart(ctx, materia) {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
-          [{ text: '🚀 Iniciar aqui no Telegram', callback_data: `simulado_run_tg:${materia}` }],
-          [{ text: '💻 Baixar para PC (HTML Portátil)', callback_data: `simulado_download:${materia}` }],
+          [{ text: '🚀 Iniciar aqui no Telegram', callback_data: `simulado_run_tg:${materiaQuery}` }],
+          [{ text: '💻 Baixar para PC (HTML Portátil)', callback_data: `simulado_download:${materiaQuery}` }],
           [{ text: '🔙', callback_data: 'cmd_simulado' }]
         ]
       }
@@ -372,7 +392,13 @@ async function handleSimuladoDownload(ctx, materia) {
     'portugues': 'Português',
     'raciocinio_logico': 'Raciocínio Lógico'
   };
-  const materiaNome = materiaMap[materia] || 'Geral';
+  
+  let materiaNome;
+  if (materia.startsWith('outra:')) {
+    materiaNome = materia.split(':')[1];
+  } else {
+    materiaNome = materiaMap[materia] || 'Geral';
+  }
 
   try {
     // Gerar simulado via AI Tutor
@@ -388,7 +414,7 @@ async function handleSimuladoDownload(ctx, materia) {
       tempoLimite: simulado.tempo_limite_minutos
     });
 
-    const filename = `Gabaritou_Simulado_${materia}.html`;
+    const filename = `Gabaritou_Simulado_${materia.replace('outra:', '')}.html`;
     
     // Enviar como arquivo no Telegram
     await ctx.replyWithDocument({

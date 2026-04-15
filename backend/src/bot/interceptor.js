@@ -70,7 +70,47 @@ export async function interceptMessage(ctx) {
             [{ text: 'Direito Administrativo', callback_data: `predicao_materia:${bancaInput}:Direito Administrativo` }],
             [{ text: 'Português', callback_data: `predicao_materia:${bancaInput}:Português` }],
             [{ text: 'Raciocínio Lógico', callback_data: `predicao_materia:${bancaInput}:Raciocínio Lógico` }],
+            [{ text: '🔍 Outra Disciplina', callback_data: `predicao_materia_outra:${bancaInput}` }],
             [{ text: '🔙 Voltar', callback_data: 'cmd_predicao' }]
+          ]
+        }
+      };
+    }
+
+    // Caso: Esperando matéria para predição (Outra)
+    if (existingSession.type === 'waiting_for_discipline_pred') {
+      activeSessions.delete(telegramId);
+      const banca = existingSession.banca || 'OUTRA';
+      const materia = text.trim();
+      
+      return {
+        action: 'intercept',
+        response: `📈 *Mapeando Predições: ${materia} (${banca})*\n\n` +
+                  `A IA está processando o histórico dessa disciplina para prever o que cairá na sua prova.`,
+        session: null,
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: '✅ Ver Top Tópicos', callback_data: `predicao_materia:${banca}:${materia}` }],
+            [{ text: '🔙 Voltar', callback_data: 'cmd_predicao' }]
+          ]
+        }
+      };
+    }
+
+    // Caso: Esperando matéria para simulado (Outra)
+    if (existingSession.type === 'waiting_for_discipline_sim') {
+      activeSessions.delete(telegramId);
+      const materia = text.trim();
+      
+      return {
+        action: 'intercept',
+        response: `🎯 *Simulado de ${materia}*\n\n` +
+                  `Sessão adaptativa configurada com sucesso. Pronto para começar?`,
+        session: null,
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: '🚀 Iniciar Agora', callback_data: `simulado_start:outra:${materia}` }],
+            [{ text: '🔙 Voltar', callback_data: 'cmd_simulado' }]
           ]
         }
       };
