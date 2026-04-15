@@ -188,7 +188,7 @@ setupBot();
 const server = app.listen(PORT, () => {
   console.log('');
   console.log('╔══════════════════════════════════════════════════════════╗');
-  console.log('║          🎯 GABARITOU v3.1                      ║');
+  console.log('║          🎯 GABARITOU                           ║');
   console.log('║            API + Telegram Bot                          ║');
   console.log('╠══════════════════════════════════════════════════════════╣');
   console.log(`║  Ambiente: ${NODE_ENV.padEnd(45)}║`);

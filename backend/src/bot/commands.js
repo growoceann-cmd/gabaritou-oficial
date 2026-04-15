@@ -1,28 +1,50 @@
 /**
- * Commands do Bot Telegram — Gabaritou v3.1 (Modelo BeConfident)
+ * Commands do Bot Telegram — GABARITOU (Modelo BeConfident)
  */
 
 import { getTopTopicos } from '../services/predictions.js';
 import { PRICING, LIMITS, SOCIAL, BETA_ACCESS_CODE } from '../config/constants.js';
+import { queryOne, query } from '../db/connection.js';
 
 // ─── /start ──────────────────────────────────────────────────────
-export function handleStart(ctx) {
+export async function handleStart(ctx) {
   const code = ctx.message.text.split(' ')[1];
   const name = ctx.from.first_name || 'Concurseiro';
+  const telegram_id = ctx.from.id;
+  const username = ctx.from.username || null;
+  const full_name = ((ctx.from.first_name || '') + ' ' + (ctx.from.last_name || '')).trim();
 
   // Se não houver código no link e o usuário não for autenticado
   if (!code || code !== BETA_ACCESS_CODE) {
-    return ctx.reply(
-      `🔒 *ACESSO RESTRITO — GABARITOU v3.1*\n\n` +
-      `Estamos em fase de validação fechada para apenas 50 usuários de elite.\n\n` +
-      `Para entrar, utilize o link de convite oficial ou digite o código de acesso.\n\n` +
-      `🔑 *Acesso negado.*`,
-      { parse_mode: 'Markdown' }
-    );
+    const existingUser = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
+    if (!existingUser) {
+      return ctx.reply(
+        `🔒 *ACESSO RESTRITO — GABARITOU*\n\n` +
+        `Estamos em fase de validação fechada para apenas 50 usuários de elite.\n\n` +
+        `Para entrar, utilize o link de convite oficial ou digite o código de acesso.\n\n` +
+        `🔑 *Acesso negado.*`,
+        { parse_mode: 'Markdown' }
+      );
+    }
+  }
+
+  // Garantir usuário no banco
+  try {
+    const user = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
+    if (!user) {
+      await query(
+        `INSERT INTO users (telegram_id, username, full_name, plan, is_premium, created_at) 
+         VALUES ($1, $2, $3, $4, $5, NOW())`,
+        [telegram_id, username, full_name, 'trial', false]
+      );
+      console.log(`✅ Novo usuário registrado: ${full_name} (${telegram_id})`);
+    }
+  } catch (err) {
+    console.error('❌ Erro ao registrar usuário no banco:', err.message);
   }
 
   ctx.reply(
-    `🎯 *Bem-vindo ao Gabaritou*, ${name}!\n\n` +
+    `🎯 *Bem-vindo ao GABARITOU*, ${name}!\n\n` +
     `Eu funciono diferente de outros bots de concurso.\n` +
     `Você não precisa "entrar no modo estudo" — a gente conversa e eu proponho\n` +
     `exercícios baseados no que tem mais chance de cair na sua prova.\n\n` +
@@ -64,7 +86,7 @@ export function handlePredicao(ctx) {
   };
 
   ctx.reply(
-    `📊 *Predições IA — Gabaritou*\n\n` +
+    `📊 *Predições IA — GABARITOU*\n\n` +
     `Selecione a banca:\n\n` +
     `🎯 Precisão: *87.3%*\n` +
     `📈 15.000+ provas analisadas\n\n` +
@@ -137,7 +159,7 @@ export function handlePremium(ctx) {
   };
 
   ctx.reply(
-    `⭐ *Gabaritou Premium*\n\n` +
+    `⭐ *GABARITOU Premium*\n\n` +
     `🔓 *Desbloqueie:* \n` +
     `• ✅ Micro-sessões ilimitadas\n` +
     `• ✅ Todas as bancas & Predições\n` +
@@ -191,7 +213,7 @@ export function handlePlano(ctx) {
 // ─── /tutor ──────────────────────────────────────────────────────
 export function handleTutor(ctx) {
   ctx.reply(
-    `🧠 *AI Tutor — Gabaritou*\n\n` +
+    `🧠 *AI Tutor — GABARITOU*\n\n` +
     `Eu sou seu mentor pessoal. O que você quer fazer agora?\n\n` +
     `1. Tirar uma dúvida de matéria\n` +
     `2. Pedir um resumo acelerado\n` +
@@ -355,7 +377,7 @@ export function showMenu(ctx) {
   };
 
   ctx.reply(
-    `🎯 *GABARITOU v3.1*\n\n` +
+    `🎯 *GABARITOU*\n\n` +
     `A plataforma definitiva para sua aprovação. Estude agora:\n\n` +
     `💻 *Dica:* Use o menu para baixar arquivos HTML para estudo no PC!`,
     { parse_mode: 'Markdown', ...keyboard }
@@ -389,7 +411,7 @@ export function handleSimulado(ctx) {
 // ─── /score & /ranking ────────────────────────────────────────────
 export function handleRanking(ctx) {
   ctx.reply(
-    `🏆 *Ranking da Comunidade — Gabaritou*\n\n` +
+    `🏆 *Ranking da Comunidade — GABARITOU*\n\n` +
     `1. 🥇 João Silva — 12.450 pts (Mestre)\n` +
     `2. 🥈 Maria Oliveira — 11.200 pts (Expert)\n` +
     `3. 🥉 Carlos Santos — 9.850 pts (Expert)\n` +
@@ -412,7 +434,7 @@ export function handleReferral(ctx) {
 
   ctx.reply(
     `🤝 *Viral Strategy — Ganhe Descontos Reais*\n\n` +
-    `No Gabaritou, você é sócio da nossa escala.\n\n` +
+    `No GABARITOU, você é sócio da nossa escala.\n\n` +
     `*Regra de Ouro:* A cada amigo que você convida e assina:\n` +
     `✅ Você ganha *R$ 1,00 de desconto recorrente* na sua mensalidade.\n` +
     `✅ O desconto é acumulativo (máximo de R$ 17,90).\n\n` +
@@ -468,7 +490,7 @@ export function handlePrivacidade(ctx) {
 
 export function handleAjuda(ctx) {
     ctx.reply(
-      `📖 *Como o Gabaritou funciona*\n\n` +
+      `📖 *Como o GABARITOU funciona*\n\n` +
       `O bot funciona por *conversa natural*. Você não precisa de comandos.\n\n` +
       `O bot identifica o contexto e propõe questões no momento certo.\n\n` +
       `/predicao — Ver predições\n` +

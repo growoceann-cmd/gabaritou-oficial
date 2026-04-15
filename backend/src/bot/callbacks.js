@@ -1,5 +1,5 @@
 /**
- * Callbacks do Bot — Gabaritou v3.1
+ * Callbacks do Bot — GABARITOU
  * Handlers de botões inline do teclado.
  */
 
