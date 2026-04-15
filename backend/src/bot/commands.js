@@ -373,26 +373,29 @@ export function showMenu(ctx) {
         [
           { text: '🎯 Simulado', callback_data: 'cmd_simulado' },
           { text: '📊 Predições', callback_data: 'cmd_predicao' },
-          { text: '🛰️ GPS Aprovação', callback_data: 'cmd_gps' },
+          { text: '💻 Downloads PC', callback_data: 'cmd_downloads' },
         ],
         [
+          { text: '🛰️ GPS Aprovação', callback_data: 'cmd_gps' },
           { text: '🧠 Mapa Mental', callback_data: 'cmd_mapa' },
-          { text: '⚠️ Armadilhas', callback_data: 'cmd_armadilhas' },
           { text: '📡 Radar', callback_data: 'cmd_radar' },
         ],
         [
+          { text: '⚠️ Armadilhas', callback_data: 'cmd_armadilhas' },
           { text: '📈 Progresso', callback_data: 'cmd_progresso' },
           { text: '🏆 Score', callback_data: 'cmd_ranking' },
+        ],
+        [
           { text: '⚡ Prova Day', callback_data: 'cmd_provaday' },
+          { text: '💎 Premium', callback_data: 'cmd_premium' },
+        ],
+        [
+          { text: '⚙️ Configurar', callback_data: 'cmd_configurar' },
+          { text: '🔒 Privacidade', callback_data: 'cmd_privacidade' },
         ],
         [
           { text: '📢 Canal', url: SOCIAL.channel },
           { text: '👥 Grupo', url: SOCIAL.group },
-        ],
-        [
-          { text: '💎 Premium', callback_data: 'cmd_premium' },
-          { text: '⚙️ Configurar', callback_data: 'cmd_configurar' },
-          { text: '🔒 Privacidade', callback_data: 'cmd_privacidade' },
         ],
       ],
     },
@@ -423,6 +426,7 @@ export function handleSimulado(ctx) {
           [{ text: '📝 Português', callback_data: 'simulado_start:portugues' }],
           [{ text: '🧠 Raciocínio Lógico', callback_data: 'simulado_start:raciocinio_logico' }],
           [{ text: '🔍 Outra Disciplina', callback_data: 'simulado_materia:OUTRA' }],
+          [{ text: '💻 Baixar Simulados p/ PC (HTML)', callback_data: 'cmd_downloads' }],
           [{ text: '🔄 Mudar Banca (Todas Disponíveis)', callback_data: 'config_banca' }],
           [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
         ],

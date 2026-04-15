@@ -33,6 +33,26 @@ export async function handleCallbackQuery(ctx) {
         return await handlePredicaoMateria(ctx, param);
       case 'concursos':
         return await handleConcursos(ctx, param);
+      case 'cmd_downloads':
+        await ctx.answerCbQuery();
+        ctx.reply(
+          `💻 *Central de Downloads — GABARITOU*\n\n` +
+          `Baixe seus simulados em formato HTML para estudar no PC, mesmo offline.\n\n` +
+          `Escolha a matéria para gerar o arquivo:`,
+          {
+            parse_mode: 'Markdown',
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: '🏛️ Dir. Administrativo', callback_data: 'simulado_download:dir_administrativo' }],
+                [{ text: '⚖️ Dir. Constitucional', callback_data: 'simulado_download:dir_constitucional' }],
+                [{ text: '📝 Português', callback_data: 'simulado_download:portugues' }],
+                [{ text: '🧠 Raciocínio Lógico', callback_data: 'simulado_download:raciocinio_logico' }],
+                [{ text: '🔙 Voltar', callback_data: 'cmd_simulado' }],
+              ],
+            },
+          }
+        );
+        return true;
       case 'simulado_start':
         return await handleSimuladoStart(ctx, param);
       case 'simulado_download':
