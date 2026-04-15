@@ -76,6 +76,27 @@ export async function interceptMessage(ctx) {
       };
     }
 
+    // Caso: AI Tutor Ativo (Sessão de Dúvidas)
+    if (existingSession.type === 'waiting_for_tutor') {
+      const { respondNaturally } = await import('../ai-tutor/coach.js');
+      const context = await getContextForAI(conversation.id);
+      const aiResponse = await respondNaturally(text, context, user);
+
+      if (aiResponse) {
+        return {
+          action: 'intercept',
+          response: aiResponse,
+          session: existingSession,
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: '✅ Dúvida Sanada', callback_data: 'tutor_finish' }],
+              [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+            ]
+          }
+        };
+      }
+    }
+
     log.info('Micro-sessão ativa encontrada — encaminhando para avaliação', {
       userId: user.id,
       sessionId: existingSession.id,
@@ -228,9 +249,9 @@ export async function getOrCreateUser(telegramId, name, username) {
 
   if (!user) {
     const result = await query(
-      `INSERT INTO users (telegram_id, name, username, referral_code)
-       VALUES ($1, $2, $3, $4) RETURNING *`,
-      [telegramId, name, username || null, `GAB-${Date.now().toString(36).toUpperCase()}`]
+      `INSERT INTO users (telegram_id, full_name, username, referral_code, plan, is_premium)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+      [telegramId, name, username || null, `GAB-${Date.now().toString(36).toUpperCase()}`, 'trial', false]
     );
     user = result[0];
     log.info('Novo usuário criado', { telegramId, name });

@@ -214,7 +214,10 @@ export function handlePlano(ctx) {
 }
 
 // ─── /tutor ──────────────────────────────────────────────────────
-export function handleTutor(ctx) {
+export async function handleTutor(ctx) {
+  const { activeSessions } = await import('./interceptor.js');
+  activeSessions.set(ctx.from.id, { type: 'waiting_for_tutor', status: 'active' });
+
   ctx.reply(
     `🧠 *AI Tutor — GABARITOU*\n\n` +
     `Eu sou seu mentor pessoal. O que você quer fazer agora?\n\n` +

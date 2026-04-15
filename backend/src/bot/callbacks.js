@@ -84,6 +84,11 @@ export async function handleCallbackQuery(ctx) {
         return true;
       case 'trial_start':
         return await handleTrialStart(ctx);
+      case 'tutor_finish':
+        await ctx.answerCbQuery('Dúvida sanada! 🎯');
+        const { activeSessions } = await import('./interceptor.js');
+        activeSessions.delete(ctx.from.id);
+        return ctx.reply('Excelente! Quando tiver outra dúvida, basta me chamar no *Tutor IA*. 🦈', { parse_mode: 'Markdown' });
       case 'premium_checkout':
         return await handlePremiumCheckout(ctx, param);
       case 'menu_principal':

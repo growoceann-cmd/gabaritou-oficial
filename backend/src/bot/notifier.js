@@ -1,20 +1,17 @@
 import 'dotenv/config';
-import { createClient } from '@supabase/supabase-js';
+import { query } from '../db/connection.js';
 import { Telegraf } from 'telegraf';
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 async function sendDailyNotification() {
   console.log('🕸️ Iniciando disparo da Mensagem Diária (Notícias + Predição)...');
   
   try {
-    const { data: users, error } = await supabase
-      .from('users')
-      .select('telegram_id, full_name')
-      .not('telegram_id', 'is', null);
+    const users = await query(
+      `SELECT telegram_id, full_name FROM users WHERE telegram_id IS NOT NULL`
+    );
 
-    if (error) throw error;
     if (!users || users.length === 0) {
       console.log('⚠️ Nenhum usuário com Telegram ID encontrado no banco.');
       return;

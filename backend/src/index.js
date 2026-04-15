@@ -145,7 +145,7 @@ function setupBot() {
     console.log('  🤖 Registrando callbacks...');
     bot.on('callback_query', handleCallbackQuery);
 
-    // Interceptor - Gabaritou v3.1 (BeConfident)
+    // Interceptor - Gabaritou (BeConfident)
     bot.on('message', async (ctx) => {
       if (ctx.message?.text?.startsWith('/')) return;
 
@@ -157,6 +157,22 @@ function setupBot() {
             ...(interception.reply_markup ? { reply_markup: interception.reply_markup } : {})
           });
         }
+        
+        // Se a interceptação for natural, vamos deixar a IA responder como Tutor
+        const { respondNaturally } = await import('./ai-tutor/coach.js');
+        const { getContextForAI, getOrCreateConversation } = await import('./bot/conversation.js');
+        const { getOrCreateUser } = await import('./bot/interceptor.js');
+        
+        const user = await getOrCreateUser(ctx.from.id, ctx.from.first_name, ctx.from.username);
+        const conversation = await getOrCreateConversation(user.id);
+        const context = await getContextForAI(conversation.id);
+        
+        const aiResponse = await respondNaturally(ctx.message.text, context, user);
+        
+        if (aiResponse) {
+          return ctx.reply(aiResponse, { parse_mode: 'Markdown' });
+        }
+        
         showMenu(ctx);
       } catch (err) {
         console.error('  ❌ Erro no interceptor:', err.message);
