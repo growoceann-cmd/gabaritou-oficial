@@ -16,7 +16,7 @@ export default function LandingPage() {
         </h1>
         <p style={{ fontSize: '1.25rem', color: '#a1a1aa', maxWidth: '700px', margin: '0 auto 40px', lineHeight: 1.6 }}>
           Nossa IA analisou 15.000+ provas para prever o que vai cair no seu concurso com 87% de precisão. 
-          Estratégia avançada por preço de custo.
+          Estratégia de elite por preço de custo.
         </p>
         
         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -37,7 +37,7 @@ export default function LandingPage() {
           {/* Radar */}
           <div className="card-glow" style={{ padding: '40px', borderRadius: '30px', border: '1px solid #27272a', background: '#141417' }}>
             <div style={{ fontSize: '40px', marginBottom: '20px' }}>📡</div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>Radar</h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>Radar Elite</h3>
             <p style={{ color: '#a1a1aa', marginBottom: '25px' }}>Atualidades e novos editais em tempo real. O algoritmo que te avisa antes de todo mundo.</p>
             <div style={{ fontSize: '24px', fontWeight: 800, color: '#22d3ee' }}>R$ 3,00<small style={{ fontSize: '12px', color: '#71717a' }}> /mês</small></div>
           </div>
@@ -45,7 +45,7 @@ export default function LandingPage() {
           {/* GPS */}
           <div className="card-glow" style={{ padding: '40px', borderRadius: '30px', border: '1px solid #27272a', background: '#141417' }}>
             <div style={{ fontSize: '40px', marginBottom: '20px' }}>🛰️</div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>GPS</h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>GPS de Aprovação</h3>
             <p style={{ color: '#a1a1aa', marginBottom: '25px' }}>Auditoria completa de edital. Saiba exatamente quais temas você está negligenciando.</p>
             <div style={{ fontSize: '24px', fontWeight: 800, color: '#22d3ee' }}>R$ 2,00<small style={{ fontSize: '12px', color: '#71717a' }}> /único</small></div>
           </div>
@@ -53,7 +53,7 @@ export default function LandingPage() {
           {/* Mapa Mental */}
           <div className="card-glow" style={{ padding: '40px', borderRadius: '30px', border: '1px solid #27272a', background: '#141417' }}>
             <div style={{ fontSize: '40px', marginBottom: '20px' }}>🧠</div>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>Mapa Mental</h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>Mapa Mental IA</h3>
             <p style={{ color: '#a1a1aa', marginBottom: '25px' }}>Gere visualizações lógicas de qualquer tema complexo em segundos para memorização turbo.</p>
             <div style={{ fontSize: '24px', fontWeight: 800, color: '#22d3ee' }}>R$ 2,00<small style={{ fontSize: '12px', color: '#71717a' }}> /único</small></div>
           </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function MapaMentalIA({ onMenuClick }) {
+export default function MapaMental({ onMenuClick }) {
   return (
     <div className="page">
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 32 }}>
         <button className="btn btn-icon btn-outline" onClick={onMenuClick} style={{ marginRight: 12 }}>☰</button>
-        <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>🧠 Mapa Mental IA</h1>
+        <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>🧠 Mapa Mental</h1>
       </div>
 
       <div className="card card-glow" style={{ marginBottom: 24, borderLeft: '4px solid var(--violet)' }}>

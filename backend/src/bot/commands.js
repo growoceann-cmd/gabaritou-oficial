@@ -229,7 +229,7 @@ export function handleArmadilhas(ctx) {
 // ─── /radar ──────────────────────────────────────────────────────
 export function handleRadar(ctx) {
   ctx.reply(
-    `📡 *Radar Elite — Notificações Estratégicas*\n\n` +
+    `📡 *Radar — Notificações Estratégicas*\n\n` +
     `Fique 10 passos à frente dos outros candidatos com nosso algoritmo de monitoramento nacional.\n\n` +
     `🔥 *O que você recebe:* \n` +
     `1. 📰 *Atualidades em Tempo Real:* Tudo o que é relevante para provas hoje.\n` +
@@ -334,7 +334,7 @@ export function showMenu(ctx) {
         [
           { text: '🧠 Mapa Mental', callback_data: 'cmd_mapa' },
           { text: '⚠️ Armadilhas', callback_data: 'cmd_armadilhas' },
-          { text: '📡 Radar Elite', callback_data: 'cmd_radar' },
+          { text: '📡 Radar', callback_data: 'cmd_radar' },
         ],
         [
           { text: '📈 Progresso', callback_data: 'cmd_progresso' },
@@ -355,7 +355,7 @@ export function showMenu(ctx) {
   };
 
   ctx.reply(
-    `🎯 *GABARITOU v3.1 — Elite*\n\n` +
+    `🎯 *GABARITOU v3.1*\n\n` +
     `A plataforma definitiva para sua aprovação. Estude agora:\n\n` +
     `💻 *Dica:* Use o menu para baixar arquivos HTML para estudo no PC!`,
     { parse_mode: 'Markdown', ...keyboard }

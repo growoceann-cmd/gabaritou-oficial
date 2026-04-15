@@ -1,28 +1,28 @@
 /**
- * Rotas Elite - Gabaritou v3.1
- * Endpoints para Radar Elite, GPS de Aprovação e Mapa Mental IA.
+ * Rotas de Serviços - Gabaritou v3.1
+ * Endpoints para Radar, GPS e Mapa Mental.
  */
 import { Router } from 'express';
 import { authenticateToken } from '../../middleware/auth.js';
 
 const router = Router();
 
-// Mock data para os serviços elite
-const eliteServices = {
+// Mock data para os serviços
+const gabaritouServices = {
   radar: {
-    nome: 'Radar Elite',
+    nome: 'Radar',
     descricao: 'Monitoramento inteligente de editais e tendências em tempo real.',
     preco: 3.00,
     checkout: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=52048695-45026c7b-d054-45ee-ba4a-448fb4865e13'
   },
   gps: {
-    nome: 'GPS de Aprovação',
+    nome: 'GPS',
     descricao: 'Auditoria completa do seu edital com foco no que realmente cai.',
     preco: 2.00,
     checkout: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=52048695-a869ac0e-f7f6-49b2-a493-58fd4437cb6e'
   },
   mapa: {
-    nome: 'Mapa Mental IA',
+    nome: 'Mapa Mental',
     descricao: 'Mapas mentais gerados por IA para memorização acelerada.',
     preco: 2.00,
     checkout: 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=52048695-411a87f1-b951-4e86-a394-2fbc56f13167'
@@ -30,19 +30,19 @@ const eliteServices = {
 };
 
 /**
- * GET /api/elite/services
- * Lista todos os serviços elite e seus links de checkout.
+ * GET /api/servicos/info
+ * Lista todos os serviços e seus links de checkout.
  */
-router.get('/services', (req, res) => {
+router.get('/info', (req, res) => {
   res.json({
     sucesso: true,
-    dados: eliteServices
+    dados: gabaritouServices
   });
 });
 
 /**
- * GET /api/elite/radar/:userId
- * Status do Radar Elite do usuário.
+ * GET /api/servicos/radar/:userId
+ * Status do Radar do usuário.
  */
 router.get('/radar/:userId', (req, res) => {
   const { userId } = req.params;
@@ -64,7 +64,7 @@ router.get('/radar/:userId', (req, res) => {
 });
 
 /**
- * GET /api/elite/gps/:userId
+ * GET /api/servicos/gps/:userId
  * Lista auditorias GPS geradas pelo usuário.
  */
 router.get('/gps/:userId', (req, res) => {
@@ -82,7 +82,7 @@ router.get('/gps/:userId', (req, res) => {
 });
 
 /**
- * GET /api/elite/mapa/:userId
+ * GET /api/servicos/mapa/:userId
  * Lista mapas mentais gerados pelo usuário.
  */
 router.get('/mapa/:userId', (req, res) => {

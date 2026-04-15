@@ -1,18 +1,18 @@
 import React from 'react'
 
-export default function GPSAprovacao({ onMenuClick }) {
+export default function GPS({ onMenuClick }) {
   return (
     <div className="page">
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 32 }}>
         <button className="btn btn-icon btn-outline" onClick={onMenuClick} style={{ marginRight: 12 }}>☰</button>
-        <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>🛰️ GPS de Aprovação</h1>
+        <h1 style={{ fontSize: '1.75rem', fontWeight: 900 }}>🛰️ GPS</h1>
       </div>
 
       <div className="card card-glow" style={{ marginBottom: 24, borderLeft: '4px solid var(--violet)' }}>
         <div style={{ padding: '8px 0' }}>
           <h3 style={{ color: 'var(--violet)', marginBottom: 8 }}>Auditoria de Edital com IA</h3>
           <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
-            O GPS de Aprovação analisa o edital e cruza com a tendência histórica da banca.
+            O GPS analisa o edital e cruza com a tendência histórica da banca.
             O resultado é um plano cirúrgico: o que você deve focar e o que pode ignorar.
           </p>
         </div>

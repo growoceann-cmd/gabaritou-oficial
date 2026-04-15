@@ -18,7 +18,7 @@ import aiTutorRoutes from './api/routes/ai-tutor.js';
 import dataLicensingRoutes from './api/routes/data-licensing.js';
 import realtimeRoutes from './api/routes/realtime.js';
 import concursosRoutes from './api/routes/concursos.js';
-import eliteRoutes from './api/routes/elite.js';
+import eliteRoutes from './api/routes/servicos.js';
 
 // ─── Middleware ────────────────────────────────────────────────────────
 import { rateLimit } from './middleware/auth.js';
@@ -72,7 +72,7 @@ const apiRoutes = [
   { path: '/data-licensing', handler: dataLicensingRoutes, descricao: 'Licenciamento de Dados' },
   { path: '/realtime', handler: realtimeRoutes, descricao: 'Prova Day em Tempo Real' },
   { path: '/concursos', handler: concursosRoutes, descricao: 'Concursos por Estado' },
-  { path: '/elite', handler: eliteRoutes, descricao: 'Serviços Elite (Radar, GPS, Mapas)' },
+  { path: '/servicos', handler: eliteRoutes, descricao: 'Serviços (Radar, GPS, Mapas)' },
 ];
 
 for (const route of apiRoutes) {
@@ -188,7 +188,7 @@ setupBot();
 const server = app.listen(PORT, () => {
   console.log('');
   console.log('╔══════════════════════════════════════════════════════════╗');
-  console.log('║          🎯 GABARITOU v3.1 - BACKEND                 ║');
+  console.log('║          🎯 GABARITOU v3.1                      ║');
   console.log('║            API + Telegram Bot                          ║');
   console.log('╠══════════════════════════════════════════════════════════╣');
   console.log(`║  Ambiente: ${NODE_ENV.padEnd(45)}║`);
