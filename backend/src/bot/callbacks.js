@@ -200,6 +200,37 @@ export async function handleCallbackQuery(ctx) {
 async function handlePredicaoBanca(ctx, banca) {
   await ctx.answerCbQuery(`Banca: ${banca}`);
 
+  if (banca === 'OUTRA') {
+    const { getOrCreateUser, activeSessions } = await import('./interceptor.js');
+    const user = await getOrCreateUser(ctx.from.id, ctx.from.first_name, ctx.from.username);
+    
+    if (user.plan === 'free' || user.plan === 'trial_expired') {
+      return ctx.reply(
+        `🔒 *Análise de Banca Externa — Premium*\n\n` +
+        `O mapeamento de bancas sob demanda está disponível apenas para membros do plano *Premium*.\n\n` +
+        `Com o GABARITOU Premium, você tem acesso à teia universal de todas as bancas do Brasil.`,
+        {
+          parse_mode: 'Markdown',
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: '🆓 Ativar 3 dias Grátis', callback_data: 'trial_start' }],
+              [{ text: '⭐ Ver Planos Premium', callback_data: 'cmd_premium' }],
+            ],
+          },
+        }
+      );
+    }
+
+    activeSessions.set(ctx.from.id, { type: 'waiting_for_banca', status: 'active' });
+    
+    return ctx.reply(
+      `🕸️ *Conexão Universal — GABARITOU*\n\n` +
+      `Digite o nome da banca que você deseja que a teia analise agora.\n\n` +
+      `Exemplos: *IDECAN, CONSULPLAN, CETREDE, FUNDATEC, IBFC...*`,
+      { parse_mode: 'Markdown' }
+    );
+  }
+
   if (banca === 'TODAS') {
     ctx.reply(
       `🔒 *Todas as bancas — Premium*\n\n` +

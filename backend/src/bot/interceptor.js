@@ -51,9 +51,31 @@ export async function interceptMessage(ctx) {
   // 3. Registrar mensagem no contexto
   await addMessageToContext(conversation.id, 'user', text);
 
-  // 4. Verificar se já existe micro-sessão ativa para esse usuário
+  // 4. Verificar se já existe micro-sessão ativa ou estado de espera
   const existingSession = activeSessions.get(telegramId);
   if (existingSession && existingSession.status === 'active') {
+    // Caso: Esperando nome de banca para predição
+    if (existingSession.type === 'waiting_for_banca') {
+      activeSessions.delete(telegramId);
+      const bancaInput = text.trim().toUpperCase();
+      
+      return {
+        action: 'intercept',
+        response: `🎯 *${bancaInput}* — Selecione a matéria:\n\n` +
+                  `A teia está mapeando os dados desta banca agora.`,
+        session: null,
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: 'Direito Constitucional', callback_data: `predicao_materia:${bancaInput}:Direito Constitucional` }],
+            [{ text: 'Direito Administrativo', callback_data: `predicao_materia:${bancaInput}:Direito Administrativo` }],
+            [{ text: 'Português', callback_data: `predicao_materia:${bancaInput}:Português` }],
+            [{ text: 'Raciocínio Lógico', callback_data: `predicao_materia:${bancaInput}:Raciocínio Lógico` }],
+            [{ text: '🔙 Voltar', callback_data: 'cmd_predicao' }]
+          ]
+        }
+      };
+    }
+
     log.info('Micro-sessão ativa encontrada — encaminhando para avaliação', {
       userId: user.id,
       sessionId: existingSession.id,

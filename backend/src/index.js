@@ -152,7 +152,10 @@ function setupBot() {
       try {
         const interception = await interceptMessage(ctx);
         if (interception.action === 'intercept' && interception.response) {
-          return ctx.reply(interception.response, { parse_mode: 'Markdown' });
+          return ctx.reply(interception.response, { 
+            parse_mode: 'Markdown',
+            ...(interception.reply_markup ? { reply_markup: interception.reply_markup } : {})
+          });
         }
         showMenu(ctx);
       } catch (err) {

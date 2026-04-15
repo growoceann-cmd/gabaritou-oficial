@@ -76,6 +76,9 @@ export function handlePredicao(ctx) {
           { text: 'VUNESP', callback_data: 'predicao_banca:VUNESP' },
         ],
         [
+          { text: '🔍 Outra Banca (Premium)', callback_data: 'predicao_banca:OUTRA' },
+        ],
+        [
           { text: '📊 Todas (Premium)', callback_data: 'predicao_banca:TODAS' },
         ],
         [

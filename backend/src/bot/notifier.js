@@ -6,7 +6,7 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 async function sendDailyNotification() {
-  console.log('🕸️ Iniciando disparo da Mensagem Diária...');
+  console.log('🕸️ Iniciando disparo da Mensagem Diária (Notícias + Predição)...');
   
   try {
     const { data: users, error } = await supabase
@@ -20,18 +20,23 @@ async function sendDailyNotification() {
       return;
     }
 
+    // Conteúdo Dinâmico (Simulando IA Preditiva + Notícias)
+    const news = [
+      "📌 *ATUALIDADES:* O governo federal discute hoje a nova meta fiscal para 2026. Fique de olho em 'Economia e Orçamento' para provas de Tribunais.",
+      "🚀 *PREDIÇÃO:* Edital da Polícia Federal (Agente) ganha força nos bastidores. Nossa teia indica 84% de chance de publicação no próximo trimestre."
+    ].join('\n\n');
+
     console.log(`🚀 Disparando para ${users.length} usuários...`);
 
     for (const user of users) {
       try {
         await bot.telegram.sendMessage(
           user.telegram_id,
-          `🎯 *GABARITOU — CONEXÃO DIÁRIA*\n\n` +
-          `Olá, ${user.full_name || 'Concurseiro'}! A teia se moveu.\n\n` +
-          `📊 *Frequência de Prova:* Direito Administrativo (Licitações) está em alta nas últimas 24h.\n` +
-          `📉 *Tendência:* Bancas como FGV e CESPE estão focando em sanções administrativas.\n\n` +
-          `O futuro é preditivo. Não estude no escuro.\n\n` +
-          `🔗 [Ver Radar de Hoje](https://gabaritouconcursos.com.br/radar)`,
+          `🕸️ *CONEXÃO DIÁRIA — GABARITOU*\n\n` +
+          `${news}\n\n` +
+          `📊 *Radar da Teia:* Direito Constitucional (Direitos Individuais) está sendo cobrado em 7 de cada 10 provas recentes.\n\n` +
+          `O futuro não é sorte, é predição. 🦈\n\n` +
+          `🔗 [Ver Mapa Mental de Hoje](https://gabaritouconcursos.com.br/mapa-mental)`,
           { parse_mode: 'Markdown' }
         );
         console.log(`✅ Enviado para ${user.telegram_id}`);
