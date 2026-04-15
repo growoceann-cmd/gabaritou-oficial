@@ -14,6 +14,9 @@ import ProvaDay from './pages/ProvaDay'
 import Premium from './pages/Premium'
 import Admin from './pages/Admin'
 import Simulado from './pages/Simulado'
+import RadarElite from './pages/RadarElite'
+import GPSAprovacao from './pages/GPSAprovacao'
+import MapaMentalIA from './pages/MapaMentalIA'
 import Settings from './pages/Settings'
 import Privacy from './pages/Privacy'
 
@@ -41,6 +44,9 @@ export default function App() {
           <Route path="/premium" element={<Premium onMenuClick={toggleSidebar} />} />
           <Route path="/admin" element={<Admin onMenuClick={toggleSidebar} />} />
           <Route path="/simulado" element={<Simulado onMenuClick={toggleSidebar} />} />
+          <Route path="/radar" element={<RadarElite onMenuClick={toggleSidebar} />} />
+          <Route path="/gps" element={<GPSAprovacao onMenuClick={toggleSidebar} />} />
+          <Route path="/mapa-mental" element={<MapaMentalIA onMenuClick={toggleSidebar} />} />
           <Route path="/configuracoes" element={<Settings onMenuClick={toggleSidebar} />} />
           <Route path="/privacidade" element={<Privacy onMenuClick={toggleSidebar} />} />
         </Routes>
