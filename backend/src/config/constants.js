@@ -49,8 +49,8 @@ export const PRICING = {
   currency: 'BRL',
 };
 
-export const BETA_ACCESS_CODE = 'GABARITOU2026';
-export const MAX_BETA_USERS = 50;
+export const BETA_ACCESS_CODE = 'GABARITOU1688';
+export const MAX_BETA_USERS = 100;
 export const REFERRAL_DISCOUNT_PER_USER = 1.00;
 export const MIN_REVENUE_PER_USER = 2.00;
 

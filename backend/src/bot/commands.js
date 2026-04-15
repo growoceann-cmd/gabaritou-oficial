@@ -20,7 +20,7 @@ export async function handleStart(ctx) {
     if (!existingUser) {
       return ctx.reply(
         `🔒 *ACESSO RESTRITO — GABARITOU*\n\n` +
-        `Estamos em fase de validação fechada para apenas 50 usuários de elite.\n\n` +
+        `Estamos em fase de validação fechada para apenas 100 usuários de elite.\n\n` +
         `Para entrar, utilize o link de convite oficial ou digite o código de acesso.\n\n` +
         `🔑 *Acesso negado.*`,
         { parse_mode: 'Markdown' }
@@ -33,9 +33,9 @@ export async function handleStart(ctx) {
     const user = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
     if (!user) {
       await query(
-        `INSERT INTO users (telegram_id, username, full_name, plan, is_premium, created_at) 
-         VALUES ($1, $2, $3, $4, $5, NOW())`,
-        [telegram_id, username, full_name, 'trial', false]
+        `INSERT INTO users (telegram_id, username, full_name, plan, is_premium, premium_until, created_at) 
+         VALUES ($1, $2, $3, $4, $5, NOW() + INTERVAL '7 days', NOW())`,
+        [telegram_id, username, full_name, 'trial', true]
       );
       console.log(`✅ Novo usuário registrado: ${full_name} (${telegram_id})`);
     }

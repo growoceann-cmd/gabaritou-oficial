@@ -249,12 +249,18 @@ export async function getOrCreateUser(telegramId, name, username) {
 
   if (!user) {
     const result = await query(
-      `INSERT INTO users (telegram_id, full_name, username, referral_code, plan, is_premium)
-       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-      [telegramId, name, username || null, `GAB-${Date.now().toString(36).toUpperCase()}`, 'trial', false]
+      `INSERT INTO users (telegram_id, full_name, username, referral_code, plan, is_premium, premium_until)
+       VALUES ($1, $2, $3, $4, $5, $6, NOW() + INTERVAL '7 days') RETURNING *`,
+      [telegramId, name, username || null, `GAB-${Date.now().toString(36).toUpperCase()}`, 'trial', true]
     );
     user = result[0];
     log.info('Novo usuário criado', { telegramId, name });
+  } else if (user.is_premium && user.premium_until && new Date(user.premium_until) < new Date()) {
+    // Se o prêmio expirou, atualizar no banco e no objeto local
+    await query('UPDATE users SET is_premium = false, plan = $1 WHERE id = $2', ['expired', user.id]);
+    user.is_premium = false;
+    user.plan = 'expired';
+    log.info('Premium expirado para usuário', { telegramId: user.telegram_id });
   }
 
   return user;
