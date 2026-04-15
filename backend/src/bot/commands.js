@@ -301,7 +301,7 @@ export function handleMapa(ctx) {
     `Transforme conteúdos complexos em mapas visuais fáceis de memorizar.\n\n` +
     `🎯 *O que você recebe:* \n` +
     `1. Fluxograma lógico do tema solicitado.\n` +
-    `2. Conexões entre conceitos chave.\n" +
+    `2. Conexões entre conceitos chave.\n` +
     `3. PDF pronto para imprimir ou salvar.\n\n` +
     `💰 *Valor:* Apenas *R$ 2,00* por mapa gerado.`,
     {
