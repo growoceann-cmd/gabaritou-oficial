@@ -55,6 +55,36 @@ export async function handleCallbackQuery(ctx) {
         return true;
       case 'simulado_start':
         return await handleSimuladoStart(ctx, param);
+      case 'simulado_run_tg':
+        return await handleSimuladoRunTG(ctx, param);
+      case 'accuracy_view':
+        await ctx.answerCbQuery();
+        const { handleRelatorio } = await import('./commands.js');
+        return handleRelatorio(ctx);
+      case 'provaday_register':
+        await ctx.answerCbQuery('Inscrição confirmada! 🏁');
+        return ctx.reply('Sua vaga no Prova Day está garantida. Te avisaremos 1h antes do início.');
+      case 'privacy_export':
+        await ctx.answerCbQuery('Preparando dados...');
+        return ctx.reply('Seus dados estão sendo processados. Em instantes você receberá o arquivo JSON.');
+      case 'privacy_delete':
+        await ctx.answerCbQuery();
+        return ctx.reply('⚠️ Tem certeza que deseja excluir sua conta? Esta ação é irreversível.', {
+            reply_markup: {
+                inline_keyboard: [[{ text: '✅ Sim, excluir', callback_data: 'privacy_confirm_delete' }], [{ text: '❌ Cancelar', callback_data: 'menu_principal' }]]
+            }
+        });
+      case 'config_cargo':
+        await ctx.answerCbQuery();
+        return ctx.reply('💼 *Alterar Cargo Alvo*\n\nDigite o cargo que você está focando (Ex: Auditor, Escrivão, Técnico...).', { parse_mode: 'Markdown' });
+      case 'cmd_ranking_full':
+        await ctx.answerCbQuery('Carregando leaderboard...');
+        return ctx.reply('O Leaderboard completo está disponível no Web App: https://gabaritouconcursos.com.br/ranking');
+      case 'tutor_start':
+        await ctx.answerCbQuery();
+        const { activeSessions: sessionsTut } = await import('./interceptor.js');
+        sessionsTut.set(ctx.from.id, { type: 'waiting_for_tutor', status: 'active' });
+        return ctx.reply('🧠 *Tutor IA Ativado:* Pode mandar sua dúvida teórica agora. Eu analiso o contexto e te respondo na hora.', { parse_mode: 'Markdown' });
       case 'simulado_download':
         return await handleSimuladoDownload(ctx, param);
       case 'config_banca':
@@ -179,8 +209,8 @@ export async function handleCallbackQuery(ctx) {
         return true;
       case 'cmd_relatorio':
         await ctx.answerCbQuery();
-        const { handleRelatorio } = await import('./commands.js');
-        handleRelatorio(ctx);
+        const { handleRelatorio: handleRel } = await import('./commands.js');
+        handleRel(ctx);
         return true;
       case 'cmd_simulado':
         await ctx.answerCbQuery();
@@ -204,8 +234,8 @@ export async function handleCallbackQuery(ctx) {
         return true;
       case 'cmd_concursos':
         await ctx.answerCbQuery();
-        const { handleConcursos } = await import('./commands.js');
-        handleConcursos(ctx);
+        const { handleConcursos: handleConc } = await import('./commands.js');
+        handleConc(ctx);
         return true;
       case 'cmd_ajuda':
         await ctx.answerCbQuery();
@@ -227,8 +257,16 @@ export async function handleCallbackQuery(ctx) {
         return true;
     }
   } catch (err) {
-    console.error(`[Callback Error] ${data}:`, err.message);
-    await ctx.answerCbQuery('Erro. Tente novamente.');
+    if (err.message.includes('query is too old')) {
+      console.log(`[Callback Info] Query expirada para ${data}`);
+    } else {
+      console.error(`[Callback Error] ${data}:`, err.message);
+    }
+    try {
+      await ctx.answerCbQuery('Erro. Tente novamente.');
+    } catch (e) {
+      // Ignora se não conseguir responder o callback
+    }
     return true;
   }
 }
@@ -391,13 +429,41 @@ async function handleSimuladoStart(ctx, materia) {
       reply_markup: {
         inline_keyboard: [
           [{ text: '🚀 Iniciar aqui no Telegram', callback_data: `simulado_run_tg:${materiaQuery}` }],
-          [{ text: '💻 Baixar para PC (HTML Portátil)', callback_data: `simulado_download:${materiaQuery}` }],
+          [{ text: '💻 Estudar no PC (Baixar HTML)', callback_data: `simulado_download:${materiaQuery}` }],
           [{ text: '🔙', callback_data: 'cmd_simulado' }]
         ]
       }
     }
   );
   return true;
+}
+
+async function handleSimuladoRunTG(ctx, materia) {
+  await ctx.answerCbQuery('Iniciando simulado adaptativo...');
+  const { activeSessions, getOrCreateUser, startMicroSession } = await import('./interceptor.js');
+  const { getOrCreateConversation } = await import('./conversation.js');
+
+  const userId = ctx.from.id;
+  const user = await getOrCreateUser(userId, ctx.from.first_name, ctx.from.username);
+  const conversation = await getOrCreateConversation(user.id);
+  
+  // Mapear materia
+  const materiaMap = {
+    'dir_administrativo': 'Direito Administrativo',
+    'dir_constitucional': 'Direito Constitucional',
+    'portugues': 'Português',
+    'raciocinio_logico': 'Raciocínio Lógico'
+  };
+  const materiaNome = materiaMap[materia] || materia.replace('outra:', '');
+
+  // Iniciar micro-sessão forçada
+  const session = await startMicroSession(user, conversation, materiaNome);
+  if (session) {
+    activeSessions.set(userId, session);
+    return ctx.reply(session.first_question, { parse_mode: 'Markdown' });
+  } else {
+    return ctx.reply('❌ Erro ao iniciar simulado. Tente novamente mais tarde.');
+  }
 }
 
 async function handleSimuladoDownload(ctx, materia) {

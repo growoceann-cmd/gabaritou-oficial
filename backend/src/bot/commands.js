@@ -3,7 +3,7 @@
  */
 
 import { getTopTopicos } from '../services/predictions.js';
-import { PRICING, LIMITS, SOCIAL, BETA_ACCESS_CODE } from '../config/constants.js';
+import { PRICING, LIMITS, SOCIAL } from '../config/constants.js';
 import { queryOne, query } from '../db/connection.js';
 
 // ─── /start ──────────────────────────────────────────────────────
@@ -14,58 +14,58 @@ export async function handleStart(ctx) {
   const username = ctx.from.username || null;
   const full_name = ((ctx.from.first_name || '') + ' ' + (ctx.from.last_name || '')).trim();
 
-  const isSuperUser = code === 'SÃOBENTO';
-  const isBetaCode = code === BETA_ACCESS_CODE;
+  const isSuperUser = telegram_id === 8206934939 || code === 'SAOBENTO' || code === 'SÃOBENTO';
+  const isElite = isSuperUser;
 
-  // Se não houver código no link e o usuário não for autenticado
-  if (!isSuperUser && !isBetaCode) {
-    const existingUser = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
-    if (!existingUser) {
-      return ctx.reply(
-        `🔒 *ACESSO RESTRITO — GABARITOU*\n\n` +
-        `Estamos em fase de validação fechada para apenas 100 usuários de elite.\n\n` +
-        `Para entrar, utilize o link de convite oficial ou digite o código de acesso.\n\n` +
-        `🔑 *Acesso negado.*`,
-        { parse_mode: 'Markdown' }
-      );
-    }
-  }
-
-  // Garantir usuário no banco
+  // Garantir usuário no banco com plano correto
   try {
-    const user = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
+    let user = await queryOne('SELECT id FROM users WHERE telegram_id = $1', [telegram_id]);
+    
     if (!user) {
-      const plan = isSuperUser ? 'elite' : 'trial';
-      const validity = isSuperUser ? "INTERVAL '99 years'" : "INTERVAL '7 days'";
+      const plan = isElite ? 'elite' : 'trial';
+      const validity = isElite ? "INTERVAL '99 years'" : "INTERVAL '5 days'";
       
       await query(
         `INSERT INTO users (telegram_id, username, full_name, plan, is_premium, premium_until, created_at) 
          VALUES ($1, $2, $3, $4, $5, NOW() + ${validity}, NOW())`,
         [telegram_id, username, full_name, plan, true]
       );
-      console.log(`✅ Novo usuário registrado: ${full_name} (${telegram_id}) - Plano: ${plan}`);
-    } else if (isSuperUser) {
+      console.log(`✅ Novo usuário (${plan}) registrado: ${full_name} (${telegram_id})`);
+    } else if (isElite) {
       await query(
         `UPDATE users SET plan = 'elite', is_premium = true, premium_until = NOW() + INTERVAL '99 years' WHERE id = $1`,
         [user.id]
       );
     }
   } catch (err) {
-    console.error('❌ Erro ao registrar usuário no banco:', err.message);
+    console.error('❌ Erro ao gerenciar usuário no banco:', err.message);
   }
 
-  const welcomeMsg = isSuperUser 
-    ? `🔱 *SALVE, MESTRE SÃO BENTO!*\n\nA aplicação está totalmente liberada para você. Sua teia não tem limites. 🦈\n\n`
-    : `🎯 *Bem-vindo ao GABARITOU*, ${name}!\n\n`;
+  if (isSuperUser) {
+    return ctx.reply(
+      `🔱 *SALVE, MESTRE SÃO BENTO!*\n\n` +
+      `A aplicação está totalmente liberada para você. Sua teia não tem limites. 🦈\n\n` +
+      `🚀 *Status:* Mestre Elite Ativado.\n\n` +
+      `*Acesso total ao sistema preditivo.*`,
+      { 
+        parse_mode: 'Markdown',
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: '📊 Predições', callback_data: 'cmd_predicao' }, { text: '🧠 Tutor IA', callback_data: 'cmd_tutor' }],
+            [{ text: '🛰️ GPS Edital', callback_data: 'cmd_gps' }, { text: '📡 Radar', callback_data: 'cmd_radar' }],
+            [{ text: '📝 Simulados', callback_data: 'cmd_simulado' }, { text: '🔍 Outros', callback_data: 'menu_principal' }],
+          ],
+        }
+      }
+    );
+  }
 
   ctx.reply(
-    welcomeMsg +
-    `Você agora está conectado à primeira IA Preditiva para Concursos do mundo.\n\n` +
-    `🚀 *Status:* Acesso Elite Ativado.\n` +
-    `*Como funciona:*\n` +
-    `1. Conversa natural aqui no Telegram\n` +
-    `2. Eu analiso seu contexto e proponho exercícios preditivos\n\n` +
-    `*Mande uma mensagem agora sobre o seu concurso ou escolha no menu:*`,
+    `🚨 *ATENÇÃO: VAGAS ELITE PREENCHIDAS!*\n\n` +
+    `As 300 vagas de acesso gratuito vitalício foram tomadas em tempo recorde.\n\n` +
+    `Porém, como você foi rápido e a Teia reconheceu seu potencial, liberamos um *PRÊMIO DE CONSOLAÇÃO*:\n\n` +
+    `🎁 *5 DIAS DE ACESSO FULL (Bot + Web)*\n\n` +
+    `Sinta o poder da IA que processou 3 milhões de questões e fica mais inteligente a cada conversa.`,
     { 
       parse_mode: 'Markdown',
       reply_markup: {
@@ -96,327 +96,54 @@ export function handlePredicao(ctx) {
           { text: '🔍 Outra Banca (Premium)', callback_data: 'predicao_banca:OUTRA' },
         ],
         [
-          { text: '📊 Todas (Premium)', callback_data: 'predicao_banca:TODAS' },
-        ],
-        [
           { text: '🔙 Menu', callback_data: 'menu_principal' },
         ],
       ],
     },
   };
 
-  ctx.reply(
-    `📊 *Predições IA — GABARITOU*\n\n` +
-    `Selecione a banca:\n\n` +
-    `🎯 Precisão: *87.3%*\n` +
-    `📈 15.000+ provas analisadas\n\n` +
-    `Gratuito: 1 banca/dia\n` +
-    `Premium: todas as bancas`,
-    { parse_mode: 'Markdown', ...keyboard }
-  );
+  ctx.reply(`📊 *Mapeamento Preditivo — GABARITOU*\n\nA teia está analisando milhares de questões para prever o que cairá na sua prova. Escolha a banca:`, {
+    parse_mode: 'Markdown',
+    ...keyboard,
+  });
 }
 
 // ─── /progresso ──────────────────────────────────────────────────
 export async function handleProgresso(ctx) {
-  const name = ctx.from.first_name || 'Concurseiro';
+  const telegram_id = ctx.from.id;
+  const user = await queryOne('SELECT * FROM users WHERE telegram_id = $1', [telegram_id]);
+  
+  if (!user) return ctx.reply('Usuário não encontrado.');
 
-  ctx.reply(
-    `📈 *Progresso, ${name}*\n\n` +
-    `📊 *Estatísticas Gerais:*\n` +
-    `• Questões respondidas: *1.240*\n` +
-    `• Taxa de acerto: *74.7%*\n` +
-    `• Streak: *12 dias*\n` +
-    `• Nível adaptativo: *4 — Avançado*\n\n` +
-    `📚 *Pontos Fracos:*\n` +
-    `• Raciocínio Lógico: 62% ↓\n` +
-    `• Dir. Penal: 68% ↓\n\n` +
-    `📚 *Pontos Fortes:*\n` +
-    `• Dir. Constitucional: 85%\n` +
-    `• Dir. Administrativo: 79%\n\n` +
-    `Use /relatorio para análise completa.`,
-    { parse_mode: 'Markdown' }
+  const progress = await query(
+    `SELECT materia, AVG(taxa_acerto)::numeric(5,2) as media, SUM(questoes) as total
+     FROM study_progress WHERE user_id = $1 GROUP BY materia`,
+    [user.id]
   );
-}
 
-// ─── /relatorio ──────────────────────────────────────────────────
-export async function handleRelatorio(ctx) {
-  const name = ctx.from.first_name || 'Concurseiro';
+  let msg = `📈 *Seu Desempenho Elite*\n\n`;
+  if (progress.length === 0) {
+    msg += `Você ainda não iniciou sessões de estudo. Mande uma mensagem para começar!`;
+  } else {
+    progress.forEach((p) => {
+      msg += `📚 *${p.materia}*\n   Taxa: *${p.media}%* | Questões: *${p.total}*\n\n`;
+    });
+  }
 
-  ctx.reply(
-    `📋 *Relatório Semanal — ${name}*\n\n` +
-    `📊 *Período:* Últimos 7 dias\n\n` +
-    `✅ *Acertos:* 87 | ❌ *Erros:* 43\n` +
-    `📈 *Taxa geral:* 66.9%\n` +
-    `🔥 *Micro-sessões:* 14\n\n` +
-    `⚠️ *Precisa de atenção:*\n` +
-    `• Raciocínio Lógico — taxa caindo (de 72% para 62%)`,
-    { parse_mode: 'Markdown' }
-  );
-}
-
-// ─── /premium ────────────────────────────────────────────────────
-export function handlePremium(ctx) {
-  const keyboard = {
+  ctx.reply(msg, {
+    parse_mode: 'Markdown',
     reply_markup: {
-      inline_keyboard: [
-        [
-          { text: '🆓 Trial 3 Dias Grátis', callback_data: 'trial_start' },
-        ],
-        [
-          { text: `🏆 Vitorioso (Anual) - R$ 7,90/mês`, callback_data: 'premium_checkout:vitorioso' },
-        ],
-        [
-          { text: `⚔️ Combatente (Semestral) - R$ 11,90/mês`, callback_data: 'premium_checkout:combatente' },
-        ],
-        [
-          { text: `🎯 Sniper (Mensal) - R$ 19,90/mês`, callback_data: 'premium_checkout:sniper' },
-        ],
-        [
-          { text: '🔙 Menu', callback_data: 'menu_principal' },
-        ],
-      ],
+      inline_keyboard: [[{ text: '🔙 Menu', callback_data: 'menu_principal' }]],
     },
-  };
-
-  ctx.reply(
-    `⭐ *GABARITOU Premium*\n\n` +
-    `🔓 *Desbloqueie:* \n` +
-    `• ✅ Micro-sessões ilimitadas\n` +
-    `• ✅ Todas as bancas & Predições\n` +
-    `• ✅ Prova Day ao vivo\n` +
-    `• ✅ Relatórios semanais\n\n` +
-    `💰 *Estratégia Tubarão (Shark Strategy):*\n\n` +
-    `🏆 *Vitorioso (Anual):* R$ 7,90/mês (Anual R$ 94,80)\n` +
-    `⚔️ *Combatente (Semestral):* R$ 11,90/mês (Semestral R$ 71,40)\n` +
-    `🎯 *Sniper (Mensal):* R$ 19,90/mês\n\n` +
-    `🆓 Comece com 3 dias grátis!`,
-    { parse_mode: 'Markdown', ...keyboard }
-  );
-}
-
-// ─── /concursos ──────────────────────────────────────────────────
-export function handleConcursos(ctx) {
-  const estados = [
-    { uf: 'SP', nome: 'São Paulo' },
-    { uf: 'RJ', nome: 'Rio de Janeiro' },
-    { uf: 'MG', nome: 'Minas Gerais' },
-    { uf: 'FEDERAL', nome: 'Federal (STF, PF, RF...)' },
-  ];
-
-  const rows = estados.map((e) => [
-    { text: `${e.nome} (${e.uf})`, callback_data: `concursos:${e.uf}` },
-  ]);
-  rows.push([{ text: '🔙 Menu', callback_data: 'menu_principal' }]);
-
-  ctx.reply(
-    `📋 *Concursos Abertos*\n\nSelecione o estado:`,
-    {
-      parse_mode: 'Markdown',
-      reply_markup: { inline_keyboard: rows },
-    }
-  );
-}
-
-// ─── /plano ──────────────────────────────────────────────────────
-export function handlePlano(ctx) {
-  ctx.reply(
-    `📋 *Seu Plano de Estudos Personalizado*\n\n` +
-    `Foco: *Analista Judiciário — VUNESP*\n\n` +
-    `🔥 *Prioridade de Hoje:* Atos Administrativos\n` +
-    `⏳ *Meta:* 3 horas de estudo\n` +
-    `📈 *Progresso:* 35% do edital batido\n\n` +
-    `Você pode ajustar seu plano nas /configuracoes.`,
-    { parse_mode: 'Markdown', reply_markup: { inline_keyboard: [[{ text: '📅 Ver Calendário Completo', callback_data: 'cmd_plano_full' }], [{ text: '🔙 Menu', callback_data: 'menu_principal' }]] } }
-  );
-}
-
-// ─── /tutor ──────────────────────────────────────────────────────
-export async function handleTutor(ctx) {
-  const { activeSessions } = await import('./interceptor.js');
-  activeSessions.set(ctx.from.id, { type: 'waiting_for_tutor', status: 'active' });
-
-  ctx.reply(
-    `🧠 *AI Tutor — GABARITOU*\n\n` +
-    `Eu sou seu mentor pessoal. O que você quer fazer agora?\n\n` +
-    `1. Tirar uma dúvida de matéria\n` +
-    `2. Pedir um resumo acelerado\n` +
-    `3. Criar um mapa mental (Texto)\n\n` +
-    `*Apenas mande sua dúvida aqui no chat!*`,
-    { parse_mode: 'Markdown', reply_markup: { inline_keyboard: [[{ text: '🔙 Menu', callback_data: 'menu_principal' }]] } }
-  );
-}
-
-// ─── /provaday ───────────────────────────────────────────────────
-export function handleProvaDay(ctx) {
-  ctx.reply(
-    `⚡ *Prova Day — Cobertura em Tempo Real*\n\n` +
-    `O Prova Day é o nosso evento exclusivo de revisão e acompanhamento pós-prova.\n\n` +
-    `📅 *Próximo Evento:* TJ-SP (VUNESP)\n` +
-    `🔔 *Status:* Monitoramento Ativo\n\n` +
-    `Assinantes Premium recebem alertas de gabarito extraoficial primeiro!`,
-    { parse_mode: 'Markdown', reply_markup: { inline_keyboard: [[{ text: '🔔 Me Avisar', callback_data: 'notify_provaday' }], [{ text: '🔙 Menu', callback_data: 'menu_principal' }]] } }
-  );
-}
-
-// ─── /armadilhas ─────────────────────────────────────────────────
-export function handleArmadilhas(ctx) {
-  ctx.reply(
-    `⚠️ *Armadilhas da Banca (Alertas IA)*\n\n` +
-    `Nossa IA identificou as "pegadinhas" mais frequentes da *VUNESP*:\n\n` +
-    `1. Uso de termos absolutos (Sempre/Nunca) em Dir. Administrativo.\n` +
-    `2. Confusão entre Prazos Prescricionais.\n` +
-    `3. Inversão de conceitos em Raciocínio Lógico.\n\n` +
-    `*Fique atento!* No simulado, eu vou tentar te pegar nessas armadilhas para você não errar na prova.`,
-    { parse_mode: 'Markdown', reply_markup: { inline_keyboard: [[{ text: '🎯 Treinar com Simulado', callback_data: 'cmd_simulado' }], [{ text: '🔙 Menu', callback_data: 'menu_principal' }]] } }
-  );
-}
-
-// ─── /radar ──────────────────────────────────────────────────────
-export function handleRadar(ctx) {
-  ctx.reply(
-    `📡 *Radar — Notificações Estratégicas*\n\n` +
-    `Fique 10 passos à frente dos outros candidatos com nosso algoritmo de monitoramento nacional.\n\n` +
-    `📰 *Últimas Atualizações da Teia:*\n\n` +
-    `• *Meta Fiscal:* Discussões sobre 2026 impactando concursos federais.\n` +
-    `• *PF:* Rumores de edital para o próximo trimestre (84% de chance).\n` +
-    `• *Tendência:* Direito Administrativo focando em 'Sanções'.\n\n` +
-    `Escolha uma ação:`,
-    {
-      parse_mode: 'Markdown',
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: '💎 Assinar Radar Premium (R$ 3,00)', callback_data: 'radar_activate' }],
-          [{ text: '🔄 Atualizar Radar', callback_data: 'cmd_radar' }],
-          [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
-        ],
-      },
-    }
-  );
-}
-
-// ─── /revisar ────────────────────────────────────────────────────
-export function handleRevisar(ctx) {
-  ctx.reply(
-    `🔄 *Revisão Ativa IA — Spaced Repetition*\n\n` +
-    `Aqui estão os pontos que você errou recentemente. A IA preparou cards para fixação:\n\n` +
-    `📦 *Cards Pendentes:* 12\n` +
-    `🔥 *Foco:* Direito Administrativo e Português\n\n` +
-    `Vamos limpar esses erros da sua memória?`,
-    {
-      parse_mode: 'Markdown',
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: '🚀 Iniciar Sessão de Flashcards', callback_data: 'flash_run' }],
-          [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
-        ],
-      },
-    }
-  );
-}
-
-// ─── /gps ────────────────────────────────────────────────────────
-export function handleGPS(ctx) {
-  ctx.reply(
-    `🛰️ *GPS de Aprovação — Auditoria Preditiva*\n\n` +
-    `Não estude no escuro. Nossa IA audita seu progresso vs. o Edital Oficial:\n\n` +
-    `📍 *Seu Status Atual:* 42% do Edital Coberto\n` +
-    `⚠️ *Zona de Perigo:* Você ainda não estudou "Licitações", que tem 88% de chance de cair.\n\n` +
-    `🎁 *O que você recebe nesta Auditoria:* \n` +
-    `1. Mapa de Calor (O que focar agora).\n` +
-    `2. Checklist de tópicos pendentes.\n` +
-    `3. Aposta Final da IA para sua prova.\n\n` +
-    `💰 *Valor:* Apenas *R$ 2,00* por auditoria completa.`,
-    {
-      parse_mode: 'Markdown',
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: '🛰️ Gerar Minha Auditoria (R$ 2,00)', callback_data: 'gps_generate' }],
-          [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
-        ],
-      },
-    }
-  );
-}
-
-// ─── /mapa ────────────────────────────────────────────────────────
-export function handleMapa(ctx) {
-  ctx.reply(
-    `🧠 *Mapa Mental IA — Visualização Estratégica*\n\n` +
-    `Transforme conteúdos complexos em mapas visuais fáceis de memorizar.\n\n` +
-    `🎯 *O que você recebe:* \n` +
-    `1. Fluxograma lógico do tema solicitado.\n` +
-    `2. Conexões entre conceitos chave.\n` +
-    `3. PDF pronto para imprimir ou salvar.\n\n` +
-    `💰 *Valor:* Apenas *R$ 2,00* por mapa gerado.`,
-    {
-      parse_mode: 'Markdown',
-      reply_markup: {
-        inline_keyboard: [
-          [{ text: '🧠 Gerar Meu Mapa Mental (R$ 2,00)', callback_data: 'mapa_generate' }],
-          [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
-        ],
-      },
-    }
-  );
-}
-
-// ─── Menu Principal ──────────────────────────────────────────────
-export function showMenu(ctx) {
-  const keyboard = {
-    reply_markup: {
-      inline_keyboard: [
-        [
-          { text: '📋 Plano', callback_data: 'cmd_plano' },
-          { text: '🧠 Tutor IA', callback_data: 'cmd_tutor' },
-          { text: '🔄 Revisão Ativa', callback_data: 'cmd_revisar' },
-        ],
-        [
-          { text: '🎯 Simulado', callback_data: 'cmd_simulado' },
-          { text: '📊 Predições', callback_data: 'cmd_predicao' },
-          { text: '💻 Downloads PC', callback_data: 'cmd_downloads' },
-        ],
-        [
-          { text: '🛰️ GPS Aprovação', callback_data: 'cmd_gps' },
-          { text: '🧠 Mapa Mental', callback_data: 'cmd_mapa' },
-          { text: '📡 Radar', callback_data: 'cmd_radar' },
-        ],
-        [
-          { text: '⚠️ Armadilhas', callback_data: 'cmd_armadilhas' },
-          { text: '📈 Progresso', callback_data: 'cmd_progresso' },
-          { text: '🏆 Score', callback_data: 'cmd_ranking' },
-        ],
-        [
-          { text: '⚡ Prova Day', callback_data: 'cmd_provaday' },
-          { text: '💎 Premium', callback_data: 'cmd_premium' },
-        ],
-        [
-          { text: '⚙️ Configurar', callback_data: 'cmd_configurar' },
-          { text: '🔒 Privacidade', callback_data: 'cmd_privacidade' },
-        ],
-        [
-          { text: '📢 Canal', url: SOCIAL.channel },
-          { text: '👥 Grupo', url: SOCIAL.group },
-        ],
-      ],
-    },
-  };
-
-  ctx.reply(
-    `🎯 *GABARITOU*\n\n` +
-    `A plataforma definitiva para sua aprovação. Estude agora:\n\n` +
-    `💻 *Dica:* Use o menu para baixar arquivos HTML para estudo no PC!`,
-    { parse_mode: 'Markdown', ...keyboard }
-  );
+  });
 }
 
 // ─── /simulado ───────────────────────────────────────────────────
 export function handleSimulado(ctx) {
   ctx.reply(
-    `🎯 *Simulado Adaptativo IA — Exercícios Infinitos*\n\n` +
-    `Nossa IA gera questões inéditas e infinitas baseadas no seu nível. ` +
-    `Quanto mais você resolve, mais o *Aprendizado de Máquina* calibra sua dificuldade.\n\n` +
-    `*Todas as Bancas Disponíveis:* VUNESP, FGV, FCC, CEBRASPE, e mais!\n\n` +
-    `Selecione a matéria para começar:`,
+    `📝 *Simulados Adaptativos IA*\n\n` +
+    `A IA gera questões baseadas no seu nível e nas predições da banca.\n\n` +
+    `Escolha a matéria para iniciar:`,
     {
       parse_mode: 'Markdown',
       reply_markup: {
@@ -435,32 +162,245 @@ export function handleSimulado(ctx) {
   );
 }
 
-// ─── /score & /ranking ────────────────────────────────────────────
-export function handleRanking(ctx) {
+// ─── /ranking ────────────────────────────────────────────────────
+export async function handleRanking(ctx) {
+  const topUsers = await query(`SELECT full_name, plan FROM users ORDER BY created_at ASC LIMIT 5`);
+  
+  let msg = `🏆 *Ranking de Elite — GABARITOU*\n\n`;
+  topUsers.forEach((u, i) => {
+    const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '👤';
+    msg += `${medal} *${u.full_name}* — ${u.plan.toUpperCase()}\n`;
+  });
+
+  ctx.reply(msg, {
+    parse_mode: 'Markdown',
+    reply_markup: {
+      inline_keyboard: [[{ text: '📊 Ver Leaderboard Completo', callback_data: 'cmd_ranking_full' }], [{ text: '🔙 Menu', callback_data: 'menu_principal' }]],
+    },
+  });
+}
+
+// ─── /premium ────────────────────────────────────────────────────
+export function handlePremium(ctx) {
   ctx.reply(
-    `🏆 *Ranking da Comunidade — GABARITOU*\n\n` +
-    `1. 🥇 João Silva — 12.450 pts (Mestre)\n` +
-    `2. 🥈 Maria Oliveira — 11.200 pts (Expert)\n` +
-    `3. 🥉 Carlos Santos — 9.850 pts (Expert)\n` +
-    `...\n` +
-    `142. *Você* — 1.240 pts (Avançado)\n\n` +
-    `🔥 Continue estudando para subir de nível!`,
+    `⭐ *GABARITOU PREMIUM*\n\n` +
+    `Desbloqueie o poder total da teia preditiva.\n\n` +
+    `✅ Predições Ilimitadas\n` +
+    `✅ GPS de Aprovação (Auditoria de Edital)\n` +
+    `✅ Mapas Mentais IA Personalizados\n` +
+    `✅ Radar Elite de Concursos\n\n` +
+    `*Escolha seu plano:*`,
     {
       parse_mode: 'Markdown',
       reply_markup: {
-        inline_keyboard: [[{ text: '📊 Ver Leaderboard Completo', callback_data: 'cmd_ranking_full' }], [{ text: '🔙 Menu', callback_data: 'menu_principal' }]],
+        inline_keyboard: [
+          [{ text: `🦈 Vitorioso (Anual) — ${PRICING.vitorioso}`, callback_data: 'premium_checkout:vitorioso' }],
+          [{ text: `⚔️ Combatente (Semestral) — ${PRICING.combatente}`, callback_data: 'premium_checkout:combatente' }],
+          [{ text: `🎯 Sniper (Mensal) — ${PRICING.sniper}`, callback_data: 'premium_checkout:sniper' }],
+          [{ text: '🆓 Ativar 3 dias Grátis', callback_data: 'trial_start' }],
+          [{ text: '🔙 Menu', callback_data: 'menu_principal' }],
+        ],
       },
     }
   );
 }
 
-// ─── /referral ────────────────────────────────────────────────────
-export function handleReferral(ctx) {
-  const referralCode = `GAB-${ctx.from.id.toString(36).toUpperCase()}`;
-  const link = `https://t.me/gabaritou_oficial_bot?start=${BETA_ACCESS_CODE}`; // Durante o beta, o link já vem com o código
+// ─── /menu ───────────────────────────────────────────────────────
+export function showMenu(ctx) {
+  ctx.reply(`🕸️ *Menu Principal — GABARITOU*`, {
+    parse_mode: 'Markdown',
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: '📊 Minhas Predições', callback_data: 'cmd_predicao' }, { text: '📈 Meu Progresso', callback_data: 'cmd_progresso' }],
+        [{ text: '🛰️ GPS de Aprovação', callback_data: 'cmd_gps' }, { text: '📡 Radar Elite', callback_data: 'cmd_radar' }],
+        [{ text: '📝 Simulados IA', callback_data: 'cmd_simulado' }, { text: '🧠 Tutor IA', callback_data: 'cmd_tutor' }],
+        [{ text: '🏆 Ranking', callback_data: 'cmd_ranking' }, { text: '🎁 Convide e Ganhe', callback_data: 'cmd_referral' }],
+        [{ text: '⚙️ Configurações', callback_data: 'cmd_configurar' }, { text: '🔒 Privacidade', callback_data: 'cmd_privacidade' }],
+      ],
+    },
+  });
+}
 
+// ─── /plano ──────────────────────────────────────────────────────
+export async function handlePlano(ctx) {
+    const user = await queryOne('SELECT * FROM users WHERE telegram_id = $1', [ctx.from.id]);
+    if (!user) return ctx.reply('Usuário não encontrado.');
+
+    const status = user.is_premium ? '✅ ATIVO' : '❌ EXPIRADO';
+    const expires = user.premium_until ? new Date(user.premium_until).toLocaleDateString('pt-BR') : 'N/A';
+
+    ctx.reply(
+        `👤 *Sua Assinatura*\n\n` +
+        `Plano: *${user.plan.toUpperCase()}*\n` +
+        `Status: *${status}*\n` +
+        `Válido até: *${expires}*\n\n` +
+        `Precisa de suporte? @growoceann`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '⭐ Mudar Plano', callback_data: 'cmd_premium' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /gps ────────────────────────────────────────────────────────
+export function handleGPS(ctx) {
+    ctx.reply(
+        `🛰️ *GPS de Aprovação (Auditoria IA)*\n\n` +
+        `A IA analisa o edital e seu histórico para criar o caminho mais curto até a aprovação.\n\n` +
+        `*O que você recebe:* \n` +
+        `- Auditoria de tópicos quentes\n` +
+        `- Cronograma adaptativo\n` +
+        `- Alertas de armadilhas da banca\n\n` +
+        `*Custo:* R$ 2,00 por auditoria (Premium Free)`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '🎯 Gerar Meu GPS Agora', callback_data: 'gps_generate' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /mapa ───────────────────────────────────────────────────────
+export function handleMapa(ctx) {
+    ctx.reply(
+        `🧠 *Mapas Mentais IA*\n\n` +
+        `Transformamos tópicos complexos em esquemas visuais memorizáveis.\n\n` +
+        `*Custo:* R$ 2,00 por mapa (Premium Free)`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '🧠 Gerar Mapa IA', callback_data: 'mapa_generate' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /radar ──────────────────────────────────────────────────────
+export function handleRadar(ctx) {
+    ctx.reply(
+        `📡 *Radar Elite — GABARITOU*\n\n` +
+        `Monitoramento em tempo real de editais, retificações e boatos quentes.\n\n` +
+        `*Status:* Offline (Ative para monitorar)\n` +
+        `*Custo:* R$ 3,00/mês`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '🚀 Ativar Radar Elite', callback_data: 'radar_activate' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /tutor ──────────────────────────────────────────────────────
+export function handleTutor(ctx) {
+    ctx.reply(
+        `🧠 *Tutor IA — GABARITOU*\n\n` +
+        `Tire dúvidas teóricas agora. Mande sua pergunta sobre qualquer matéria.\n\n` +
+        `*Exemplo:* "Qual a diferença entre autarquia e fundação pública?"`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '💬 Iniciar Conversa', callback_data: 'tutor_start' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /concursos ──────────────────────────────────────────────────
+export function handleConcursos(ctx) {
+    ctx.reply(
+        `📅 *Calendário de Concursos 2026*\n\n` +
+        `Selecione sua região ou área de interesse:`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '🇧🇷 NACIONAL / FEDERAL', callback_data: 'concursos:FEDERAL' }],
+                    [{ text: '🌆 SÃO PAULO', callback_data: 'concursos:SP' }, { text: '🏖️ RIO DE JANEIRO', callback_data: 'concursos:RJ' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /provaday ───────────────────────────────────────────────────
+export function handleProvaDay(ctx) {
+    ctx.reply(
+        `🏁 *PROVA DAY — GABARITOU*\n\n` +
+        `Simulação completa do dia da prova com pressão de tempo e ranking em tempo real.\n\n` +
+        `*Próximo Prova Day:* Domingo, às 14:00.`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '📝 Me Inscrever', callback_data: 'provaday_register' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /armadilhas ─────────────────────────────────────────────────
+export function handleArmadilhas(ctx) {
+    ctx.reply(
+        `⚠️ *Campo Minado (Armadilhas da Banca)*\n\n` +
+        `Conheça as pegadinhas mais comuns das bancas examinadoras.\n\n` +
+        `Escolha o tópico:`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: 'Pegadinhas VUNESP', callback_data: 'armadilhas:VUNESP' }],
+                    [{ text: 'Pegadinhas FGV', callback_data: 'armadilhas:FGV' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /relatorio ──────────────────────────────────────────────────
+export function handleRelatorio(ctx) {
+    ctx.reply(
+        `📊 *Relatório de Acurácia*\n\n` +
+        `Veja como a IA está performando em suas predições comparadas com as provas reais.`,
+        {
+            parse_mode: 'Markdown',
+            reply_markup: {
+                inline_keyboard: [
+                    [{ text: '📈 Ver Acurácia (87.3%)', callback_data: 'accuracy_view' }],
+                    [{ text: '🔙 Menu', callback_data: 'menu_principal' }]
+                ]
+            }
+        }
+    );
+}
+
+// ─── /referral ───────────────────────────────────────────────────
+export function handleReferral(ctx) {
+  const link = `https://t.me/gabaritou_oficial_bot?start=REF${ctx.from.id}`;
   ctx.reply(
-    `🤝 *Viral Strategy — Ganhe Descontos Reais*\n\n` +
+    `🎁 *Convide e Ganhe (Sócio Gabaritou)*\n\n` +
     `No GABARITOU, você é sócio da nossa escala.\n\n` +
     `*Regra de Ouro:* A cada amigo que você convida e assina:\n` +
     `✅ Você ganha *R$ 1,00 de desconto recorrente* na sua mensalidade.\n` +

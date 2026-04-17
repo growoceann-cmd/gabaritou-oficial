@@ -50,19 +50,7 @@ export async function addMessageToContext(conversationId, role, text) {
 
   const result = await query(
     `UPDATE conversations SET
-      context = (
-        SELECT jsonb_agg(elem)
-        FROM (
-          SELECT elem FROM jsonb_array_elements(
-            CASE
-              WHEN jsonb_array_length(context) >= $1 THEN
-                (SELECT jsonb_path_query_array(context, '$[1:]') FROM conversations WHERE id = $2)
-              ELSE context
-            END
-          ) AS elem
-          UNION ALL SELECT $3::jsonb
-        ) AS sub
-      ),
+      context = (CASE WHEN jsonb_array_length(context) >= $1 THEN context - 0 ELSE context END) || $3::jsonb,
       message_count = message_count + 1,
       last_message_at = NOW(),
       updated_at = NOW()

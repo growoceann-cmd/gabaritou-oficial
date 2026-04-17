@@ -23,7 +23,7 @@ import logger from '../utils/logger.js';
 const log = logger.child('Interceptor');
 
 // ─── Store temporário de micro-sessões ativas (memória) ─────────
-const activeSessions = new Map();
+export const activeSessions = new Map();
 
 // ─── Intercept Point ──────────────────────────────────────────────
 
@@ -290,7 +290,7 @@ export async function getOrCreateUser(telegramId, name, username) {
   if (!user) {
     const result = await query(
       `INSERT INTO users (telegram_id, full_name, username, referral_code, plan, is_premium, premium_until)
-       VALUES ($1, $2, $3, $4, $5, $6, NOW() + INTERVAL '7 days') RETURNING *`,
+       VALUES ($1, $2, $3, $4, $5, $6, NOW() + INTERVAL '5 days') RETURNING *`,
       [telegramId, name, username || null, `GAB-${Date.now().toString(36).toUpperCase()}`, 'trial', true]
     );
     user = result[0];

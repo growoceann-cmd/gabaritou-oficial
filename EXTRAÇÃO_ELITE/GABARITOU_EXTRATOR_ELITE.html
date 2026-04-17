@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GABARITOU - EXTRATOR ELITE 🔱</title>
+    <style>
+        :root { --cyan: #22d3ee; --violet: #8b5cf6; --dark: #050505; --card: #111; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: #fff; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; }
+        .teia-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.2; background: radial-gradient(circle at center, var(--violet) 0%, transparent 70%); }
+        .card { background: var(--card); padding: 40px; border-radius: 20px; border: 1px solid rgba(34, 211, 238, 0.3); box-shadow: 0 0 50px rgba(34, 211, 238, 0.1); text-align: center; max-width: 450px; position: relative; backdrop-filter: blur(10px); }
+        .logo { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 5px; background: linear-gradient(90deg, var(--cyan), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .version { font-size: 0.7rem; background: var(--violet); color: white; padding: 2px 8px; border-radius: 10px; vertical-align: middle; margin-left: 5px; }
+        h2 { font-size: 1.1rem; color: #888; font-weight: 400; margin-bottom: 30px; }
+        .step { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left; border-left: 3px solid var(--cyan); }
+        .step-num { color: var(--cyan); font-weight: bold; margin-right: 10px; }
+        .btn { background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%); color: #000; padding: 18px 40px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.4s; width: 100%; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4); color: #fff; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+        #status { margin-top: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #00ffaa; min-height: 20px; }
+        .progress-bar { width: 100%; height: 4px; background: #222; border-radius: 2px; margin-top: 15px; overflow: hidden; display: none; }
+        .progress-fill { height: 100%; background: var(--cyan); width: 0%; transition: width 0.3s; }
+        .footer-note { font-size: 0.75rem; color: #555; margin-top: 25px; }
+        a { color: var(--cyan); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="teia-bg"></div>
+    <div class="card">
+        <div class="logo">GABARITOU <span class="version">v3.1</span></div>
+        <h2>MOTOR DE EXTRAÇÃO ELITE 🔱</h2>
+
+        <div class="step">
+            <span class="step-num">01.</span> Certifique-se de estar <strong>LOGADO</strong> em: <br>
+            <a href="https://questoes.grancursosonline.com.br" target="_blank">questoes.grancursosonline.com.br</a>
+        </div>
+
+        <div class="step">
+            <span class="step-num">02.</span> Mantenha a aba do Gran aberta enquanto o robô trabalha.
+        </div>
+
+        <button id="startBtn" class="btn">🚀 INICIAR EXTRAÇÃO (4.000 Questões)</button>
+        
+        <div class="progress-bar" id="progBar"><div class="progress-fill" id="progFill"></div></div>
+        <div id="status">Aguardando autorização do SÃOBENTO...</div>
+
+        <div class="footer-note">
+            Powered by <strong>GABARITOU AI</strong><br>
+            Filtros: FGV, CESPE, VUNESP | Difícil/Muito Difícil
+        </div>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const status = document.getElementById('status');
+        const progBar = document.getElementById('progBar');
+        const progFill = document.getElementById('progFill');
+        let sessionActive = false;
+
+        startBtn.onclick = async () => {
+            if (sessionActive) return;
+            sessionActive = true;
+            startBtn.disabled = true;
+            progBar.style.display = 'block';
+            
+            let dataset = [];
+            const PAGES = 200; // 4.000 questões
+            const BASE_URL = "https://rota-api.grancursosonline.com.br/questoes/search?dificuldade=3,4&banca=286,27,92,102,252,277,26,982&assunto=405199,405626,403716,405707,407143,406602,405030,403587,403825,32,2538,404571,406223,404257,427647&desatualizada=0&anulada=0";
+
+            try {
+                for (let p = 1; p <= PAGES; p++) {
+                    const pct = Math.round((p / PAGES) * 100);
+                    progFill.style.width = `${pct}%`;
+                    status.innerHTML = `📡 Sincronizando: Pág ${p}/${PAGES} (${dataset.length} itens)`;
+
+                    const response = await fetch(`${BASE_URL}&page=${p}`);
+                    
+                    if (response.status === 401 || response.status === 403) {
+                        throw new Error("Sessão expirada. Faça login no Gran Cursos novamente.");
+                    }
+
+                    const json = await response.json();
+                    
+                    if (json.data && json.data.length > 0) {
+                        dataset.push(...json.data);
+                    } else {
+                        status.innerHTML = "🏁 Fim dos dados alcançados precocemente.";
+                        break;
+                    }
+
+                    // Pausa dinâmica para evitar detecção
+                    if (p % 10 === 0) await new Promise(r => setTimeout(r, 600));
+                }
+
+                if (dataset.length > 0) {
+                    status.innerHTML = "💾 Empacotando Ouro Preditivo...";
+                    const blob = new Blob([dataset.map(q => JSON.stringify(q)).join('\n')], { type: 'text/plain' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `gabaritou_4000_questoes_ELITE.jsonl`;
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    status.innerHTML = `✅ SUCESSO! ${dataset.length} questões na pasta de Downloads.`;
+                    startBtn.innerHTML = "EXTRAÇÃO CONCLUÍDA";
+                }
+
+            } catch (err) {
+                status.style.color = "#ff4444";
+                status.innerHTML = `❌ ERRO: ${err.message}`;
+                startBtn.disabled = false;
+                startBtn.innerHTML = "TENTAR NOVAMENTE";
+            } finally {
+                sessionActive = false;
+            }
+        };
+    </script>
+</body>
+</html>

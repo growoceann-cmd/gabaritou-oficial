@@ -8,11 +8,11 @@ export const PRICING = {
   vitorioso: {
     id: 'vitorioso',
     name: 'Vitorioso',
-    price: 7.90,
-    total: 94.80,
+    price: 5.90,
+    total: 70.80,
     periodMonths: 12,
-    label: 'R$ 7,90/mês (Anual)',
-    description: 'Compromisso anual — R$ 94,80/ano',
+    label: 'R$ 5,90/mês (Anual)',
+    description: 'Compromisso anual — R$ 70,80/ano',
   },
   combatente: {
     id: 'combatente',
@@ -41,7 +41,7 @@ export const PRICING = {
     label: 'R$ 3,00/mês (Radar Elite)',
     description: 'Alertas de Editais, Atualidades Real-Time e Dicas Estratégicas',
   },
-  trialDays: 3,
+  trialDays: 5,
   MAX_BETA_USERS: 50,
   BETA_ACCESS_CODE: 'GABARITOU2026',
   REFERRAL_DISCOUNT_PER_USER: 1.00, // R$ 1,00 de desconto por indicação ativa
