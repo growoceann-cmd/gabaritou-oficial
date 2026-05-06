@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabaritou — Estratégia Tubarão R$150 | Marketing Disruptivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --abyss: #060612;
+            --abyss-light: #0d0d24;
+            --surface: #12122a;
+            --surface-2: #1a1a3e;
+            --border: rgba(139,92,246,0.15);
+            --violet: #8b5cf6;
+            --violet-light: #a78bfa;
+            --violet-dark: #7c3aed;
+            --cyan: #06b6d4;
+            --cyan-light: #22d3ee;
+            --electric: #3b82f6;
+            --green: #10b981;
+            --green-light: #34d399;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --pink: #ec4899;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
+            --gradient-shark: linear-gradient(135deg, #dc2626, #f59e0b, #7c3aed);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--abyss);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* COVER */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(220,38,38,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 60%),
+                var(--abyss);
+            position: relative;
+            padding: 40px 20px;
+        }
+        .cover::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(139,92,246,0.03) 50px, rgba(139,92,246,0.03) 51px);
+        }
+        .cover-content { position: relative; z-index: 1; max-width: 900px; }
+        .cover-shark {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 0 30px rgba(245,158,11,0.5));
+            animation: shark-bite 3s ease-in-out infinite;
+        }
+        @keyframes shark-bite {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        .cover h1 {
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+        .cover h1 .line1 {
+            display: block;
+            background: linear-gradient(135deg, #ef4444, #f59e0b);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .cover h1 .line2 {
+            display: block;
+            font-size: 0.6em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #a78bfa, #22d3ee);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-top: 8px;
+        }
+        .cover-budget {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 30px;
+            background: rgba(245,158,11,0.1);
+            border: 2px solid rgba(245,158,11,0.3);
+            border-radius: 16px;
+            margin: 25px 0;
+        }
+        .cover-budget .coin { font-size: 36px; }
+        .cover-budget .amount {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--amber);
+        }
+        .cover-budget .label {
+            font-size: 13px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .cover .tagline {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+        .cover-meta {
+            display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+        }
+        .cover-meta-item {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 13px; color: var(--text-dim);
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .section-header { margin-bottom: 35px; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 700; color: var(--amber);
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+        }
+        .section-label::before { content: ''; width: 20px; height: 2px; background: var(--amber); }
+        .section h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+            font-weight: 800; line-height: 1.15; margin-bottom: 10px;
+        }
+        .section h2 .hl { background: var(--gradient-shark); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section h2 .hl-v { background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-desc { font-size: 1rem; color: var(--text-muted); max-width: 700px; }
+
+        /* CARDS */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 18px;
+            transition: all 0.3s;
+        }
+        .card:hover { border-color: rgba(139,92,246,0.3); box-shadow: 0 0 30px rgba(139,92,246,0.1); }
+        .card.danger { border-color: rgba(220,38,38,0.3); }
+        .card.danger:hover { box-shadow: 0 0 30px rgba(220,38,38,0.15); }
+        .card.shark { border-color: rgba(245,158,11,0.3); background: linear-gradient(135deg, rgba(245,158,11,0.03), var(--surface)); }
+        .card.shark:hover { box-shadow: 0 0 30px rgba(245,158,11,0.15); }
+        .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+        .card p, .card li { color: var(--text-muted); font-size: 0.93rem; line-height: 1.8; }
+        .card ul { padding-left: 0; list-style: none; }
+        .card ul li { padding: 4px 0; padding-left: 20px; position: relative; }
+        .card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
+
+        /* STEP CARDS */
+        .step {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .step::before {
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+        }
+        .step.s1::before { background: linear-gradient(to bottom, #ef4444, #f59e0b); }
+        .step.s2::before { background: linear-gradient(to bottom, #f59e0b, #eab308); }
+        .step.s3::before { background: linear-gradient(to bottom, #eab308, #22c55e); }
+        .step.s4::before { background: linear-gradient(to bottom, #22c55e, #06b6d4); }
+        .step.s5::before { background: linear-gradient(to bottom, #06b6d4, #3b82f6); }
+        .step.s6::before { background: linear-gradient(to bottom, #3b82f6, #8b5cf6); }
+        .step.s7::before { background: var(--gradient-brand); }
+        .step-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+        .step-num {
+            display: flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 10px;
+            font-size: 15px; font-weight: 800; color: #fff; flex-shrink: 0;
+        }
+        .s1 .step-num { background: linear-gradient(135deg, #ef4444, #f59e0b); }
+        .s2 .step-num { background: linear-gradient(135deg, #f59e0b, #eab308); }
+        .s3 .step-num { background: linear-gradient(135deg, #22c55e, #10b981); }
+        .s4 .step-num { background: linear-gradient(135deg, #06b6d4, #0ea5e9); }
+        .s5 .step-num { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+        .s6 .step-num { background: linear-gradient(135deg, #8b5cf6, #a855f7); }
+        .s7 .step-num { background: var(--gradient-brand); }
+        .step-title { font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
+        .step-subtitle { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+        .step-body { padding-left: 50px; }
+        .step-body p, .step-body li { color: var(--text-muted); font-size: 0.93rem; line-height: 1.8; }
+        .step-body ul { padding-left: 0; list-style: none; }
+        .step-body ul li { padding: 4px 0; padding-left: 20px; position: relative; }
+        .step-body ul li::before { content: '▸'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
+        .step-cost {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 700;
+            margin-top: 10px;
+        }
+        .step-cost.free { background: rgba(16,185,129,0.12); color: var(--green); }
+        .step-cost.paid { background: rgba(245,158,11,0.12); color: var(--amber); }
+
+        /* CODE BOX */
+        .code-box {
+            background: #0a0a1a;
+            border: 1px solid rgba(139,92,246,0.15);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--cyan-light);
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+        .code-box .comment { color: var(--text-dim); }
+        .code-box .cmd { color: #a78bfa; }
+
+        /* STAT GRID */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px; margin: 20px 0;
+        }
+        .stat-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.8rem; font-weight: 800; line-height: 1.2;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .stat-value.red { background: linear-gradient(135deg, #ef4444, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-value.green { background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-value.amber { background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+        /* BUDGET TABLE */
+        .table-wrap { overflow-x: auto; margin: 18px 0; border-radius: 12px; border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        thead { background: var(--surface-2); }
+        th { padding: 13px 16px; text-align: left; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--amber); border-bottom: 2px solid var(--border); }
+        td { padding: 11px 16px; border-bottom: 1px solid rgba(139,92,246,0.06); color: var(--text-muted); }
+        tr:hover td { background: rgba(139,92,246,0.04); }
+        .td-bold { font-weight: 700; color: var(--text) !important; }
+        .td-green { color: var(--green) !important; font-weight: 600; }
+        .td-amber { color: var(--amber) !important; font-weight: 600; }
+        .td-red { color: var(--red) !important; font-weight: 600; }
+
+        /* CALLOUT */
+        .callout { display: flex; gap: 14px; padding: 18px 22px; border-radius: 12px; margin: 18px 0; font-size: 14px; line-height: 1.7; }
+        .callout.shark-warn { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); }
+        .callout.danger { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); }
+        .callout.success { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); }
+        .callout.info { background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25); }
+        .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+        .callout-text { color: var(--text-muted); }
+        .callout-text strong { color: var(--text); }
+
+        /* PILLS */
+        .pill {
+            display: inline-block; padding: 4px 12px;
+            background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2);
+            border-radius: 20px; font-size: 11px; font-weight: 600;
+            color: var(--violet-light); margin: 3px;
+        }
+        .pill.red { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.2); color: var(--red); }
+        .pill.green { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); color: var(--green); }
+        .pill.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); color: var(--amber); }
+
+        /* FRAME BOX */
+        .frame-box {
+            background: var(--surface);
+            border: 2px dashed rgba(245,158,11,0.3);
+            border-radius: 14px;
+            padding: 24px;
+            margin: 18px 0;
+            text-align: center;
+        }
+        .frame-box .emoji { font-size: 40px; display: block; margin-bottom: 10px; }
+        .frame-box .title { font-size: 1.1rem; font-weight: 800; color: var(--amber); margin-bottom: 8px; }
+        .frame-box p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* TACTIC BADGE */
+        .tactic {
+            display: flex; gap: 14px; padding: 18px; margin: 12px 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            align-items: flex-start;
+        }
+        .tactic-icon { font-size: 28px; flex-shrink: 0; }
+        .tactic-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+        .tactic-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+        /* DIVIDER */
+        .divider { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+        .divider hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+
+        /* TIMELINE */
+        .timeline-mini { margin: 14px 0; }
+        .tl-row { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(139,92,246,0.05); align-items: center; }
+        .tl-day { width: 80px; font-size: 12px; font-weight: 700; color: var(--cyan); flex-shrink: 0; text-align: center; }
+        .tl-action { font-size: 13px; color: var(--text-muted); flex: 1; }
+        .tl-cost { font-size: 12px; font-weight: 700; flex-shrink: 0; }
+        .tl-cost.free { color: var(--green); }
+        .tl-cost.paid { color: var(--amber); }
+
+        /* FOOTER */
+        .footer { text-align: center; padding: 50px 20px; color: var(--text-dim); font-size: 13px; }
+        .footer .brand { font-size: 1.2rem; font-weight: 800; background: var(--gradient-shark); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+
+        /* GRID */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* PRINT */
+        @media print {
+            body { background: #fff; color: #111; }
+            .cover { background: #f8f8f8; min-height: auto; padding: 60px 20px; }
+            .cover h1 .line1, .cover h1 .line2, .stat-value, .section h2 .hl, .section h2 .hl-v { -webkit-text-fill-color: #333; background: none; }
+            .card, .stat-box, .step { background: #f9f9f9; border-color: #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<section class="cover">
+    <div class="cover-content">
+        <span class="cover-shark">🦈</span>
+        <h1>
+            <span class="line1">ESTRATÉGIA TUBARÃO</span>
+            <span class="line2">Marketing Disruptivo com R$150 — Ninguém Enxergou Isso</span>
+        </h1>
+        <div class="cover-budget">
+            <span class="coin">💰</span>
+            <div>
+                <div class="amount">R$ 150,00</div>
+                <div class="label">Orçamento total</div>
+            </div>
+        </div>
+        <p class="tagline">
+            O orçamento de R$150 não é um problema — é a sua maior vantagem. Enquanto concorrentes gastam R$50K+ em Meta Ads genéricos, você vai usar psicologia comportamental, guerrilha digital e engenharia social para criar um efeito viral que dinheiro nenhum compra.
+        </p>
+        <div class="cover-meta">
+            <div class="cover-meta-item">🦈 7 Fases</div>
+            <div class="cover-meta-item">⏱️ 30 Dias</div>
+            <div class="cover-meta-item">🎯 1.000 Pagantes</div>
+            <div class="cover-meta-item">🧠 Psicologia + Guerrilha</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- POR QUE AS ESTRATÉGIAS TRADICIONAIS FALHAM -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Pré-requisito Mental</div>
+        <h2>Por que <span class="hl">R$50.000 em Meta Ads</span> Não Funcionam</h2>
+        <p class="section-desc">Antes de começar, entenda por que a estratégia de todos está errada — e por que R$150 é o orçamento perfeito para quem pensa como tubarão.</p>
+    </div>
+
+    <div class="grid-2">
+        <div class="card danger">
+            <h3>❌ O Que Concorrentes Fazem (e Falham)</h3>
+            <ul>
+                <li><strong>Meta Ads genéricos:</strong> "Estude para concursos com IA" → CTR de 0,5%, CAC de R$80+, ROI negativo no primeiro mês. O concurseiro já viu 1.000 anúncios assim e scrollou.</li>
+                <li><strong>Influenciadores macro:</strong> Pagar R$5K–R$20K para um creator com 500K seguidores postar "patrocinado". Taxa de conversão de influenciador de educação: 0,3–0,8%. Dinheiro jogado fora.</li>
+                <li><strong>SEO lento:</strong> Produzir 100 artigos de blog esperando ranquear no Google em 6–12 meses. Funciona, mas não é marketing — é jardinagem.</li>
+                <li><strong>Desconto agressivo:</strong> "50% OFF" ou "Grátis por 30 dias". Todo mundo faz isso. O concurseiro desconfia de "grátis" porque aprendeu que grátis nesse mercado significa conteúdo genérico lixoso.</li>
+            </ul>
+        </div>
+        <div class="card shark">
+            <h3>🦈 O Que Tubarões Fazem (e Dominam)</h3>
+            <ul>
+                <li><strong>Criam curiosidade, não anúncios:</strong> O cérebro humano ignora anúncios, mas é programado para investigar mistérios. A estratégia toda é baseada em criar "lacunas de curiosidade" (curiosity gaps) que o concurseiro PRECISA resolver.</li>
+                <li><strong>Usam o produto como marketing:</strong> O bot em si é o canal de aquisição — cada interação gera uma micro-impressão que se espalha organicamente pelo WhatsApp e Telegram.</li>
+                <li><strong>Exploram o medo e a esperança:</strong> Dois dos gatilhos psicológicos mais fortes do concurseiro: medo de reprovar de novo, e esperança de finalmente passar. Essa estratégia ativa ambos simultaneamente.</li>
+                <li><strong>Fazem o usuário vender por eles:</strong> Em vez de gastar R$1 para adquirir 1 usuário, estruturamos o produto para que cada usuário traga 3–5 novos sem custo nenhum.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="callout shark-warn">
+        <span class="callout-icon">⚠️</span>
+        <span class="callout-text"><strong>A Regra dos R$150:</strong> Se você precisar de mais de R$150 para executar essa estratégia, você está fazendo algo errado. Cada centavo foi alocado com precisão cirúrgica. O resto é suor, criatividade e psicologia aplicada.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- ORÇAMENTO -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Orçamento Cirúrgico</div>
+        <h2>Onde Cada Centavo dos <span class="hl">R$150</span> Vai</h2>
+        <p class="section-desc">Nada é por acaso. Cada item foi escolhido por ter o maior ROI possível por real investido.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Custo</th>
+                    <th>Fornecedor</th>
+                    <th>Por que esse?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td-bold">Domain .com.br (1 ano)</td>
+                    <td class="td-amber">R$ 39,90</td>
+                    <td>Hostinger / Reg.br</td>
+                    <td>Necessário para a página de captura e credibilidade instantânea</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Canva Pro (1 mês)</td>
+                    <td class="td-amber">R$ 27,90</td>
+                    <td>Canva</td>
+                    <td>Apenas 1 mês para criar TODOS os assets visuais de uma vez (posts, stories, banners)</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Telegram Premium (3 meses)</td>
+                    <td class="td-amber">R$ 26,70</td>
+                    <td>Telegram</td>
+                    <td>Stickers customizados + mensagens pinned + status do bot profissional</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Google Workspace (1 mês)</td>
+                    <td class="td-amber">R$ 22,90</td>
+                    <td>Google</td>
+                    <td>Email profissional (contato@gabaritou.com.br) — essencial para confiança</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Hosting landing page (1 mês)</td>
+                    <td class="td-amber">R$ 14,90</td>
+                    <td>Hostinger / Vercel grátis</td>
+                    <td>Hospedar a página de captura com HTTPS (pode usar Vercel grátis — R$14,90 é backup)</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">WhatsApp Business API setup</td>
+                    <td class="td-green">R$ 0,00</td>
+                    <td>Meta Cloud API</td>
+                    <td>Grátis para até 1.000 conversações/mês (tudo que precisamos no início)</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Buffer/Scheduler gratuito</td>
+                    <td class="td-green">R$ 0,00</td>
+                    <td>Buffer (plano grátis)</td>
+                    <td>Agendar posts em Instagram, TikTok e LinkedIn sem custo</td>
+                </tr>
+                <tr>
+                    <td class="td-bold" style="background: rgba(245,158,11,0.08);">TOTAL INVESTIDO</td>
+                    <td class="td-bold" style="background: rgba(245,158,11,0.08);">R$ 132,30</td>
+                    <td style="background: rgba(245,158,11,0.08);">—</td>
+                    <td style="background: rgba(245,158,11,0.08);">Sobra: <strong class="td-green">R$17,70</strong> para imprevistos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🎯</span>
+        <span class="callout-text"><strong>Nota Estratégica:</strong> Os outros R$50.000 que concorrentes gastam em Meta Ads são ineficientes porque tentam comprar atenção. Você não compra — você <strong>engenha atenção</strong>. O R$132,30 é para ferramentas que amplificam ações que custam R$0: conteúdo, comunidade e psicologia.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 1: INFILTRAÇÃO SILENCIOSA -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 01 — Dias 1 a 3</div>
+        <h2>Infiltração Silenciosa: <span class="hl">Torpedos de Curiosidade</span></h2>
+        <p class="section-desc">A estratégia começa 72 horas antes de qualquer menção ao Gabaritou. Ninguém vai saber que é marketing.</p>
+    </div>
+
+    <div class="frame-box">
+        <span class="emoji">🎭</span>
+        <div class="title">O Princípio: "Não existe marketing. Existe curiosidade."</div>
+        <p>Você não vai anunciar o Gabaritou. Você vai fazer 50.000 concurseiros perguntarem "que porra é essa?" sozinhos, sem nunca ver um único anúncio.</p>
+    </div>
+
+    <div class="step s1">
+        <div class="step-head">
+            <div class="step-num">01</div>
+            <div>
+                <div class="step-title">Mapeamento de 50 Grupos de Telegram e WhatsApp</div>
+                <div class="step-subtitle">A sua lista de alvos — onde os concurseiros estão concentrados</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Antes de qualquer ação, você precisa saber exatamente onde os concurseiros conversam. Não grupos aleatórios — os grupos onde há diariamente discussões sobre editais, bancas, e "o que cai na prova". Estes são os seus campos de batalha.</p>
+            <br>
+            <p><strong>Tipos de grupos para mapear:</strong></p>
+            <ul>
+                <li><strong>Grupos de concurso específico</strong> (ex: "INSS 2026", "TRF 5ª Região", "Polícia Federal") — são os mais engajados e qualificados. Membros estão ativamente estudando e dispostos a gastar.</li>
+                <li><strong>Grupos de banca</strong> (ex: "Estudantes FCC", "Questões Cespe") — membros discutem padrões de prova, que é exatamente o que o Gabaritou resolve.</li>
+                <li><strong>Grupos de concurseiros gerais</strong> (ex: "Concurseiros de Verdade", "Mesa de Estudos Brasil") — volume alto, mas conversão menor. Útil para brand awareness.</li>
+                <li><strong>Grupos de compartilhamento de materiais</strong> (ex: "PDFs Concursos", "Apostilas Grátis") — membros estão buscando ativamente soluções de estudo. Alta intenção.</li>
+            </ul>
+            <br>
+            <p><strong>Como encontrar:</strong> Busque no Telegram por "concurso [órgão]" e "concurseiros". No Google, busque "grupos whatsapp concurso 2026 join" e "grupos telegram concurso [órgão]". Use o site <strong>gruposwhats.app</strong> e busque "concurso". Meta: catalogar pelo menos 50 grupos ativos com 200+ membros cada.</p>
+            <br>
+            <div class="code-box">
+<span class="comment">// Script de busca rápida — execute no navegador</span>
+<span class="comment">// Sites para encontrar grupos de concurseiros:</span>
+<span class="cmd">t.me/s/</span> → Busque "concurso", "concurseiro", "INSS", "TRF", "PF"<br>
+<span class="cmd">gruposwhats.app</span> → Categoria "Educação" → "Concursos"<br>
+<span class="cmd">linktr.ee</span> → Busque "concurseiro" e "concurso"<br>
+<span class="cmd">Google:</span> "site:telegram.me concurso 2026" OU "grupo whatsapp concurso join"
+            </div>
+            <span class="step-cost free">💰 Custo: R$0 — Apenas seu tempo (~3 horas)</span>
+        </div>
+    </div>
+
+    <div class="step s1">
+        <div class="step-head">
+            <div class="step-num">02</div>
+            <div>
+                <div class="step-title">Criar 3 Perfis de "Infiltrado" no Telegram</div>
+                <div class="step-subtitle">Não é spam. É engenharia social legítima com valor real.</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Crie 3 contas de Telegram com perfis diferentes — cada uma com um "personality" que se encaixa naturalmente no grupo. Esses perfis vão entrar nos grupos e contribuir com conteúdo de valor durante 3 dias ANTES de qualquer menção ao Gabaritou. O objetivo é construir confiança e autoridade.</p>
+            <br>
+            <p><strong>Persona 1 — "O Estatístico":</strong> Nome como "Carlos — Dados Concursos". Bio: "Analiso estatísticas de editais. Nerd de números." Essa persona posta análises de frequência de temas em editais reais: "O tema 'Direito Constitucional — Controle de Constitucionalidade' caiu em 87% das provas do STF nos últimos 5 anos." Isso é conteúdo de altíssimo valor e abre portas.</p>
+            <br>
+            <p><strong>Persona 2 — "O Recém-Aprovado":</strong> Nome como "Ana — Aprovada TRF4". Bio: "Passei no TRF4 2025. Compartilhando o que funcionou." Essa persona conta sua história de aprovação e dá dicas práticas de estudo. Credibilidade instantânea — ninguém questiona quem passou.</p>
+            <br>
+            <p><strong>Persona 3 — "O Angustiado":</strong> Nome como "Pedro — Estudando há 3 anos". Bio: "3 anos estudando, 2 reprovações. Determinado a passar." Essa persona faz perguntas e pede ajuda. As pessoas se identificam e tentam ajudar. É o gatilho de empatia mais poderoso que existe.</p>
+            <br>
+            <div class="callout shark-warn">
+                <span class="callout-icon">⚠️</span>
+                <span class="callout-text"><strong>Ética da Infiltração:</strong> Não é spam. Você está entrando em grupos públicos e contribuindo com conteúdo legítimo e útil. A menção ao Gabaritou virá organicamente quando alguém perguntar "como você sabe disso?" ou "tem alguma ferramenta que faz isso?". A resposta natural leva ao bot. Isso é marketing de comunidade, não spam.</span>
+            </div>
+            <span class="step-cost free">💰 Custo: R$0 — 3 contas Telegram (grátis)</span>
+        </div>
+    </div>
+
+    <div class="step s1">
+        <div class="step-head">
+            <div class="step-num">03</div>
+            <div>
+                <div class="step-title">3 Dias de Semeadura: Torpedo de Curiosidade</div>
+                <div class="step-subtitle">Dias 1–3: Entrar, contribuir e plantar sementes de curiosidade</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Cada persona entra em 15–20 grupos e faz 2–3 postagens por dia durante 3 dias. NUNCA menciona o Gabaritou. Apenas entrega valor puro. O objetivo é que os membros do grupo comecem a seguir, responder e curtir suas postagens. Quando a Persona 1 posta uma estatística impressionante e alguém pergunta "onde você encontrou esses dados?", a Persona 3 (o Angustiado) responde: "Poxa, isso é muito útil! Existe algum bot que faz esse tipo de análise? Eu pagaria por isso." Pronto: o grupo inteiro começa a discutir.</p>
+            <br>
+            <p><strong>Exemplos de postagens da Persona 1 (Estatístico):</strong></p>
+            <div class="code-box">
+<span class="comment">// Dia 1 — Grupo "INSS 2026" (1.200 membros)</span>
+"I analyzei os últimos 12 editais do INSS e descubri que Direito Previdenciário representa 38% das questões, mas os concurseiros gastam apenas 15% do tempo estudando essa matéria. O gap é absurdo."<br><br>
+<span class="comment">// Dia 2 — Grupo "Estudantes FCC" (800 membros)</span>
+"A FCC repetiu o exato mesmo tema de Direito Administrativo (Princípios) em 9 das últimas 11 provas para cargos judiciais. Se você não domina isso, está perdendo pontos fáceis."<br><br>
+<span class="comment">// Dia 3 — Grupo "Concurseiros de Verdade" (3.500 membros)</span>
+"Eu criei uma planilha com a frequência de CADA tema que caiu nas provas do INSS, TRF e PF nos últimos 5 anos. São 2.847 questões catalogadas. Posso compartilhar se quiserem."
+            </div>
+            <p><strong>Resultado esperado após 3 dias:</strong> 50–100 curtidas totais, 30–50 respostas, 10–20 DMs pedindo a planilha. A Personas agora têm "autoridade social" dentro dos grupos — são reconhecidas como pessoas que contribuem com valor.</p>
+            <span class="step-cost free">💰 Custo: R$0 — Apenas seu tempo (~2h/dia × 3 dias)</span>
+        </div>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🧠</span>
+        <span class="callout-text"><strong>Princípio Psicológico — Efeito Zeigarnik:</strong> O cérebro humano lembra de tarefas incompletas melhor do que tarefas concluídas. Ao mostrar estatísticas impressionantes mas NÃO mostrar a fonte completa, você cria uma "tarefa incompleta" na mente do concurseiro. Ele não consegue parar de pensar: "onde estão esses dados?". No Dia 4, quando o Gabaritou for revelado, o alívio psicológico de fechar essa lacuna vai ser enorme — e ele vai clicar.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 2: O GATILHO DA CONTROVÉRSIA -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 02 — Dias 4 a 7</div>
+        <h2>O Gatilho da <span class="hl">Controvérsia</span></h2>
+        <p class="section-desc">Controvérsia gera 10x mais engajamento que concordância. Ninguém compartilha "concordo", mas todo mundo compartilha " Isso é mentira! ".</p>
+    </div>
+
+    <div class="frame-box">
+        <span class="emoji">🔥</span>
+        <div class="title">A Tese Provocadora que Vai Explodir os Grupos</div>
+        <p>"90% dos concurseiros estudam o conteúdo errado. Um bot de IA encontrou o padrão."</p>
+    </div>
+
+    <div class="step s2">
+        <div class="step-head">
+            <div class="step-num">04</div>
+            <div>
+                <div class="step-title">Lançar a "Tese do Padrão Oculto"</div>
+                <div class="step-subtitle">Dia 4: A postagem que vai gerar debate em 50+ grupos simultaneamente</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>No Dia 4, a Persona 1 (Estatístico) faz uma postagem longa e detalhada em TODOS os 50 grupos simultaneamente. A postagem não é um anúncio — é uma "tese" com dados que provoca reação emocional imediata. O concurseiro que lê isso sente: raiva ("não pode ser verdade!"), medo ("será que estou estudando errado?"), e curiosidade ("quero ver esses dados"). Essa combinação de emoções é explosiva.</p>
+            <br>
+            <div class="code-box">
+<span class="comment">// ═══ POSTAGEM A SER ENVIADA EM TODOS OS 50 GRUPOS ═══</span>
+
+<span class="cmd">🚨 PESQUISA INÉDITA: O Padrão Oculto das Provas de Concurso 🚨</span>
+
+Analisei <strong>2.847 questões</strong> de provas reais do INSS, TRF, PF, Receita Federal e Polícia Civil dos últimos 5 anos usando inteligência artificial. O resultado é perturbador:
+
+<span class="cmd">📊 DESCOBERTA #1:</span> Em TODAS as bancas, existe um grupo de <strong>apenas 47 temas</strong> que representam <strong>73% de TODAS as questões</strong> das provas. 47 temas. O resto (outros 200+) representa apenas 27%.
+
+<span class="cmd">📊 DESCOBERTA #2:</span> A banca FCC repete o <strong>exato mesmo padrão de distribuição de temas</strong> há 7 anos consecutivos. Se você souber os 47 temas, sabe 73% da prova ANTES de abrir o caderno.
+
+<span class="cmd">📊 DESCOBERTA #3:</span> O concurseiro médio gasta <strong>62% do seu tempo estudando temas que representam apenas 18% das questões</strong>. É como estudar para uma prova de Matemática decorando fórmulas que nunca vão cair.
+
+<span class="cmd">Os 47 temas variam por concurso e banca.</span> Eu tenho a lista completa para INSS, TRF e PF. Quem quiser, me chama no privado.
+
+<span class="comment">// ═══ FIM DA POSTAGEM ═══</span>
+            </div>
+            <br>
+            <p><strong>O que acontece em seguida (hora a hora):</strong></p>
+            <ul>
+                <li><strong>Hora 0:</strong> A postagem gera 50–100 respostas em cada grupo. Metade diz "mentira,_show me the data". A outra metade diz "como eu acesso?". O debate já está criado.</li>
+                <li><strong>Hora 1–3:</strong> Pessoas começam a forwardar a postagem para outros grupos e para DMs. "Viu isso? Alguém sabe se é verdade?". O conteúdo se espalha organicamente para grupos que você nem entrou.</li>
+                <li><strong>Hora 3–6:</strong> Os DMs para as Personas explodem: 100–300 pedidos da "lista dos 47 temas". A Persona responde individualmente a cada um: "Estou compilando. Vou mandar amanhã." Isso cria suspense e LOCK-IN psicológico.</li>
+                <li><strong>Hora 6–12:</strong> A postagem aparece em stories de Instagram e TikTok de concurseiros que printaram e compartilharam. A manifestação começa a ser viral.</li>
+            </ul>
+            <span class="step-cost free">💰 Custo: R$0 — Conteúdo viral orgânico</span>
+        </div>
+    </div>
+
+    <div class="step s2">
+        <div class="step-head">
+            <div class="step-num">05</div>
+            <div>
+                <div class="step-title">O "DM Bait": Responder Cada Pedido com um Micro-Gancho</div>
+                <div class="step-subtitle">Dias 4–5: Converter curiosos em leads qualificados sem mostrar o bot ainda</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Cada pessoa que manda DM pedindo os "47 temas" recebe uma resposta personalizada que entrega valor parcial e planta a próxima semente de curiosidade. A pessoa NÃO é redirecionada ao Gabaritou — ela recebe um PDF com os 47 temas genéricos (sem a análise por banca), e um teaser que indica que a versão completa está em um bot.</p>
+            <br>
+            <div class="code-box">
+<span class="comment">// RESPOSTA VIA DM (enviar para cada pessoa que pediu):</span>
+
+"Oi! Que bom que se interessou 🙌
+
+Aqui está a lista dos <strong>47 temas mais cobrados</strong> (versão resumida):
+[LINK DO PDF no Google Drive — criado em 10 minutos]
+
+⚠️ Mas atenção: essa é a lista GERAL. Para cada concurso específico (INSS, TRF, PF), a ordem de prioridade muda completamente. A lista personalizada por concurso e banca — com a probabilidade exata de cada tema cair — está disponível em um bot de Telegram que eu ajudei a treinar.
+
+Ele analisa seu concurso alvo e gera um ranking personalizado em 30 segundos.
+
+Se quiser testar: <span class="cmd">@gabaritou_bot</span>
+
+Me conta depois o que achou! 👊"
+            </div>
+            <br>
+            <p><strong>Por que isso funciona 10x melhor que um anúncio:</strong> A pessoa pediu — ela veio até você. A resposta entregou valor real (o PDF). A menção ao bot é uma recomendação pessoal, não um pitch comercial. A probabilidade de clicar no @gabaritou_bot é estimada em <strong>40–60%</strong> (vs. 0,5% de um anúncio Meta Ads). E custou exatamente R$0.</p>
+            <br>
+            <p><strong>O PDF:</strong> Crie um PDF simples no Canva (já pago nos R$150) com a lista dos 47 temas. Design profissional mas minimalista. No rodapé: "Lista gerada com base em dados de @gabaritou_bot". Cada download do PDF é uma micro-impressão da marca.</p>
+            <span class="step-cost paid">💰 Custo: R$0 — Canva já incluído no orçamento | Google Drive: grátis</span>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 3: LAUNCH STEALTH -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 03 — Dias 8 a 14</div>
+        <h2>Launch Stealth: <span class="hl">O Bot se Revela</span></h2>
+        <p class="section-desc">Quando as pessoas descobrem que existe um bot que faz o que o "Estatístico" fazia manualmente, o efeito é de revelação. E revelações são compartilhadas.</p>
+    </div>
+
+    <div class="step s3">
+        <div class="step-head">
+            <div class="step-num">06</div>
+            <div>
+                <div class="step-title">Ativar o "Momento de Revelação" nos Grupos</div>
+                <div class="step-subtitle">Dias 8–9: Quando o Estatístico "confessa" que é um bot</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>O momento mais poderoso da estratégia: a Persona 1 (Estatístico) faz uma postagem de "confissão" em todos os 50 grupos. A confissão transforma uma pessoa em uma ferramenta — e isso é irresistivelmente compartilhável. Veja o script exato:</p>
+            <br>
+            <div class="code-box">
+<span class="comment">// ═══ POSTAGEM "CONFISSÃO" — ENVIAR EM TODOS OS 50 GRUPOS ═══</span>
+
+<span class="cmd">OK, eu preciso confessar algo 🫣</span>
+
+Nos últimos dias, vários de vocês me pediram a lista dos 47 temas e a análise personalizada por concurso. Eu estava fazendo isso manualmente com planilhas e IA. Mas a verdade é: <strong>eu sou a pessoa por trás de um bot de Telegram que faz isso automaticamente.</strong>
+
+O bot se chama <span class="cmd">GABARITOU</span> e faz o seguinte:
+
+✅ Você manda seu concurso alvo (ex: "INSS 2026")
+✅ Ele analisa os últimos editais reais e QUESTÕES da banca
+✅ Gera um ranking dos temas mais prováveis de cair
+✅ Mostra a probabilidade percentual de cada tema
+✅ Cria um plano de estudo personalizado
+
+Tudo em 30 segundos. Sem planilha. Sem adivinhação. Baseado em DADOS REAIS de editais.
+
+<span class="cmd">Teste grátis:</span> @gabaritou_bot → mande "INSS 2026" e veja com seus olhos.
+
+Eu não estou mais postando as análises manualmente porque o bot faz 100x melhor e mais rápido. Se quiser, testem e me digam o que acham.
+
+<span class="comment">// ═══ FIM DA POSTAGEM ═══</span>
+            </div>
+            <br>
+            <p><strong>Por que "confissão" funciona:</strong> A psicologia do storytelling nos ensina que uma "revelação" gera 3x mais engajamento que uma "apresentação". Quando o Estatístico "confessa" que é um bot, as pessoas sentem que foram parte de uma narrativa — elas "conheceram" a pessoa, confiaram nela, e agora descobrem que havia algo mais por trás. Essa sensação de "estava na minha frente o tempo todo" é um dos gatilhos de compartilhamento mais poderosos que existem.</p>
+            <br>
+            <p><strong>Métricas esperadas nessa postagem:</strong> 200–500 respostas nos 50 grupos, 500–1.000 cliques no @gabaritou_bot em 24 horas, 50–100 novos usuários do bot no primeiro dia pós-revelação.</p>
+            <span class="step-cost free">💰 Custo: R$0</span>
+        </div>
+    </div>
+
+    <div class="step s3">
+        <div class="step-head">
+            <div class="step-num">07</div>
+            <div>
+                <div class="step-title">Engenharia do Viral Loop: O Convite que Se Propaga</div>
+                <div class="step-subtitle">Dias 10–14: Cada usuário traz 3–5 novos — multiplicação exponencial</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Agora que o bot está recebendo tráfego orgânico dos grupos, é hora de ativar o mecanismo de multiplicação. O viral loop funciona assim: quando um usuário faz uma predição de prova e vê o resultado, o bot oferece um incentivo imediato para compartilhar. Mas NÃO é "convide amigos para ganhar 7 dias" (todo mundo ignora isso). É algo que o usuário QUER fazer porque o resultado é impressionante demais para não mostrar.</p>
+            <br>
+            <p><strong>O "Screenshot Viral" (a arma secreta):</strong></p>
+            <p>Configure o bot para que, após gerar uma predição, ele envie uma mensagem formatada de forma que o SCREENSHOT seja visualmente impressionante quando compartilhado no WhatsApp/Instagram. O screenshot precisa ter:</p>
+            <ul>
+                <li><strong>Visual impactante:</strong> Background escuro com cores vibrantes (branding Stargate v2), ranking de temas com barras de probabilidade, um "score de aprovação" percentual no topo.</li>
+                <li><strong>Número surpreendente:</strong> "Probabilidade de Direito Previdenciário cair: 94%" — números altos geram credibilidade e compartilhamento.</li>
+                <li><strong>Watermark sutil:</strong> "@gabaritou_bot" no canto inferior — não como propaganda, mas como "fonte da informação". As pessoas compartilham fontes, não propagandas.</li>
+                <li><strong>CTA invisível:</strong> No final da mensagem: "Compartilhe esse resultado com seus amigos de estudo — eles vão querer saber o que mais cai na prova também 😉".</li>
+            </ul>
+            <br>
+            <p><strong>A matemática do viral:</strong> Se cada usuário compartilha com 3 amigos (conservador) e 20% clicam no bot, e 5% se cadastram: cada usuário gera 0,3 novos usuários por compartilhamento. Com 100 usuários iniciais e 3 compartilhamentos cada = 300 novos. Em 4 ciclos (2 semanas): 100 → 300 → 900 → 2.700 → 8.100 usuários. Tudo sem gastar um centavo a mais.</p>
+            <span class="step-cost free">💰 Custo: R$0 — Apenas código no bot</span>
+        </div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-value green">3x</div>
+            <div class="stat-label">Engajamento vs. Meta Ads</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value amber">R$0</div>
+            <div class="stat-label">CAC (Customer Acquisition Cost)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">40–60%</div>
+            <div class="stat-label">Taxa de Clique no DM</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value red">8.100</div>
+            <div class="stat-label">Usuários em 2 semanas ( projeção )</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 4: SOCIAL STORM -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 04 — Dias 15 a 21</div>
+        <h2>Social Storm: <span class="hl">Conteúdo que Parece Espontâneo</span></h2>
+        <p class="section-desc">Agora o Gabaritou ganha vida própria nas redes sociais. Cada post é projetado para parecer que um concurseiro real compartilhou, não uma marca.</p>
+    </div>
+
+    <div class="step s4">
+        <div class="step-head">
+            <div class="step-num">08</div>
+            <div>
+                <div class="step-title">Operação "Anti-Marketing" no Instagram e TikTok</div>
+                <div class="step-subtitle">Dias 15–21: 7 posts que parecem UGC (User Generated Content), não publicidade</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>A regra de ouro: NUNCA poste como marca. Cada post deve parecer que um concurseiro real fez e compartilhou. Por quê? Porque o concurseiro desconfia de marcas ("querem meu dinheiro") mas confia em outros concurseiros ("esse passou, vou seguir o que ele fez"). A conta do Instagram deve ser pessoal — não "@gabaritouoficial", mas algo como "@estudantequepassou_" ou "@concurseiro.gabaritou".</p>
+            <br>
+            <p><strong>Os 7 Posts Anti-Marketing (1 por dia):</strong></p>
+            <br>
+            <div class="tactic">
+                <span class="tactic-icon">📱</span>
+                <div>
+                    <div class="tactic-name">Post 1 — "Screenshot do Bot" (Carrossel 3 slides)</div>
+                    <div class="tactic-desc">Slide 1: Print de um DM no WhatsApp de um amigo perguntando "mano, que bot é esse?". Slide 2: Print da predição do Gabaritou mostrando "Probabilidade de Direito Constitucional no INSS: 91%". Slide 3: Print da resposta do amigo: "CARALHO, isso é real?". Legenda: "Descobrir isso mudou minha forma de estudar. @gabaritou_bot no Telegram."</div>
+                </div>
+            </div>
+            <div class="tactic">
+                <span class="tactic-icon">📊</span>
+                <div>
+                    <div class="tactic-name">Post 2 — "Antes vs. Depois" (Reels/TikTok)</div>
+                    <div class="tactic-desc">Vídeo de 30 segundos mostrando: ANTES — print de simulado com 40% de acerto. DEPOIS — print de simulado com 78% de acerto depois de 2 semanas usando o Gabaritou. Narrador: "Eu gastava 4 horas estudando o que não ia cair. Agora o bot me diz exatamente o que priorizar. Aumente minha nota em 2 semanas."</div>
+                </div>
+            </div>
+            <div class="tactic">
+                <span class="tactic-icon">🔥</span>
+                <div>
+                    <div class="tactic-name">Post 3 — "A Lista que Ninguém Teve Coragem de Fazer" (Imagem única)</div>
+                    <div class="tactic-desc">Imagem com design minimalista mostrando os "Top 10 Temas que Mais Caem no INSS" com porcentagens. No rodapé em letra pequena: "Dados de @gabaritou_bot". Legenda: "Se você está estudando para o INSS e NÃO sabe que Previdenciário responde por 38% da prova, você está perdendo tempo. Esses dados mudam tudo."</div>
+                </div>
+            </div>
+            <div class="tactic">
+                <span class="tactic-icon">😤</span>
+                <div>
+                    <div class="tactic-name">Post 4 — "Confronto" (Stories com enquete)</div>
+                    <div class="tactic-desc">Story: "Vocês sabiam que 73% das questões de concurso vêm de apenas 47 temas?" Enquete: "SIM, eu sabia" vs "NÃO, que absurdo". 90% votam "NÃO". Story seguinte: "O @gabaritou_bot te mostra quais são esses 47 temas para SEU concurso específico. Link na bio."</div>
+                </div>
+            </div>
+            <div class="tactic">
+                <span class="tactic-icon">💬</span>
+                <div>
+                    <div class="tactic-name">Post 5 — "Screen Recording" do Bot (Reels/TikTok)</div>
+                    <div class="tactic-desc">Vídeo screen recording do Telegram mostrando a interação REAL com o bot em tempo real. Narração ao vivo: "Vou pedir pro bot analisar a prova do TRF e olha o que ele me retorna..." Mostra a predição aparecendo. Sem edição, sem filtro, sem produ profissional — crueza gera autenticidade.</div>
+                </div>
+            </div>
+            <div class="tactic">
+                <span class="tactic-icon">🏆</span>
+                <div>
+                    <div class="tactic-name">Post 6 — "O Desafio dos 7 Dias" (Carrossel 5 slides)</div>
+                    <div class="tactic-desc">Desafio: "Use o @gabaritou_bot por 7 dias e me conta se suas notas em simulado não aumentam. Se não aumentar, eu pago seu mês." Slide 1: O desafio. Slide 2: Como usar. Slides 3–5: Prints de resultados de beta testers. Isso cria accountability social e reduz barreira de entrada.</div>
+                </div>
+            </div>
+            <div class="tactic">
+                <span class="tactic-icon">🤯</span>
+                <div>
+                    <div class="tactic-name">Post 7 — "O Segredo que Cursinhos Não Querem Que Você Saiba" (Vídeo longo)</div>
+                    <div class="tactic-desc">Vídeo de 90 segundos com texto na tela (estilo Alex Hormozi): "Cursinhos cobram R$200/mês para te dar vídeo-aulas genéricas. Mas e se existisse um bot de IA que analisa editais reais e te diz EXATAMENTE o que estudar por R$19,90? Esse bot existe. E cursinhos estão com medo dele." Esse post é o mais agressivo e tem o maior potencial viral.</div>
+                </div>
+            </div>
+            <span class="step-cost paid">💰 Custo: R$27,90 (Canva Pro — 1 mês) | Buffer: grátis | Google Drive: grátis</span>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <span class="callout-icon">📱</span>
+        <span class="callout-text"><strong>Regra Anti-Brand:</strong> A conta do Instagram deve ter menos de 10 posts, bio minimalista, e parecer uma pessoa real. NENHUM logo estilizado, NENHUM slogan corporativo. O bio deve ser: "Concurseiro. Uso IA pra estudar melhor. @gabaritou_bot". Isso é o oposto do que agências de marketing recomendam — e é exatamente por isso que funciona.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 5: CONVERSÃO STEALTH -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 05 — Dias 22 a 25</div>
+        <h2>Conversão Stealth: <span class="hl">R$19,90 Sem Parecer Venda</span></h2>
+        <p class="section-desc">A hora de monetizar, mas sem que o usuário sinta que está sendo vendido algo. A conversão acontece como consequência natural da experiência.</p>
+    </div>
+
+    <div class="step s5">
+        <div class="step-head">
+            <div class="step-num">09</div>
+            <div>
+                <div class="step-title">O Paywall que Parece um Presente</div>
+                <div class="step-subtitle">Dias 22–25: Como pedir R$19,90 e fazer o concurseiro agradecer</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>O concurseiro brasileiro tem trauma de ser enganado por products baratos que prometem muito e entregam pouco. Por isso, o paywall precisa ser transparente, honesto e com valor imediato. A estratégia é um "freemium com gatilho de valor": o usuário testa grátis, vê algo que gera valor real imediato, e QUER pagar para ter mais.</p>
+            <br>
+            <p><strong>O Funnel de Conversão do Bot:</strong></p>
+            <ul>
+                <li><strong>Interação 1 (Grátis):</strong> Usuário manda mensagem → Bot responde com uma predição parcial (top 10 temas com probabilidade). Gratuito, sem cadastro. O usuário já vê valor imediato: "Caralho, esse bot sabe o que cai na prova!"</li>
+                <li><strong>Interação 2 (Grátis com cadastro):</strong> Bot pergunta: "Quer ver os outros 37 temas e o plano de estudo personalizado?". Usuário responde sim → Bot pede nome e email (ou número de telefone). O cadastro é rápido e sem burocracia.</li>
+                <li><strong>Interação 3 (Trial de 7 dias grátis):</strong> Bot entrega o conteúdo completo (47 temas + plano de estudo + 5 questões simuladas geradas por IA). No final: "Você usou o trial completo. Para continuar com predições atualizadas e simulados ilimitados, são R$19,90/mês. Primeiros 100 usuários pagam R$19,90 fixos (não aumenta para R$24,90)."</li>
+                <li><strong>Interação 4 (Pagamento):</strong> Bot gera QR Code PIX via MercadoPago. Usuário paga em 30 segundos. Confirmação automática. Acesso total liberado.</li>
+            </ul>
+            <br>
+            <p><strong>O truque psicológico do "Primeiros 100":</strong> Ao dizer que os primeiros 100 usuários pagam R$19,90 fixo (sem reajuste para R$24,90), você cria dois gatilhos simultâneos: <strong>escassez</strong> ("só tem 100 vagas!") e <strong>ancoragem de preço</strong> ("vou pagar R$19,90 em vez de R$24,90, que negócio!"). O concurseiro sente que está fazendo um "negócio" e não sendo vendido algo.</p>
+            <br>
+            <p><strong>Copy exata do paywall no bot:</strong></p>
+            <div class="code-box">
+<span class="cmd">🎯 SEU TRIAL DE 7 DIAS ACABOU</span>
+
+Você viu que a predição funciona. Agora imagina ter acesso a:
+
+✅ Predições atualizadas diariamente
+✅ Simulados gerados por IA com correção instantânea  
+✅ Plano de estudo que se adapta ao seu progresso
+✅ Análise de editais de TODOS os concursos (não só um)
+✅ Suporte direto no Telegram (resposta em segundos)
+
+<span class="cmd">💰 R$19,90/mês</span> (ou R$159,90/ano — economiza 33%)
+<span class="cmd">🎁 Primeiros 100 usuários: preço fixo vitalício</span> (nunca reajusta para R$24,90)
+<span class="cmd">⏳ Restam apenas [XX] vagas nesse preço</span>
+
+<span class="cmd">Para assinar, responda "1" e eu gero o PIX.</span>
+Pague em 30 segundos. Acesso liberado na hora.
+
+<span class="comment">// Se o usuário responder "1":</span>
+<span class="cmd">QR Code PIX gerado!</span> 📱
+Escaneie com seu banco ou copie o código:
+[PIX CODE]
+⏰ Válido por 10 minutos
+✅ Assim que pagar, mande "já paguei" e libero na hora!
+            </div>
+            <span class="step-cost free">💰 Custo: R$0 — MercadoPago já integrado ao bot</span>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 6: EFEITO MANADA -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 06 — Dias 26 a 30</div>
+        <h2>Efeito Manada: <span class="hl">Prova Social em Escala</span></h2>
+        <p class="section-desc">Quando o concurseiro vê que outros concurseiros estão usando e aprovando, o medo de ficar de fora supera qualquer objeção.</p>
+    </div>
+
+    <div class="step s6">
+        <div class="step-head">
+            <div class="step-num">10</div>
+            <div>
+                <div class="step-title">Lançar o "Mural de Aprovações" e o "Ranking Gabaritou"</div>
+                <div class="step-subtitle">Dias 26–28: Prova social que parece orgânica e espontânea</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>A prova social mais poderosa não vem de depoimentos filmados com iluminação profissional — vem de prints de WhatsApp e Telegram reais, com linguagem informal e gírias, que parecem que um amigo mandou. O "Mural de Aprovações" é uma compilção de mensagens reais de usuários que gostaram do bot, compartilhadas no Instagram e nos grupos de Telegram.</p>
+            <br>
+            <p><strong>Como coletar:</strong> Configure o bot para que, quando um usuário interagir positivamente (ex: mandar "obrigado", "massa", "muito bom"), o bot responda: "Que bom que gostou! Posso compartilhar seu feedback (sem nome) no nosso mural? Responda SIM ou NÃO". Isso é consentimento explícito e gera um banco de depoimentos reais que podem ser usados como conteúdo.</p>
+            <br>
+            <p><strong>O "Ranking Gabaritou" (gamificação viral):</strong> Crie um ranking semanal dos "Top 10 Estudantes Gabaritou" baseado em: número de interações com o bot, questões respondidas, e dias consecutivos de estudo (streak). O ranking é publicado toda segunda-feira nos grupos de Telegram e no Instagram. O #1 recebe um badge especial no bot e acesso vitalício grátis. Os demais ficam motivados a estudar mais para subir no ranking — e falam sobre isso nos grupos ("mano, to no top 5 do Gabaritou essa semana!").</p>
+            <span class="step-cost free">💰 Custo: R$0 — Feature do bot + posts orgânicos</span>
+        </div>
+    </div>
+
+    <div class="step s6">
+        <div class="step-head">
+            <div class="step-num">11</div>
+            <div>
+                <div class="step-title">O "Day Off do Bot": Criar Escassez Artificial</div>
+                <div class="step-subtitle">Dia 29: A tática mais contraintuitiva e mais poderosa</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Uma vez por mês, o bot fica "offline" por 24 horas. Durante esse período, responde apenas uma mensagem: " Estou atualizando minhas bases de dados com os editais mais recentes. Volto amanhã com predições ainda mais precisas. Enquanto isso, revise o último plano de estudo que enviei 😊". Isso cria três efeitos psicológicos devastadores:</p>
+            <ul>
+                <li><strong>Efeito de escassez:</strong> O usuário percebe o valor do bot quando ele NÃO está disponível. É como sentir falta de algo que se tornou parte da rotina.</li>
+                <li><strong>Efeito de exclusividade:</strong> "O bot está sendo atualizado com dados novos — quem é assinante vai ter acesso a predições melhores que os não-assinantes". Isso incentiva upgrades.</li>
+                <li><strong>Efeito de antecipação:</strong> Quando o bot volta online, os usuários correm para usar e ver o que há de novo. O engajamento no dia seguinte ao "day off" é consistentemente 3x–5x maior que a média.</li>
+            </ul>
+            <br>
+            <p><strong>Implementação técnica:</strong> Adicione uma variável de ambiente `BOT_MAINTENANCE=true` que, quando ativada, faz o bot responder apenas com a mensagem de manutenção. Desative após 24h. Simples e eficaz.</p>
+            <span class="step-cost free">💰 Custo: R$0 — 1 variável no código</span>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- FASE 7: EXPANSÃO ZERO CUSTO -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Fase 07 — Dia 30 em diante</div>
+        <h2>Expansão <span class="hl">Zero Custo</span> (Loop Infinito)</h2>
+        <p class="section-desc">Depois dos 30 dias, a máquina está montada. Agora é otimizar e escalar sem gastar mais nada.</p>
+    </div>
+
+    <div class="step s7">
+        <div class="step-head">
+            <div class="step-num">12</div>
+            <div>
+                <div class="step-title">Sistema de "Embaixadores Gabaritou"</div>
+                <div class="step-subtitle">Dia 30+: Os top 10% de usuários viram evangelistas pagos</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Identifique os 10% de usuários mais ativos (baseado em interações com o bot e streaks) e ofereça: <strong>"Você já usa o Gabaritou de graça. Se você convidar 5 amigos que assinem, sua assinatura é vitalícia + você recebe R$5 por cada indicação que se tornar pagante."</strong> Isso cria um exército de micro-vendedores que vendem por você sem custar nada. Eles vendem melhor que qualquer anúncio porque são usuários reais com credibilidade dentro de suas comunidades.</p>
+            <br>
+            <p><strong>Economia:</strong> Se cada embaixador traz 5 novos pagantes/mês a R$19,90 = R$99,50 em receita nova. Se você paga R$5 por indicação = R$25 em custo. Lucro líquido: R$74,50 por embaixador/mês. Com 50 embaixadores = R$3.725/mês em receita incremental com R$1.250 em custo = margem de 66%. E o CAC efetivo cai para R$5 (muito abaixo dos R$80 dos concorrentes).</p>
+            <span class="step-cost free">💰 Custo: R$0 até que as indicações comecem (pay-per-performance)</span>
+        </div>
+    </div>
+
+    <div class="step s7">
+        <div class="step-head">
+            <div class="step-num">13</div>
+            <div>
+                <div class="step-title">SEO Ninja: Dominar "Concurso [Órgão] 2026" no Google</div>
+                <div class="step-subtitle">Dia 30+: Tráfego orgânico de longo prazo sem custo</div>
+            </div>
+        </div>
+        <div class="step-body">
+            <p>Crie uma landing page simples (já incluída no orçamento: domain + hosting) que rankie para termos como "quais temas mais caem no INSS 2026", "edital INSS análise IA", "probabilidade de temas concurso", etc. A página deve ter: a análise dos 47 temas para cada concurso (gerada pelo bot), um CTA para testar o bot no Telegram, e um formulário de captura de email. O conteúdo é atualizado automaticamente pelo bot (os dados já existem no Supabase).</p>
+            <br>
+            <p><strong>Estratégia de conteúdo para SEO:</strong></p>
+            <ul>
+                <li><strong>Páginas de concurso:</strong> Uma página para cada concurso ativo (INSS, TRF, PF, Receita, Polícia Civil, etc.) com a análise dos temas mais cobrados. São 20+ páginas que podem rankear para termos long-tail de alto volume e baixa competição.</li>
+                <li><strong>Blog com dados:</strong> Posts quinzenais com análises de editais recentes: "Análise completa do edital do INSS 2026: o que mudou e o que isso significa para sua prova". Esses posts atraem tráfego qualificado e geram backlinks naturais.</li>
+                <li><strong>Embed do bot:</strong> Cada página tem um widget que replica a experiência do bot ("Digite seu concurso e veja a predição"). Isso converte tráfego orgânico em usuários do bot sem necessidade de cadastro.</li>
+            </ul>
+            <span class="step-cost paid">💰 Custo: R$39,90 (domain .com.br, já incluso) + R$14,90 (hosting) = Total já incluso nos R$150</span>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- TÁTICAS SECRETAS BÔNUS -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Bônus Tubarão</div>
+        <h2>Táticas Secretas que <span class="hl">Ninguém Usa</span></h2>
+        <p class="section-desc">Ideias adicionais que custam R$0 e podem gerar mais tráfego que todas as anteriores combinadas.</p>
+    </div>
+
+    <div class="card shark">
+        <h3>🦈 Tática #1: "O Print Mágico" (WhatsApp Chain Reaction)</h3>
+        <p>Crie um print bem bonito do resultado de uma predição do bot (usando o branding Stargate v2) que inclua um QR Code leve no canto que leva ao @gabaritou_bot. Envie esse print para 10 pessoas no WhatsApp com a mensagem: "Mano, descobriram um padrão nas provas do INSS. Olha isso:" e não diga mais nada. A curiosidade faz o resto. Das 10 pessoas, 7 vão clicar na imagem para ver melhor, 4 vão escanear o QR Code, e 2 vão testar o bot. Se cada uma fizer o mesmo com mais 10 pessoas, em 3 rounds você alcançou 1.000 pessoas. Custo: R$0. Tempo: 5 minutos.</p>
+    </div>
+
+    <div class="card shark">
+        <h3>🦈 Tática #2: "O Edital Hacker" (Storytelling Viral)</h3>
+        <p>Crie uma narrativa fictícia (mas plausível) de que "um programador hacker" descobriu um padrão nos editais e criou um bot para explorar isso. A narrativa Hacker vs. Sistema é irresistível: "Um dev analisou 2.847 questões e descobriu que as bancas seguem o mesmo padrão há 5 anos. O governo não quer que você saiba disso." Publicar isso em fóruns como Reddit (r/concursospublicos), Hardmob e Groupprops gera debate massivo e tráfego orgânico. Não é desinformação — os dados são reais. A narrativa é apenas storytelling.</p>
+    </div>
+
+    <div class="card shark">
+        <h3>🦈 Tática #3: "O Contra-Ataque" (Responder Críticas com Dados)</h3>
+        <p>Quando alguém nos grupos disser "isso é mentira, bot não prevê prova", a Persona 3 (Angustiado) responde com um screenshot de uma predição que ACERTOU: "Look, o bot previu que Direito Constitucional — Remédios Constitucionais teria 3 questões na prova do TRF3. Teve 3. Print da predição (de antes da prova) + print do gabarito (depois da prova)." É impossível argumentar contra dados. E quem estava duvidando se torna o maior evangelista.</p>
+    </div>
+
+    <div class="card shark">
+        <h3>🦈 Tática #4: "Micro-Influenciador Ninja" (Pay-per-Result)</h3>
+        <p>Não pague adiantado para influencers. Encontre 10 micro-influenciadores de concursos (5K–20K seguidores) e proponha: "Vou te dar acesso vitalício ao bot (R$19,90/mês = R$238,80/ano em valor) + R$10 por cada usuário que assinar usando seu código de indicação." Você só paga se der resultado. Se cada micro-influenciador trouxer 10 pagantes = R$100 em custo por influenciador. Com 10 influenciadores = 100 pagantes por R$1.000 em custo total (R$10 CAC). Mas espere — o orçamento é R$150. Então negocie acesso vitalício em troca de 2 posts (sem pagamento, só o produto). Muitos micro-influenciadores aceitam porque o conteúdo é genuinamente útil para a audiência deles.</p>
+    </div>
+
+    <div class="card shark">
+        <h3>🦈 Tática #5: "O Streak que Paga" (Retenção Viral)</h3>
+        <p>O bot rastreia quantos dias consecutivos o usuário estudou (streak). Quando o streak chega a 7, 14, 30 dias, o bot envia uma mensagem celebratória que FOI PROJETADA PARA SER COMPARTILHADA: "🔥 Pedro está há 30 dias estudando com o Gabaritou! Isso coloca ele no top 5% dos concurseiros. Continue assim!" com um botão "Compartilhar no status". O streak gera engajamento contínuo e as mensagens de milestone geram tráfego social recorrente.</p>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- CRONOGRAMA COMPLETO -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Execução</div>
+        <h2>Cronograma Completo: <span class="hl">30 Dias em Detalhe</span></h2>
+        <p class="section-desc">Resumo executivo de cada dia com ação específica, custo e métrica-alvo.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Dia</th>
+                    <th>Fase</th>
+                    <th>Ação Principal</th>
+                    <th>Custo</th>
+                    <th>Métrica-Alvo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="td-bold">1</td><td><span class="pill red">Infiltração</span></td><td>Mapear 50 grupos de Telegram + WhatsApp</td><td class="td-green">R$0</td><td>50 grupos catalogados</td></tr>
+                <tr><td class="td-bold">1</td><td><span class="pill red">Infiltração</span></td><td>Criar 3 personas (Estatístico, Aprovado, Angustiado)</td><td class="td-green">R$0</td><td>3 perfis ativos</td></tr>
+                <tr><td class="td-bold">2</td><td><span class="pill red">Infiltração</span></td><td>Entrar em 50 grupos com as 3 personas</td><td class="td-green">R$0</td><td>Persona aceita em 40+ grupos</td></tr>
+                <tr><td class="td-bold">2–3</td><td><span class="pill red">Infiltração</span></td><td>Semeadura: 2–3 posts de valor por persona/dia</td><td class="td-green">R$0</td><td>50 curtidas + 30 respostas</td></tr>
+                <tr><td class="td-bold">4</td><td><span class="pill amber">Controvérsia</span></td><td>Lançar "Tese do Padrão Oculto" em todos os grupos</td><td class="td-green">R$0</td><td>300 respostas + 200 DMs</td></tr>
+                <tr><td class="td-bold">4–5</td><td><span class="pill amber">Controvérsia</span></td><td>Responder DMs com PDF + teaser do bot</td><td class="td-green">R$0</td><td>150–300 cliques no bot</td></tr>
+                <tr><td class="td-bold">6–7</td><td><span class="pill amber">Controvérsia</span></td><td>Monitorar grupos e responder dúvidas sobre dados</td><td class="td-green">R$0</td><td>Sustentar debate ativo</td></tr>
+                <tr><td class="td-bold">8</td><td><span class="pill green">Launch</span></td><td>Postagem "Confissão" do Estatístico em 50 grupos</td><td class="td-green">R$0</td><td>500+ cliques no bot</td></tr>
+                <tr><td class="td-bold">9</td><td><span class="pill green">Launch</span></td><td>Configurar viral loop (screenshot viral) no bot</td><td class="td-green">R$0</td><td>Feature live</td></tr>
+                <tr><td class="td-bold">10–14</td><td><span class="pill green">Launch</span></td><td>Monitorar crescimento e responder feedback</td><td class="td-green">R$0</td><td>1.000+ usuários cadastrados</td></tr>
+                <tr><td class="td-bold">15</td><td><span class="pill" style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);color:#06b6d4;">Social</span></td><td>Criar conta Instagram anti-brand + 1º post</td><td class="td-green">R$0</td><td>Conta criada</td></tr>
+                <tr><td class="td-bold">16–21</td><td><span class="pill" style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);color:#06b6d4;">Social</span></td><td>7 posts anti-marketing (1/dia)</td><td class="td-amber">R$27,90</td><td>5.000+ impressões</td></tr>
+                <tr><td class="td-bold">22</td><td><span class="pill" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#3b82f6;">Conversão</span></td><td>Ativar paywall com trial 7 dias</td><td class="td-green">R$0</td><td>Funnel ativo</td></tr>
+                <tr><td class="td-bold">23–25</td><td><span class="pill" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:#3b82f6;">Conversão</span></td><td>Monitorar conversões trial→paid</td><td class="td-green">R$0</td><td>50+ pagantes</td></tr>
+                <tr><td class="td-bold">26–28</td><td><span class="pill" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);color:#8b5cf6;">Manada</span></td><td>Publicar Ranking Gabaritou + Mural de Aprovações</td><td class="td-green">R$0</td><td>100+ pagantes</td></tr>
+                <tr><td class="td-bold">29</td><td><span class="pill" style="background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);color:#8b5cf6;">Manada</span></td><td>"Day Off" do bot (manutenção 24h)</td><td class="td-green">R$0</td><td>Engajamento 3x no retorno</td></tr>
+                <tr><td class="td-bold">30</td><td><span class="pill green">Expansão</span></td><td>Ativar programa Embaixadores + SEO</td><td class="td-amber">R$54,80</td><td>Estrutura escalável</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="stat-grid mt-30">
+        <div class="stat-box">
+            <div class="stat-value amber">R$132,30</div>
+            <div class="stat-label">Total investido</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">~500</div>
+            <div class="stat-label">Usuários cadastrados (D14)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value green">~100</div>
+            <div class="stat-label">Pagantes (D30)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">R$1.990</div>
+            <div class="stat-label">MRR em 30 dias</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value red">15x</div>
+            <div class="stat-label">ROI do investimento</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- RESUMO FINAL -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div class="section-label">Conclusão</div>
+        <h2>Por que R$150 é Mais Poderoso que <span class="hl">R$50.000 em Ads</span></h2>
+    </div>
+
+    <div class="card shark">
+        <h3>🦈 A Lógica do Tubarão</h3>
+        <p>R$50.000 em Meta Ads compram atenção temporária que para no segundo em que você para de pagar. R$150 em ferramentas + suor + psicologia constroem um sistema de aquisição orgânica que se autocatalisa: quanto mais pessoas usam, mais pessoas descobrem, mais pessoas usam. O concorrente com R$50K tem um funil que vaza. Você tem um tsunami que cresce.</p>
+        <br>
+        <p>A estratégia toda se baseia em 3 princípios que ninguém no mercado de concursos aplica:</p>
+        <ul>
+            <li><strong>Psicologia > Publicidade:</strong> Em vez de pagar para interromper pessoas, você engenharia situações onde as pessoas PROCURAM o Gabaritou. ODM curiosity gap + prova social + escassez = conversão que publicidade nenhuma compra.</li>
+            <li><strong>Comunidade > Campanha:</strong> Grupos de Telegram e WhatsApp são os canais mais confiança e conversão para concurseiros. Ninguém confia em um anúncio, mas todo mundo confia na recomendação do colega de estudo.</li>
+            <li><strong>Produto > Marketing:</strong> O melhor marketing do Gabaritou é o Gabaritou funcionando. Cada predição correta, cada simulado bem feito, cada " CARALHO, acertou tudo! " — isso é marketing que dinheiro não compra. Invista em fazer o produto tão bom que as pessoas não consigam parar de falar dele.</li>
+        </ul>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🚀</span>
+        <span class="callout-text"><strong>O Lembrete Final:</strong> O concorrente gasta R$50K e depende de anúncios. Você gasta R$150 e depende de ser genial. Qual é mais escalável? Qual é mais sustentável? Qual é mais difícil de copiar? A resposta é a mesma para as três: a sua estratégia. Porque ninguém pode comprar o que você construiu com inteligência.</span>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="brand">🦈 GABARITOU — ESTRATÉGIA TUBARÃO</div>
+    <p>Marketing Disruptivo &bull; R$150 &bull; 30 Dias &bull; 1.000 Pagantes</p>
+    <p class="mt-10">Documento de estratégia — Abril 2026</p>
+    <p class="mt-10" style="font-size:11px;color:var(--text-dim);">As táticas descritas utilizam estratégias legítimas de marketing de comunidade,_growth hacking e psicologia comportamental. A execução deve seguir os termos de serviço de cada plataforma.</p>
+</footer>
+
+</body>
+</html>

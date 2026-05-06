@@ -1,0 +1,279 @@
+[
+  {
+    "id": "enc_jddoiFW_Qnaceg4JYKMKsn0xJjqqzeIxDB3C56F33-Y7iPqgd0YVMV1VPnFA5HPM",
+    "header": "Unifeso HCTCO 2016 – Clínica Médica",
+    "statement": "Em relação ao pseudocisto pancreático, marque a alternativa errada:",
+    "alternatives": {
+      "A": "Os pseudocistos são formados pelo acúmulo de suco pancreático extravasado e envolvido por uma cápsula formada por tecido de granulação e fibrose, sem constituir um epitélio verdadeiro. ",
+      "B": "Pode estar associado a pancreatite crônica e geralmente decorre de ruptura do sistema ductal pancreático.",
+      "C": "Quando localizado no espaço retrogástrico aderidios as paredes posteriores do estômago devem ser drenadas para o estômago (cistogastrotomia).",
+      "D": "Lesões menores que 15cm e assintomático deve ser apenas acompanhado por usg seriada, desde que seja excluída a neoplasia cística.",
+      "E": "Para o tratamento cirúrgico, deve se conhecer a localização e o tamanho de pseudocisto e avaliar o ducto pancreático quanto a obstrução e a variety do seu calibre"
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_tsx7K5-ZDLHf9Y2Xq-TetrterTzqmtwUIiAXcUjndDkDj7uQXL8EKDx2vx_ozlEm",
+    "header": "UFMA HU 2018 – Clínica Médica",
+    "statement": "Dentre as causas de hiperglicemia, existem aquelas em que predomina o mecanismo de resistência tecidual à insulina, enquanto em outras predomina o mecanismo de redução da secreção de insulina. Marque a opção em que PREDOMINA o último mecanismo.",
+    "alternatives": {
+      "A": "Uso de corticoide.",
+      "B": "Doença hepática.",
+      "C": "Acromegalia. ",
+      "D": "Uso de tiazídicos.",
+      "E": "Glucagonoma."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_DdQ5m61WQ_qKS-PA39mepST-cZkj_u1Z_YaGXjoqzPDn7cLujN4VIgfAhDJY-ztF",
+    "header": "SES GO 2019 – Clínica Médica",
+    "statement": "Qual é o único hipolipemiante liberado para mulheres no período gestacional?",
+    "alternatives": {
+      "A": "Colestiramina.",
+      "B": "Ezetimibe.",
+      "C": "Fibratos.",
+      "D": "Fitosteróis."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_jpX9DHruAVWq7h2MIsgoIyNXs-viFAPVnYBNUusk9wLrn4oaue1nOg6M3gL6Cxiu",
+    "header": "UEPA Belém 2016 – Clínica Médica",
+    "statement": "Paciente de 48 anos, relata ter iniciado tratamento para Hanseniase há 5 meses; diz estar usando poliquimioterapia para multibacilar. Os medicamentos, doses e tempo de administração da medicação indicada neste caso, respectivamente, é:",
+    "alternatives": {
+      "A": "Rifampicina, clofazimina e dapsona; com 12 doses em até 18 meses.",
+      "B": "Rifampicina, clofazimina e dapsona; com 06 doses em até 09 meses.",
+      "C": "Rifampicina e dapsona; com 12 doses em até 18 meses.",
+      "D": "Rifampicina e dapsona; com 06 doses em até 09 meses.",
+      "E": "Rifampicina, isoniazida, pirazinamida e etambutol por 6 meses."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_VFkO6w-oiceAMtDzi9migus3DagExoVSTcV9nEN6SGzhH3FHzgGJxIOS83t9haU_",
+    "header": "UNIGRANRIO RJ 2016 – Clínica Médica",
+    "statement": "Utilizando a escala de Glasgow, qual o fator que apresenta maior relação com a gravidade do TCE e com a sobrevida do paciente? ",
+    "alternatives": {
+      "A": "Resposta verbal. ",
+      "B": "Resposta Motora.",
+      "C": "Abertura Ocular.",
+      "D": "Glasgow < ou = 10."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_lD3vMOHMIdRuMZT3BkIQgQWE136yODToX0t1wccNJjcgOpyby670KL9q1WNRt-hv",
+    "header": "UFES HUCAM 2017 – Clínica Médica",
+    "statement": "Paciente 70 anos, feminino, internado em Unidade de Terapia Intensiva há 15 dias para tratamento de pneumonia comunitária grave, já em uso de antibiótico há 10 dias, evoluiu with quadro de distensão abdominal, diarreia e piora de leucocitose. A retossigmoidoscopia rígida foi identificada mucosa inflamada coberta por pseudo membranas. Relativo ao caso afirma-se, exceto: ",
+    "alternatives": {
+      "A": "O provável diagnóstico é colite pseudomembranosa. ",
+      "B": "Exame de substâncias redutores nas fezes têm alta sensibilidade e especificidade no diagnóstico da colite pseudomembranosa. ",
+      "C": "A bactéria mais envolvida com a colite pseudomembranosa é o Clostridium difficile. ",
+      "D": "O uso de vancomicina ou metronidazol está indicado quando diagnosticado colite pseudomembranosa. ",
+      "E": "A taxa de mortalidade está associada a mais de 50% dos casos de colite pseudomembranosa onde a cirurgia se fizer necessária."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_UgKvfDQXf9G2ieowvxdosqTiWnhrG7JL14sqPn_PbP_0l1fKHyDQuw_V2hzkD0TX",
+    "header": "UEPA Santarém 2018 – Clínica Médica",
+    "statement": "Manchas ou máculas são alterações de cor na pele, de qualquer forma ou tamanho. A doença autossômica dominante que apresenta manchas hipocrômicas, adenomas sebáceos, epilepsia e retardo mental é denominada:",
+    "alternatives": {
+      "A": "síndrome de Peutz-Jeghers",
+      "B": "dermatite ocre",
+      "C": "Esclerose tuberosa",
+      "D": "carotenodermia ",
+      "E": "vitiligo"
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_7vWV-C8mF1BSWrg1c56BmKnPHQ7MlhQ4OZwukE37bN7YfmGX6CBS8m_jcRUPtfEt",
+    "header": "UESPI PI 2025 – Clínica Médica",
+    "statement": "Ao receber um laudo de RM crânio, realizada hoje, de um paciente with hemiparesia direita há 3 dias de início súbito, descrevendo área de 10 mm com restrição das moléculas de água à sequência de difusão em topografia da cápsula interna à esquerda, pode-se concluir que",
+    "alternatives": {
+      "A": "essa área não explica o déficit do paciente, portanto o laudo deve ser revisado.",
+      "B": "há isquemia aguda tendo como provável etiologia doença de pequenos vasos.",
+      "C": "é fundamental o estudo com angiografia cerebral para investigação complementar, pois é possível haver hemorragia associada com área de isquemia aguda.",
+      "D": "há um achado típico de hemorragia hipertensiva em sua topografia mais comum.",
+      "E": "o contraste (gadolíneo) é fundamental para excluir abscesso, pois a ausência de captação é comum em processos infecciosos."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_C_r9kU535FhveHqmsnAXdQkuhi5HJOorMc092PhzWCS27Aoyc4ZUvN0HOp8eomkj",
+    "header": "Santa Casa SJC 2020 – Clínica Médica",
+    "statement": "Diante de uma child de 05 anos de idade com diagnóstico de dengue, qual das seguintes alternativas contém apenas os sinais de alarme de dengue?",
+    "alternatives": {
+      "A": "Prova do laço positiva, leucopenia e dor abdominal.",
+      "B": "Dor abdominal intensa e contínua, vômito persistente, sangramento de mucosas, irritabilidade.",
+      "C": "Aumento do fígado > 2 cm, febre elevada, leucopenia e exantema maculopapular.",
+      "D": "Cefaleia intensa, vômitos persistentes, exantema maculopapular e febre elevada."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_DACyLVse1rvmE9KdoVAwGN_BN7fDRJCz61YP6RVswyznAH6msvbuvbk1GTVV-TOz",
+    "header": "SUS SP 2018 – Clínica Médica",
+    "statement": "Um senhor de 52 anos é internado por dor abdominal em faixa em epigástrio, irradiada para o dorso, há 2 dias, acompanhada de náuseas e vômitos. Apesar da fácies de dor, está em bom estado geral, anictérico e afebril. Pulso: 90 bpm, rítmico. PA: 130 × 80 mmHg; frequência respiratória: 18 irpm. Tem dor em epigástrio à palpação do abdome, mas sem peritonismo ou distensão. O ultrassom mostra múltiplos cálculos na vesícula biliar. Amilase: 1.500 U/L, leucócitos: 10.100/mm³, creatinina: 0,8 mg/dl. No primeiro dia após a internação, apresenta febre, mas sem repercussão hemodinâmica. Novo leucograma: com 9.500 leucócitos/mm³. Melhor conduta, neste momento:",
+    "alternatives": {
+      "A": "Observação clínica e pesquisa de foco infeccioso.",
+      "B": "Tomografia de abdome para descartar necrose pancreática, eventually infectada.",
+      "C": "Ressonância magnética para avaliar provável complicação pancreática.",
+      "D": "Laparotomia ou laparoscopia diagnóstica, pela provável complicação infecciosa quepode exigir debridamento cirúrgico e drenagem.",
+      "E": "Antibioticoterapia empírica e monitorização clínica."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_0uRQ0LtZr9G08ARQYhLFIqAexFcYuis09VB7lHtGmKzv2QyaBwV756MerYuNZI3u",
+    "header": "HOS SP 2020 – Clínica Médica",
+    "statement": "Mulher, 65 anos, refere desconforto em hipocôndrio direito há 2 meses. Relata aumento de 12 kg nos últimos 5 anos. É pré-diabética e hipertensa, mas não tem medido a pressão de maneira rotineira e não faz uso de medicamentos. Bebe uma lata de cerveja nos finais de semana e usou anticoncepcional até os 40 anos. Exame físico: bom estado geral, peso = 92 kg, altura = 1,65 m, PA = 160 x 100 mmHg, FC = 92 bpm, circunferência abdominal = 104 cm, sem edemas; fígado palpável a 5 cm do rebordo costal direito, tenso, rombo, sensível ao toque. Realizada ultrassonografia do abdome que revelou a presença de esteatose hepática. Assinale a alternativa que apresenta a conduta correta para esse caso.",
+    "alternatives": {
+      "A": "Iniciar tratamento farmacológico com vitamina E em altas doses, para diminuir a progressão para fibrose ou cirrose hepática.",
+      "B": "Indicar a realização de fibroscan hepático.",
+      "C": "Rastrear síndrome metabólica e iniciar mudanças do estilo de vida.",
+      "D": "Realizar biópsia hepática para confirmar a etiologia e gravidade da lesão.",
+      "E": "Realizar controle da pressão arterial e acalmar a paciente em relação às alterações hepáticas, já que raramente trazem complicações a longo prazo."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_b6pz6fMTwfHKsdV_-Y08ahS5RcENZZY_QhaOojS6TBzpI6IhhLGcJM74_P-4wDgc",
+    "header": "HCMT MT 2017 – Clínica Médica",
+    "statement": "Durante a investigação de uma anemia ferropriva em uma child de 9 anos de idade, qual dos seguintes resultados EXCLUI de vez a deficiência de ferro?",
+    "alternatives": {
+      "A": "Aspirado de medula óssea com reserva de ferro normal.",
+      "B": "Volume globular médio normal.",
+      "C": "Aumento do TIBC.",
+      "D": "Ferritina sérica normal."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_VjkahVKLcs4qn0Yq3LOnjEwNfRyvPG3A3-9PD3Lirqyxkw3e-eI_xzSrMH-sfT5i",
+    "header": "UFRJ HUCFF 2022 – Clínica Médica",
+    "statement": "Pode-se afirmar que são causas de acidose metabólica, com ânion gap aumentado:",
+    "alternatives": {
+      "A": "cetoacidose alcoólica; acidose dilucional; ureterosigmoidostomia ",
+      "B": "intoxicação por etileno glicol; acidose dilucional; diarreia por ostomia",
+      "C": "intoxicação por metanol; hiperingesta de aminoácidos; acidose tubular renal",
+      "D": "cetoacidose diabética; intoxicação por salicilato; acidose láctica "
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_lOtN3QQ_CS1-fOV9rr5sjDBzuk1FDv3oapyrmKLdl3gIrwubyQVr3OOqZHP3NDGN",
+    "header": "UDI Hospital MA 2021 – Clínica Médica",
+    "statement": "A mucormicose refere-se a uma infecção potencialmente fatal causada por fungos da família Mucorales. As condições abaixo constituem risco aumentado para o desenvolvimento da patologia ora em tela, com exceção:",
+    "alternatives": {
+      "A": "Neutropenia",
+      "B": "Hypoglicemia factícia",
+      "C": "Acidose metabólica",
+      "D": "Terapia com glicocorticóides",
+      "E": "Tratamento com desferroxamina"
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_-bqjCW8C8czLWz3nantO-WVegxqeqadYTfEIrXGamN50bOk-4v8YGjll3huNKHev",
+    "header": "IPSEMG MG 2025 – Clínica Médica",
+    "statement": "Uma mulher de 65 anos com osteoporose é indicada para iniciar bifosfonatos. Qual é o principal efeito adverso associado a longo prazo com esse tratamento?",
+    "alternatives": {
+      "A": "Hipercalcemia.",
+      "B": "Fraturas atípicas de fêmur.",
+      "C": "Aumento da densidade óssea em membros superiores.",
+      "D": "Redução da massa muscular."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_hg5YnquTdX8ihYWWMcJxDPX2Wr3FbngJWXs3mLMTQAGydGylbkmsdyVasWZrVDCm",
+    "header": "SURCE CE 2015 – Clínica Médica",
+    "statement": "Paciente de 59 anos, sexo masculino, destro, evolui com afasia súbita. Ao ser avaliado no setor de emergência, obedece comandos, mas é incapaz de repetir palavras, nomear objetos ou formular frases. Com base nos dados apresentados, qual das imagens abaixo (cortes axiais de ressonância magnética ponderada por difusão) representa a alteração mais provável para esse paciente?",
+    "alternatives": {
+      "A": "",
+      "B": "",
+      "C": "",
+      "D": ""
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_scXRtLia2d5ZV5LnYxFejSOOwxf8etpN4ezRiGbNQ3GxaUq9VpHJBl9CpgNMuTI4",
+    "header": "Pró-Cardíaco RJ 2016 – Clínica Médica",
+    "statement": "Em relação às síndromes de derrame pleural, assinale a alternativa correta.",
+    "alternatives": {
+      "A": "A relação entre proteína pleural/proteína sérica > 0,5 tem especificidade de 95% para o diagnóstico de exsudato.",
+      "B": "O derrame pleural localizado à direita é mais comum que o localizado à esquerda na insuficiência cardíaca congestiva.",
+      "C": "Efusão pleural parapneumônica é causa infrequente de derrame pleural exsudativo. ",
+      "D": "Carcinoma pulmonar, tumor de mama e mesotelioma são as causas mais comuns de efusão pleural maligna.",
+      "E": "Na pleurite tuberculosa, observa-se tipicamente líquido pleural exsudativo com adenosina deaminase < 40 UI/L e gama-interferon <100 pg/ml."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_hbdW3JHj1QL1irkgxX8jYo75j-5NYwuWQQhBSkvrp6lVtqQ5eOGmCIL6iSCXSToN",
+    "header": "UNIRIO HUGG 2020 – Clínica Médica",
+    "statement": "A hidradenite supurativa perianal constitui processo inflamatório crônico caracterizado pela presença de abscessos e fístulas. A etiologia desta condição está relacionada a inflamação de glândulas",
+    "alternatives": {
+      "A": "apócrinas.",
+      "B": "écrinas.",
+      "C": "da fáscia perineal.",
+      "D": "de Bartholin.",
+      "E": "pilosas."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  },
+  {
+    "id": "enc_vLETOC4zrmlPgI7H0Oc6D9nT-qw33w89GcbDhLRo-2Gu_Zk1xyiCFJ_MgTn0NMEC",
+    "header": "HVV MG 2024 – Clínica Médica",
+    "statement": "A respeito da diverticulose e suas principais características, é CORRETO afirmar:",
+    "alternatives": {
+      "A": "A diverticulose de forma hipotônica está restrita ao cólon esquerdo, em especial, ao sigmoide, apresentando diminuição importante da luz intestinal e redução de seu comprimento, ficando o segmento com aspecto “sanfonado”.",
+      "B": "Na diverticulose de forma hipertônica, quando há contração permanente da musculatura cólica, há referência de dor em cólica na fossa ilíaca esquerda ou região suprapúbica, que aumenta após as refeições e se alivia com a eliminação de gases ou fezes.",
+      "C": "A diverticulose de forma hipertônica é de maior incidência, sendo relacionada ao envelhecimento fisiológico que ocasiona o adelgaçamento da musculatura cólica.",
+      "D": "A cirurgia na forma hipotônica é indicada na maioria dos casos, uma vez que o sangramento diverticular extenso é comum, sendo necessário internação e medidas de caráter de urgência."
+    },
+    "comments": "Explicação em processamento pelo motor MiroFish.",
+    "answer": "A",
+    "aether_score": "85%"
+  }
+]

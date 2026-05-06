@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabaritou Concurseiros — Previsão de Mercado 2026-2031</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --abyss: #060612;
+            --abyss-light: #0d0d24;
+            --surface: #12122a;
+            --surface-2: #1a1a3e;
+            --border: rgba(139,92,246,0.15);
+            --violet: #8b5cf6;
+            --violet-light: #a78bfa;
+            --violet-dark: #7c3aed;
+            --cyan: #06b6d4;
+            --cyan-light: #22d3ee;
+            --electric: #3b82f6;
+            --green: #10b981;
+            --green-light: #34d399;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --pink: #ec4899;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
+            --gradient-hero: linear-gradient(135deg, #060612 0%, #1a1a3e 50%, #0d0d24 100%);
+            --glow-violet: 0 0 40px rgba(139,92,246,0.3);
+            --glow-cyan: 0 0 40px rgba(6,182,212,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--abyss);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO / COVER ===== */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(ellipse at 30% 20%, rgba(124,58,237,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(6,182,212,0.1) 0%, transparent 60%),
+                        var(--gradient-hero);
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .cover-content { position: relative; z-index: 1; max-width: 900px; }
+
+        .cover-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(139,92,246,0.1);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--violet-light);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .cover-badge .dot {
+            width: 8px; height: 8px;
+            background: var(--violet);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .cover h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover h1 .sub {
+            display: block;
+            font-size: 0.45em;
+            font-weight: 600;
+            background: linear-gradient(135deg, #94a3b8, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 12px;
+        }
+
+        .cover .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .cover-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cover-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        .cover-meta-item .icon { font-size: 18px; }
+
+        /* ===== NAVIGATION ===== */
+        .toc {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 50px 20px;
+        }
+
+        .toc-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .toc h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--violet-light);
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: rgba(139,92,246,0.05);
+            border: 1px solid rgba(139,92,246,0.1);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .toc-item:hover {
+            background: rgba(139,92,246,0.12);
+            border-color: rgba(139,92,246,0.3);
+            transform: translateX(4px);
+        }
+
+        .toc-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px; height: 28px;
+            background: var(--gradient-brand);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 70px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 20px; height: 2px;
+            background: var(--cyan);
+        }
+
+        .section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .section h2 .highlight {
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(139,92,246,0.3);
+            box-shadow: var(--glow-violet);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 .emoji { font-size: 1.3rem; }
+
+        .card p, .card li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .card ul { padding-left: 0; list-style: none; }
+        .card ul li { padding: 5px 0; padding-left: 22px; position: relative; }
+        .card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--violet);
+            font-weight: 700;
+        }
+
+        /* ===== STAT GRID ===== */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-3px);
+            border-color: rgba(139,92,246,0.3);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-value.green {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-value.amber {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-value.red {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead { background: var(--surface-2); }
+
+        th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--violet-light);
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(139,92,246,0.08);
+            color: var(--text-muted);
+        }
+
+        tr:hover td { background: rgba(139,92,246,0.05); }
+
+        .td-bold {
+            font-weight: 700;
+            color: var(--text) !important;
+        }
+
+        .td-green { color: var(--green) !important; font-weight: 600; }
+        .td-amber { color: var(--amber) !important; font-weight: 600; }
+        .td-red { color: var(--red) !important; font-weight: 600; }
+        .td-cyan { color: var(--cyan) !important; font-weight: 600; }
+
+        /* ===== CHART BARS ===== */
+        .chart-container { margin: 25px 0; }
+
+        .chart-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .bar-label {
+            width: 140px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 28px;
+            background: rgba(139,92,246,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            transition: width 1s ease;
+        }
+
+        .bar-fill.violet { background: linear-gradient(90deg, #7c3aed, #8b5cf6); }
+        .bar-fill.cyan { background: linear-gradient(90deg, #0891b2, #06b6d4); }
+        .bar-fill.green { background: linear-gradient(90deg, #059669, #10b981); }
+        .bar-fill.amber { background: linear-gradient(90deg, #d97706, #f59e0b); }
+        .bar-fill.blue { background: linear-gradient(90deg, #2563eb, #3b82f6); }
+        .bar-fill.pink { background: linear-gradient(90deg, #db2777, #ec4899); }
+        .bar-fill.electric { background: linear-gradient(90deg, #4f46e5, #8b5cf6, #06b6d4); }
+
+        /* ===== CALLOUT ===== */
+        .callout {
+            display: flex;
+            gap: 16px;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .callout.info {
+            background: rgba(6,182,212,0.08);
+            border: 1px solid rgba(6,182,212,0.2);
+        }
+
+        .callout.warning {
+            background: rgba(245,158,11,0.08);
+            border: 1px solid rgba(245,158,11,0.2);
+        }
+
+        .callout.success {
+            background: rgba(16,185,129,0.08);
+            border: 1px solid rgba(16,185,129,0.2);
+        }
+
+        .callout.danger {
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.2);
+        }
+
+        .callout-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .callout-text {
+            color: var(--text-muted);
+        }
+
+        .callout-text strong { color: var(--text); }
+
+        /* ===== SCENARIO CARDS ===== */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .scenario-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+
+        .scenario-card.optimistic::before { background: linear-gradient(90deg, #10b981, #34d399); }
+        .scenario-card.realistic::before { background: var(--gradient-brand); }
+        .scenario-card.pessimistic::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+        .scenario-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .optimistic .scenario-tag { background: rgba(16,185,129,0.15); color: var(--green); }
+        .realistic .scenario-tag { background: rgba(139,92,246,0.15); color: var(--violet-light); }
+        .pessimistic .scenario-tag { background: rgba(239,68,68,0.15); color: var(--red); }
+
+        .scenario-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .optimistic .scenario-value { color: var(--green); }
+        .realistic .scenario-value { color: var(--violet-light); }
+        .pessimistic .scenario-value { color: var(--red); }
+
+        .scenario-desc {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .scenario-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scenario-list li {
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .scenario-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .pessimistic .scenario-list li::before { content: '✗'; color: var(--red); }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--violet), var(--cyan));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -33px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--violet);
+            border: 3px solid var(--abyss);
+            box-shadow: 0 0 0 2px var(--violet);
+        }
+
+        .timeline-year {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .timeline-metrics {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tm {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: rgba(139,92,246,0.08);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--violet-light);
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .divider hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+
+        .footer .brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        /* ===== MISC ===== */
+        .text-gradient {
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-green { color: var(--green) !important; }
+        .text-amber { color: var(--amber) !important; }
+        .text-red { color: var(--red) !important; }
+        .text-cyan { color: var(--cyan) !important; }
+        .text-violet { color: var(--violet-light) !important; }
+
+        .mt-10 { margin-top: 10px; }
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .mb-20 { margin-bottom: 20px; }
+
+        .pill {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(139,92,246,0.1);
+            border: 1px solid rgba(139,92,246,0.2);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--violet-light);
+            margin: 3px;
+        }
+
+        .pill.cyan { background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.2); color: var(--cyan); }
+        .pill.green { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); color: var(--green); }
+        .pill.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); color: var(--amber); }
+        .pill.red { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.2); color: var(--red); }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .cover-meta { flex-direction: column; align-items: center; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .formula-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--cyan-light);
+            text-align: center;
+        }
+
+        .big-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .comparison-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(139,92,246,0.06);
+        }
+
+        .comparison-name {
+            width: 180px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            flex-shrink: 0;
+        }
+
+        .comparison-bar-wrap {
+            flex: 1;
+            position: relative;
+        }
+
+        .comparison-bar {
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .comparison-label {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Print */
+        @media print {
+            body { background: #fff; color: #111; }
+            .cover { background: #f8f8f8; min-height: auto; padding: 60px 20px; }
+            .cover h1 { -webkit-text-fill-color: #111; background: none; }
+            .cover .sub { -webkit-text-fill-color: #333; background: none; }
+            .card, .stat-box, .scenario-card { background: #f9f9f9; border-color: #ddd; }
+            .stat-value { -webkit-text-fill-color: #7c3aed; background: none; }
+            .section h2 .highlight { -webkit-text-fill-color: #7c3aed; background: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<section class="cover">
+    <div class="cover-content">
+        <div class="cover-badge">
+            <span class="dot"></span>
+            Documento Confidencial — Previsão de Mercado
+        </div>
+        <h1>
+            GABARITOU
+            <span class="sub">Previsão Realista de Mercado &bull; Valuation &bull; Projeções 2026–2031</span>
+        </h1>
+        <p class="tagline">
+            Análise completa do potencial do Gabaritou Concurseiros no mercado brasileiro de preparação para concursos públicos, incluindo valuation, cenários de expansão, entrada em WhatsApp e plataforma web.
+        </p>
+        <div class="cover-meta">
+            <div class="cover-meta-item"><span class="icon">📅</span> Abril 2026</div>
+            <div class="cover-meta-item"><span class="icon">💰</span> Modelo: R$19,90/mês</div>
+            <div class="cover-meta-item"><span class="icon">🤖</span> IA + Telegram Bot</div>
+            <div class="cover-meta-item"><span class="icon">🇧🇷</span> Mercado Brasileiro</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TOC -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+    <div class="toc-inner">
+        <h2>índice do Relatório</h2>
+        <div class="toc-grid">
+            <a class="toc-item" href="#sec1"><span class="toc-num">01</span> Panorama do Mercado Brasileiro de Concursos</a>
+            <a class="toc-item" href="#sec2"><span class="toc-num">02</span> Análise Competitiva — Concorrentes & Vantagens</a>
+            <a class="toc-item" href="#sec3"><span class="toc-num">03</span> Valuation Atual do Gabaritou</a>
+            <a class="toc-item" href="#sec4"><span class="toc-num">04</span> Modelo de Receita — Projeções por Estágio</a>
+            <a class="toc-item" href="#sec5"><span class="toc-num">05</span> Cenários: Pessimista, Realista e Otimista</a>
+            <a class="toc-item" href="#sec6"><span class="toc-num">06</span> Preditivo 5 Anos — Roadmap 2026 a 2031</a>
+            <a class="toc-item" href="#sec7"><span class="toc-num">07</span> Expansão: Plataforma Web (Site/App)</a>
+            <a class="toc-item" href="#sec8"><span class="toc-num">08</span> Expansão: Entrada do WhatsApp Business API</a>
+            <a class="toc-item" href="#sec9"><span class="toc-num">09</span> Camadas Ocultas — O que Poucos Enxergam</a>
+            <a class="toc-item" href="#sec10"><span class="toc-num">10</span> Potencial de Venda & Exit Strategy</a>
+            <a class="toc-item" href="#sec11"><span class="toc-num">11</span> Resumo Executivo & Próximos Passos</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- 01 — PANORAMA DO MERCADO -->
+<!-- ============================================================ -->
+<section class="section" id="sec1">
+    <div class="section-header">
+        <div class="section-label">Capítulo 01</div>
+        <h2>Panorama do Mercado <span class="highlight">Brasileiro de Concursos</span></h2>
+        <p class="section-desc">Entender o tamanho e a dinâmica do mercado é fundamental para dimensionar o potencial do Gabaritou Concurseiros e estabelecer projeções realistas de crescimento e receita.</p>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-value">80M+</div>
+            <div class="stat-label">Candidatos/ano no Brasil</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">R$15Bi</div>
+            <div class="stat-label">Mercado de preparação</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">32M</div>
+            <div class="stat-label">Estudantes ativos pagantes</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">14,5%</div>
+            <div class="stat-label">Crescimento anual EdTech</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">📊</span> O Mercado é Gigantesco e Subexplorado pela IA</h3>
+        <p>O Brasil é, de longe, o maior mercado de concursos públicos do mundo. A cada ano, mais de <strong>80 milhões de inscrições</strong> são realizadas em processos seletivos federais, estaduais e municipais — um número impressionante que representa mais do que a população inteira de países como Alemanha, França ou Reino Unido. Destes, estima-se que entre <strong>30 a 35 milhões de brasileiros</strong> estão ativamente estudando para algum concurso em qualquer momento dado, seja de forma intensiva ou esporádica, e destes, aproximadamente <strong>32 milhões</strong> já pagam por algum tipo de serviço de preparação, desde cursinhos presenciais até plataformas digitais.</p>
+        <br>
+        <p>O faturamento total do setor de educação para concursos movimenta cerca de <strong>R$15 bilhões por ano</strong>, distribuídos entre cursinhos presenciais (que ainda dominam, representando cerca de 60% do mercado), plataformas online como Estratégia Concursos, Gran Cursos e Questões Certo (que respondem por 30%), e um crescente ecossistema de creators, mentores e microserviços que compõem os 10% restantes. O salto digital pós-pandemia acelerou a migração para plataformas online, mas o espaço de IA aplicada à educação para concursos ainda é um oceano azul praticamente inexplorado.</p>
+        <br>
+        <p>O que torna esse mercado especialmente atraente é a <strong>taxa de recorrência extremamente alta</strong>. Um concurseiro típico estuda por 2 a 4 anos antes de ser aprovado, criando um ciclo de receita previsível e duradouro. O ticket médio mensal no mercado online varia de R$29,90 (planos básicos) a R$199,90 (planos premium com mentoria), posicionando o Gabaritou em R$19,90 como o <strong>entry point mais acessível do mercado</strong> — um posicionamento estratégico que reduz drasticamente a barreira de entrada e pode capturar a base piramidal de estudantes que hoje não pagam por nada ou usam apenas conteúdo gratuito.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🇧🇷</span> Por que o Brasil é o Melhor Mercado para Isso</h3>
+        <ul>
+            <li><strong>82 milhões de inscritos em concursos por ano</strong> — mais que a população de vários países europeus somados, criando um funil natural de conversão massivo.</li>
+            <li><strong>Taxa de desemprego estrutural acima de 11%</strong> — o serviço público permanece como a principal aspiração de estabilidade financeira para milhões de brasileiros, garantindo demanda perene independentemente de crises econômicas.</li>
+            <li><strong>Tempo médio de estudo: 2 a 4 anos</strong> — o ciclo longo cria oportunidades de LTV (Lifetime Value) excepcionalmente altas, com subscribe-and-forget que dura anos.</li>
+            <li><strong>Penetração de smartphones acima de 85%</strong> — o brasileiro está entre os mais conectados do mundo em dispositivos móveis, essencial para um produto baseado em Telegram.</li>
+            <li><strong>Telegram como plataforma: 40M+ usuários ativos no Brasil</strong> — o Telegram já é parte do dia a dia de milhões de brasileiros, eliminando a fricção de baixar um novo app.</li>
+            <li><strong>PIX como infraestrutura de pagamento</strong> — o pagamento instantâneo via PIX eliminou as barreiras de cartão de crédito que historicamente limitavam a conversão de microassinaturas.</li>
+            <li><strong>Crescimento EdTech de 14,5% ao ano</strong> — o Brasil lidera o mercado de EdTechs na América Latina com 68,93% das startups educacionais da região e investimentos acumulados de US$475,6 milhões entre 2015 e 2024.</li>
+        </ul>
+    </div>
+
+    <div class="callout info">
+        <span class="callout-icon">💡</span>
+        <span class="callout-text"><strong>Dado Crítico:</strong> O segmento de IA na educação personalizada foi avaliado em US$7,5 bilhões globalmente em 2025, com projeção de alcançar US$40,8 bilhões até 2034 (CAGR de 20,7%). O Gabaritou está posicionado na interseção de doismercados de alto crescimento: IA EdTech + preparação para concursos no Brasil.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 02 — ANÁLISE COMPETITIVA -->
+<!-- ============================================================ -->
+<section class="section" id="sec2">
+    <div class="section-header">
+        <div class="section-label">Capítulo 02</div>
+        <h2>Análise Competitiva — <span class="highlight">Concorrentes & Vantagens</span></h2>
+        <p class="section-desc">Mapeamento detalhado dos principais players do mercado e como o Gabaritou se diferencia com IA preditiva e modelo de ultra-baixo custo.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Concorrente</th>
+                    <th>Modelo</th>
+                    <th>Preço Médio</th>
+                    <th>Usuários Estimados</th>
+                    <th>IA Integrada</th>
+                    <th>Forte/Ponto Fraco</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td-bold">Estratégia Concursos</td>
+                    <td>Vídeo-aulas + Questões</td>
+                    <td>R$49,90–R$149,90</td>
+                    <td>3M–5M</td>
+                    <td class="td-amber">Parcial</td>
+                    <td>+Maior brand; −Caro, genérico</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Gran Cursos Online</td>
+                    <td>Plataforma completa</td>
+                    <td>R$59,90–R$199,90</td>
+                    <td>2M–4M</td>
+                    <td class="td-amber">Parcial</td>
+                    <td>+Conteúdo rico; −UX complexa</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Questões Certo (Verde)</td>
+                    <td>Banco de questões</td>
+                    <td>Grátis–R$29,90</td>
+                    <td>8M–12M</td>
+                    <td class="td-red">Mínima</td>
+                    <td>+Grátis gera tráfego; −Sem personalização</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Aprova Total</td>
+                    <td>Vídeo-aulas + PDF</td>
+                    <td>R$39,90–R$89,90</td>
+                    <td>1M–2M</td>
+                    <td class="td-red">Mínima</td>
+                    <td>+Professores renomados; −Sem IA</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Me Salva!</td>
+                    <td>Resumos + Questões</td>
+                    <td>R$29,90–R$69,90</td>
+                    <td>1M–2M</td>
+                    <td class="td-red">Mínima</td>
+                    <td>+Conteúdo condensado; −Sem IA real</td>
+                </tr>
+                <tr>
+                    <td class="td-bold text-green">GABARITOU ★</td>
+                    <td>IA Preditiva + Telegram</td>
+                    <td class="td-green">R$19,90</td>
+                    <td>Emergente</td>
+                    <td class="td-green">Nativa</td>
+                    <td>+IA nativa, R$19,90, Telegram; −Marca nova</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">⚡</span> Vantagens Competitivas do Gabaritou</h3>
+        <ul>
+            <li><strong>IA Preditiva Nativa (Diferencial Principal):</strong> Enquanto concorrentes usam IA apenas para chatbots de suporte ou resumos básicos, o Gabaritou analisa milhares de editais reais para prever com precisão o que mais cai nas provas. Isso cria um "oráculo de concursos" que nenhum concorrente oferece hoje — é como ter um insider que sabe o que o examinador vai cobrar.</li>
+            <li><strong>Menor Barreira de Entrada (R$19,90):</strong> O preço é 40–60% menor que o concorrente mais barato com IA. Isso permite capturar a base piramidal de estudantes de baixa renda que representa a maioria dos candidatos a concursos no Brasil, um público historicamente negligenciado pelas grandes plataformas.</li>
+            <li><strong>Zero Fricção (Telegram):</strong> Não é necessário baixar um novo app, criar conta em plataforma, ou passar por onboarding complexo. O usuário já está no Telegram, o bot está a um comando de distância, e o pagamento via PIX é instantâneo. Essa simplicidade pode gerar taxas de conversão de trial-to-paid 2x a 3x superiores ao mercado.</li>
+            <li><strong>Personalização em Tempo Real:</strong> A IA do Groq permite respostas instantâneas que se adaptam ao perfil, banca, cargo e nível de conhecimento do usuário. Isso cria uma experiência "1:1" que cursinhos presenciais cobram R$500+ para oferecer via mentoria.</li>
+            <li><strong>Custo Operacional Ultra-Baixo:</strong> Como um bot de Telegram com IA serverless, o custo marginal por usuário é próximo de zero. Enquanto plataformas como Estratégia gastam milhões em produção de conteúdo em vídeo, o Gabaritou gera conteúdo dinamicamente via IA, com custo de infraestrutura estimado em menos de R$2.000/mês para 10.000 usuários ativos.</li>
+            <li><strong>Modelo de Dados Flywheel:</strong> Quanto mais usuários interagem, mais dados de acerto/erro e padrões de estudo são coletados no Supabase/pgvector, melhorando continuamente a precisão das predições. Isso cria um efeito flywheel que fortalece o moat competitivo com o tempo — concorrentes que quiserem copiar precisarão anos de dados para alcançar a mesma precisão.</li>
+        </ul>
+    </div>
+
+    <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <span class="callout-text"><strong>Risco Competitivo:</strong> Concorrentes grandes como Estratégia e Gran podem lançar features de IA rapidamente se o Gabaritou validar o mercado. A janela de oportunidade é de 12–18 meses para construir marca e base de usuários antes que o mercado se torne competitivo em IA.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 03 — VALUATION -->
+<!-- ============================================================ -->
+<section class="section" id="sec3">
+    <div class="section-header">
+        <div class="section-label">Capítulo 03</div>
+        <h2>Valuation Atual do <span class="highlight">Gabaritou</span></h2>
+        <p class="section-desc">Estimativa de valor baseada em múltiplos de mercado, receita potencial e comparáveis do setor de EdTech brasileiro.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">📐</span> Metodologia de Valuation</h3>
+        <p>Para calcular o valuation do Gabaritou, utilizamos uma combinação de três metodologias amplamente aceitas no mercado de startups: <strong>Revenue Multiple</strong> (múltiplo de receita), <strong>Comparable Transactions</strong> (transações comparáveis no setor EdTech brasileiro) e <strong>Discounted Cash Flow</strong> simplificado com projeções conservadoras. O valuation é calculado em três estágios de maturidade do produto, refletindo o estado atual (pré-lançamento com MVP funcional) até o estágio de tração inicial com primeiros 1.000 pagantes.</p>
+    </div>
+
+    <div class="scenario-grid">
+        <div class="scenario-card pessimistic">
+            <span class="scenario-tag">Estágio Atual — Pre-Receita</span>
+            <div class="scenario-value">R$150K–R$350K</div>
+            <div class="scenario-desc">Valuation de um MVP funcional com tecnologia validada mas sem receita significativa</div>
+            <ul class="scenario-list">
+                <li>MVP completo com bot Telegram funcional</li>
+                <li>IA integrada (Groq + pgvector)</li>
+                <li>Pagamento PIX (MercadoPago)</li>
+                <li>Sem usuários pagantes ainda</li>
+                <li>Baseado em custo de desenvolvimento</li>
+            </ul>
+        </div>
+        <div class="scenario-card realistic">
+            <span class="scenario-tag">Com 1.000 Pagantes — Traction</span>
+            <div class="scenario-value">R$1,2M–R$3,5M</div>
+            <div class="scenario-desc">MRR de ~R$19.900 com evidência de product-market fit e retention acima de 60%</div>
+            <ul class="scenario-list">
+                <li>1.000 assinantes ativos a R$19,90/mês</li>
+                <li>MRR: R$19.900 | ARR: R$238.800</li>
+                <li>Múltiplo: 5x–15x ARR</li>
+                <li>Churn mensal abaixo de 8%</li>
+                <li>CAC pago &lt; R$15</li>
+            </ul>
+        </div>
+        <div class="scenario-card optimistic">
+            <span class="scenario-tag">Com 10.000 Pagantes — Growth</span>
+            <div class="scenario-value">R$15M–R$50M</div>
+            <div class="scenario-desc">MRR de ~R$199.000 com crescimento acelerado e expansão multi-canal</div>
+            <ul class="scenario-list">
+                <li>10.000 assinantes ativos</li>
+                <li>MRR: R$199.000 | ARR: R$2,39M</li>
+                <li>Múltiplo: 6x–21x ARR</li>
+                <li>Expansão WhatsApp + Web</li>
+                <li>Interesse de VCs/investidores</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🎯</span>
+        <span class="callout-text"><strong>O "Sweet Spot" do Gabaritou:</strong> Com R$19,90 e IA preditiva nativa, o produto tem potencial de atingir 10x–30x o valuation de concorrentes por usuário, porque a receita por usuário pode crescer com upsells (R$24,90, planos premium) enquanto o custo marginal permanece próximo de zero.</span>
+    </div>
+
+    <div class="card mt-30">
+        <h3><span class="emoji">🔢</span> Cálculo Detalhado — Valuation Realista (1.000 pagantes)</h3>
+        <div class="formula-box">
+            ARR = 1.000 × R$19,90 × 12 = <strong>R$238.800/ano</strong><br>
+            Valuation (conservador, 5x ARR) = R$1.194.000<br>
+            Valuation (médio, 10x ARR) = R$2.388.000<br>
+            Valuation (agressivo, 15x ARR) = R$3.582.000
+        </div>
+        <p>O múltiplo de 5x a 15x sobre ARR é consistente com o mercado brasileiro de EdTechs em estágio inicial. Como referência, startups como Descomplica (adquirida por R$1,1 bilhão) e Matific operaram com múltiplos de 8x–20x ARR em seus estágios de growth. Para o Gabaritou, o múltiplo pode ser mais alto que a média do setor porque a IA nativa e o modelo de ultra-baixo custo criam margens brutas excepcionais (estimadas em 85–92%).</p>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 04 — MODELO DE RECEITA -->
+<!-- ============================================================ -->
+<section class="section" id="sec4">
+    <div class="section-header">
+        <div class="section-label">Capítulo 04</div>
+        <h2>Modelo de Receita — <span class="highlight">Projeções por Estágio</span></h2>
+        <p class="section-desc">Simulação detalhada de receita e crescimento em cada fase do negócio, desde o lançamento até a escala completa.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">💵</span> Premissas do Modelo Financeiro</h3>
+        <ul>
+            <li><strong>Preço inicial:</strong> R$19,90/mês (primeiros 6 meses promocionais) → R$24,90/mês (após promoção). Esta estratégia de "introductory pricing" é comprovadamente eficaz no mercado SaaS brasileiro para acelerar aquisição.</li>
+            <li><strong>Taxa de conversão trial→paid:</strong> 5% a 8% (benchmark de freemium bots no Telegram é 2–5%, mas a IA preditiva e o preço de R$19,90 podem elevar isso para 6–8%).</li>
+            <li><strong>Churn mensal:</strong> 6% a 10% para estágio inicial, reduzindo para 4–6% com feature de retenção (streaks, leaderboard, gamificação).</li>
+            <li><strong>CAC (Customer Acquisition Cost):</strong> R$8 a R$15 via marketing orgânico + influenciadores micro. Via paid ads: R$20 a R$35.</li>
+            <li><strong>LTV (Lifetime Value):</strong> Estimado em R$80 a R$180 (4 a 9 meses de permanência média para concurseiros iniciantes).</li>
+            <li><strong>Cost per user/mês (infra):</strong> R$0,15 a R$0,40 (Groq API + Supabase + hosting), dependendo do volume de interações.</li>
+        </ul>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Fase 1: Lançamento<br>(Mês 1–3)</th>
+                    <th>Fase 2: Traction<br>(Mês 4–6)</th>
+                    <th>Fase 3: Growth<br>(Mês 7–12)</th>
+                    <th>Fase 4: Scale<br>(Ano 2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td-bold">Usuários Telegram</td>
+                    <td>2.000–5.000</td>
+                    <td>8.000–15.000</td>
+                    <td>25.000–50.000</td>
+                    <td>80.000–150.000</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Assinantes Pagantes</td>
+                    <td>100–300</td>
+                    <td>500–1.200</td>
+                    <td>2.500–5.000</td>
+                    <td>10.000–25.000</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">MRR</td>
+                    <td class="td-green">R$1.990–R$5.970</td>
+                    <td class="td-green">R$9.950–R$23.880</td>
+                    <td class="td-green">R$49.750–R$99.500</td>
+                    <td class="td-green">R$199K–R$497K</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">ARR</td>
+                    <td>R$23.880–R$71.640</td>
+                    <td>R$119K–R$286K</td>
+                    <td>R$597K–R$1,19M</td>
+                    <td class="td-cyan">R$2,39M–R$5,97M</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Custo Operacional/Mês</td>
+                    <td>R$800–R$1.500</td>
+                    <td>R$1.500–R$3.000</td>
+                    <td>R$4.000–R$8.000</td>
+                    <td>R$12.000–R$25.000</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Margem Bruta</td>
+                    <td class="td-green">92–96%</td>
+                    <td class="td-green">90–95%</td>
+                    <td class="td-green">88–94%</td>
+                    <td class="td-green">85–93%</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Lucro Mensal</td>
+                    <td>R$1.490–R$4.770</td>
+                    <td>R$8.450–R$20.880</td>
+                    <td>R$45.750–R$91.500</td>
+                    <td class="td-cyan">R$187K–R$472K</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-title">Crescimento de MRR (Receita Mensal Recorrente) — Cenário Realista</div>
+        <div class="bar-row">
+            <span class="bar-label">Ano 1 — M6</span>
+            <div class="bar-track"><div class="bar-fill violet" style="width:4%">R$12K</div></div>
+        </div>
+        <div class="bar-row">
+            <span class="bar-label">Ano 1 — M12</span>
+            <div class="bar-track"><div class="bar-fill violet" style="width:18%">R$62K</div></div>
+        </div>
+        <div class="bar-row">
+            <span class="bar-label">Ano 2</span>
+            <div class="bar-track"><div class="bar-fill cyan" style="width:45%">R$199K</div></div>
+        </div>
+        <div class="bar-row">
+            <span class="bar-label">Ano 3</span>
+            <div class="bar-track"><div class="bar-fill green" style="width:70%">R$450K</div></div>
+        </div>
+        <div class="bar-row">
+            <span class="bar-label">Ano 5</span>
+            <div class="bar-track"><div class="bar-fill electric" style="width:100%">R$1,2M</div></div>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <span class="callout-icon">📊</span>
+        <span class="callout-text"><strong>Nota sobre Margem:</strong> A margem bruta de 85–96% é possível porque o custo marginal por usuário é extremamente baixo. O Groq (LLM gratuito) + Supabase (tier gratuito até 50K usuários) + hosting básico criam uma estrutura de custo quase fixa. Isso significa que cada novo assinante além do break-even é quase lucro puro.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 05 — CENÁRIOS -->
+<!-- ============================================================ -->
+<section class="section" id="sec5">
+    <div class="section-header">
+        <div class="section-label">Capítulo 05</div>
+        <h2>Cenários de Projeção — <span class="highlight">5 Anos (2031)</span></h2>
+        <p class="section-desc">Três cenários detalhados com projeções de usuários, receita e valuation para o horizonte de 5 anos.</p>
+    </div>
+
+    <div class="scenario-grid">
+        <div class="scenario-card pessimistic">
+            <span class="scenario-tag">Pessimista — 20% de probabilidade</span>
+            <div class="scenario-value">R$2,5M</div>
+            <div class="scenario-desc">Valuation em 2031 com crescimento limitado por concorrência ou problemas de PMF</div>
+            <ul class="scenario-list">
+                <li>3.000–5.000 pagantes no Ano 5</li>
+                <li>MRR: R$60K–R$125K</li>
+                <li>ARR: R$720K–R$1,5M</li>
+                <li>Churn elevado (10–12%/mês)</li>
+                <li>CAC alto (R$30–R$50)</li>
+                <li>Sem expansão para WhatsApp/Web</li>
+                <li>Concorrentes copiam features de IA</li>
+            </ul>
+        </div>
+        <div class="scenario-card realistic">
+            <span class="scenario-tag">Realista — 55% de probabilidade</span>
+            <div class="scenario-value">R$25M–R$45M</div>
+            <div class="scenario-desc">Valuation em 2031 com crescimento orgânico sólido e expansão gradual multi-canal</div>
+            <ul class="scenario-list">
+                <li>15.000–30.000 pagantes no Ano 5</li>
+                <li>MRR: R$375K–R$750K</li>
+                <li>ARR: R$4,5M–R$9M</li>
+                <li>Churn controlado (5–7%/mês)</li>
+                <li>WhatsApp + Web operacionais</li>
+                <li>Upsell para R$34,90–R$49,90</li>
+                <li>Primeiro round de investimento Seed</li>
+            </ul>
+        </div>
+        <div class="scenario-card optimistic">
+            <span class="scenario-tag">Otimista — 25% de probabilidade</span>
+            <div class="scenario-value">R$80M–R$200M+</div>
+            <div class="scenario-desc">Valuation em 2031 com tração viral, investment rounds e possível exit via aquisição</div>
+            <ul class="scenario-list">
+                <li>50.000–100.000+ pagantes no Ano 5</li>
+                <li>MRR: R$1,25M–R$5M</li>
+                <li>ARR: R$15M–R$60M</li>
+                <li>Churn baixo (3–5%/mês)</li>
+                <li>Multi-canal dominante</li>
+                <li>Series A/B investimentos</li>
+                <li>Exit via aquisição ou IPO futuro</li>
+                <li>Expansão LATAM (Portugal, Angola)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="stat-grid mt-30">
+        <div class="stat-box">
+            <div class="stat-value">R$25M</div>
+            <div class="stat-label">Valuation Realista (Ano 3)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value green">R$45M</div>
+            <div class="stat-label">Valuation Realista (Ano 5)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value amber">R$200M+</div>
+            <div class="stat-label">Valuation Otimista (Ano 5)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value red">R$2,5M</div>
+            <div class="stat-label">Valuation Pessimista (Ano 5)</div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 06 — PREDITIVO 5 ANOS -->
+<!-- ============================================================ -->
+<section class="section" id="sec6">
+    <div class="section-header">
+        <div class="section-label">Capítulo 06</div>
+        <h2>Preditivo 5 Anos — <span class="highlight">Roadmap 2026 a 2031</span></h2>
+        <p class="section-desc">Evolução mês a mês e ano a ano do Gabaritou, incluindo marcos, métricas-alvo e decisões estratégicas em cada fase.</p>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2026 — Ano 1: Validação & Primeiros Pagantes</div>
+            <div class="timeline-title">O Foco é Product-Market Fit, Não Crescimento</div>
+            <div class="timeline-desc">
+                O primeiro ano é dedicado exclusivamente a validar que o Gabaritou resolve uma dor real dos concurseiros e que eles estão dispostos a pagar R$19,90/mês por isso. O objetivo não é crescer rápido, mas encontrar o product-market fit — o ponto em que o produto é tão bom que os usuários recomendam espontaneamente. A estratégia de aquisição será 100% orgânica: redes sociais (Instagram, TikTok, X), comunidades de concursos no Telegram, e parcerias com micro-influenciadores do nicho (concurseiros com 5K–50K seguidores). Nenhuma verba de paid ads neste estágio — cada real gasto deve gerar aprendizado, não apenas números.
+            </div>
+            <div class="timeline-metrics">
+                <span class="tm">🎯 1.000 pagantes até Dez/2026</span>
+                <span class="tm">💰 MRR: R$20K</span>
+                <span class="tm">📊 Churn &lt; 8%/mês</span>
+                <span class="tm">⭐ NPS &gt; 50</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2027 — Ano 2: Tração & WhatsApp Entry</div>
+            <div class="timeline-title">Expansão para WhatsApp + Primeiro Revenue Real</div>
+            <div class="timeline-desc">
+                Com o PMF validado, o segundo ano foca em duas frentes: acelerar a aquisição via paid ads (Meta Ads + Google Ads) e lançar a versão WhatsApp do bot usando WhatsApp Business API. O WhatsApp é o app mais usado no Brasil (98% dos smartphones), e adicionar esse canal pode dobrar ou triplicar a base de usuários. Também é o ano para implementar features de retenção gamificadas (streaks diários, ranking semanal, badges por matéria), que podem reduzir o churn de 8% para 5–6%. Neste estágio, o primeiro contato com investidores-anjo ou aceleradoras pode ser iniciado para preparar um possível round Seed no Ano 3.
+            </div>
+            <div class="timeline-metrics">
+                <span class="tm">🎯 5.000–10.000 pagantes</span>
+                <span class="tm">💰 MRR: R$100K–R$200K</span>
+                <span class="tm">📱 WhatsApp Bot ativo</span>
+                <span class="tm">🎮 Gamificação v2</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2028 — Ano 3: Plataforma Web & Round Seed</div>
+            <div class="timeline-title">Torna-se Plataforma, Não Apenas Bot</div>
+            <div class="timeline-desc">
+                O terceiro ano marca a transformação de "bot no Telegram" para "plataforma educacional completa" com o lançamento do site/app web. A plataforma web adiciona: dashboard completo de desempenho, gráficos de evolução, simulados cronometrados com IA, gerador de cronogramas personalizados, e comunidade com fórum e mentoria peer-to-peer. É neste estágio que um round Seed de R$2M–R$5M faz sentido, para financiar: equipe técnica (3–5 devs), infraestrutura robusta, expansão de conteúdo com parcerias com professores renomados, e marketing agresivo. A plataforma web também abre a porta para B2B — convênios com prefeituras e órgãos públicos que querem capacitar servidores.
+            </div>
+            <div class="timeline-metrics">
+                <span class="tm">🎯 15.000–30.000 pagantes</span>
+                <span class="tm">💰 MRR: R$375K–R$750K</span>
+                <span class="tm">🌐 Plataforma Web v1</span>
+                <span class="tm">💵 Round Seed: R$2M–R$5M</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2029 — Ano 4: B2B & Expansão de Conteúdo</div>
+            <div class="timeline-title">Enterprise + Conteúdo Premium + Upsells</div>
+            <div class="timeline-desc">
+                Com a plataforma web madura e base de usuários sólida, o quarto ano foca em verticalizar: (1) <strong>B2B Enterprise</strong> — vender acessos corporativos para prefeituras, tribunais e empresas que preparam funcionários para concursos internos; (2) <strong>Conteúdo Premium</strong> — parcerias com professores-estrela para aulas ao vivo e simulados exclusivos, criando um tier premium a R$49,90–R$79,90/mês; (3) <strong>Marketplace de Mentores</strong> — conectar mentores (concurseiros aprovados) com alunos, tomando 15–20% de comissão; (4) <strong>Expansão geográfica</strong> — adaptar para Portugal e Angola, onde o modelo de concursos públicos é similar. Essa verticalização multiplica a ARPU (Average Revenue Per User) de R$19,90 para R$35–R$50 em média.
+            </div>
+            <div class="timeline-metrics">
+                <span class="tm">🎯 40.000–70.000 pagantes</span>
+                <span class="tm">💰 MRR: R$1M–R$2,5M</span>
+                <span class="tm">🏢 B2B Enterprise ativo</span>
+                <span class="tm">🌍 Expansão LATAM+Europa</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2030–2031 — Ano 5: Scale & Exit Preparation</div>
+            <div class="timeline-title">Preparação para Exit ou IPO Alternativo</div>
+            <div class="timeline-desc">
+                O quinto ano é o estágio de maturidade onde o Gabaritou se posiciona para um evento de liquidez. Com ARR de R$15M–R$60M (cênário realista a otimista), a empresa se torna atrativa para: (1) <strong>Aquisição estratégica</strong> por grandes players como Estratégia Concursos, Gran Cursos, ou até players globais como Coursera/Udemy que querem entrar no mercado brasileiro de concursos; (2) <strong>Round Series A/B</strong> para financiar expansão agressiva e possível IPO no futuro; (3) <strong>Gestão autônoma</strong> — com margens de 85%+, o negócio pode operar com lucro crescente sem necessidade de mais investimento. Em qualquer cenário, o fundador mantém controle significativo e o valuation mínimo esperado é de R$45M (realista) a R$200M+ (otimista).
+            </div>
+            <div class="timeline-metrics">
+                <span class="tm">🎯 50K–100K+ pagantes</span>
+                <span class="tm">💰 ARR: R$15M–R$60M</span>
+                <span class="tm">🏆 Valuation: R$45M–R$200M+</span>
+                <span class="tm">🚀 Exit-ready ou Series A</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 07 — PLATAFORMA WEB -->
+<!-- ============================================================ -->
+<section class="section" id="sec7">
+    <div class="section-header">
+        <div class="section-label">Capítulo 07</div>
+        <h2>Expansão: Plataforma <span class="highlight">Web (Site/App)</span></h2>
+        <p class="section-desc">Como o Gabaritou se transforma de bot Telegram para plataforma educacional completa ao adicionar uma interface web.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🌐</span> O Que a Plataforma Web Adiciona</h3>
+        <p>A transição de "bot Telegram" para "plataforma web completa" é o momento mais transformador na trajetória do Gabaritou. Enquanto o Telegram é perfeito para interação rápida (perguntas, resumos, predições), uma plataforma web permite experiências ricas que não são possíveis em chat: dashboards interativos com gráficos de evolução, simulados cronometrados que replicam a experiência real de prova, cronogramas de estudo visuais e editáveis, e uma comunidade com fórum, mentorias e conteúdo social. Basicamente, o Telegram é o "atendimento rápido" e a Web é o "hospital completo" — ambos são necessários, e cada um fortalece o outro.</p>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3><span class="emoji">📊</span> Dashboard Inteligente</h3>
+            <ul>
+                <li><strong>Gráfico de evolução por matéria</strong> — visualização clara de progresso em cada disciplina (Direito, Português, Raciocínio Lógico, etc.) com taxa de acerto ao longo do tempo.</li>
+                <li><strong>Mapa de calor de estudo</strong> — mostra quais dias/horários o usuário mais estuda, permitindo otimizar a rotina.</li>
+                <li><strong>Predição de aprovação</strong> — baseada no histórico de acertos vs. editais reais, mostra a probabilidade percentual de aprovação no concurso alvo.</li>
+                <li><strong>Recomendação personalizada de próximos passos</strong> — a IA diz exatamente o que estudar hoje para maximizar as chances de aprovação.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span class="emoji">📝</span> Simulados Cronometrados</h3>
+            <ul>
+                <li><strong>Simulados gerados por IA</strong> — questões geradas dinamicamente baseadas no padrão da banca e do edital, com nível de dificuldade adaptativo.</li>
+                <li><strong>Timer e ambiente de prova</strong> — simula a experiência real com cronômetro, divisão de cadernos e revisão de gabarito.</li>
+                <li><strong>Relatório pós-simulado</strong> — análise detalhada de acertos, erros, tempo por questão e comparação com outros candidatos.</li>
+                <li><strong>Banco de simulados comunitários</strong> — simulados criados por professores parceiros ou pela comunidade, curados pela IA.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-2 mt-20">
+        <div class="card">
+            <h3><span class="emoji">📅</span> Cronograma Personalizado</h3>
+            <ul>
+                <li><strong>Gerador automático de cronograma</strong> — a IA cria um plano de estudo personalizado considerando: data da prova, matérias mais cobradas, nível atual do aluno e horas disponíveis por dia.</li>
+                <li><strong>Ajuste dinâmico</strong> — o cronograma se adapta automaticamente quando o aluno avança mais rápido ou mais devagar que o previsto.</li>
+                <li><strong>Lembretes inteligentes</strong> — notificações no Telegram e na Web para manter o aluno no track.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span class="emoji">👥</span> Comunidade & Social</h3>
+            <ul>
+                <li><strong>Fórum por matéria e concurso</strong> — discussões organizadas por tema, com respostas da IA moderando e complementando.</li>
+                <li><strong>Leaderboard mensal</strong> — ranking dos alunos mais dedicados, criando competição saudável e engajamento.</li>
+                <li><strong>Marketplace de mentores</strong> — concurseiros aprovados podem oferecer mentorias pagas, com o Gabaritou tomando 15–20% de comissão.</li>
+                <li><strong>Grupos de estudo automatizados</strong> — a IA agrupa alunos com perfis complementares para estudo colaborativo.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="stat-grid mt-30">
+        <div class="stat-box">
+            <div class="stat-value">+180%</div>
+            <div class="stat-label">Aumento estimado de LTV com Web</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">-35%</div>
+            <div class="stat-label">Redução de Churn com Dashboard</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">R$350K</div>
+            <div class="stat-label">Custo estimado do MVP Web</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">4–6 meses</div>
+            <div class="stat-label">Tempo de desenvolvimento</div>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <span class="callout-icon">💡</span>
+        <span class="callout-text"><strong>Estratégia Recomendada:</strong> Não substituir o Telegram, mas complementar. O Telegram continua como canal principal de interação rápida, enquanto a Web oferece a "experiência completa". O login único (SSO) via Telegram permite transição fluida entre os dois canais sem necessidade de nova conta.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 08 — WHATSAPP -->
+<!-- ============================================================ -->
+<section class="section" id="sec8">
+    <div class="section-header">
+        <div class="section-label">Capítulo 08</div>
+        <h2>Expansão: Entrada do <span class="highlight">WhatsApp Business API</span></h2>
+        <p class="section-desc">Como o WhatsApp pode multiplicar a base de usuários do Gabaritou e por que é o próximo passo lógico após o Telegram.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">📱</span> Por que o WhatsApp é um Game-Changer</h3>
+        <p>O WhatsApp é o aplicativo mais instalado e utilizado no Brasil, presente em <strong>98,7% dos smartphones</strong> do país com mais de <strong>165 milhões de usuários ativos diários</strong>. Enquanto o Telegram tem uma base de usuários mais jovem e "tech-savvy" (estimados em 40M+ no Brasil), o WhatsApp alcança absolutamente todos os demographics — do estudante universitário ao servidor público de 50 anos que está se preparando para um concurso. Isso significa que adicionar o WhatsApp como canal pode, conservadoramente, <strong>doblar ou triplicar o mercado endereçável</strong> do Gabaritou, especialmente entre concurseiros mais velhos e de menor poder aquisitivo que não usam Telegram.</p>
+        <br>
+        <p>A arquitetura do bot é quase idêntica ao Telegram: mensagens, botões interativos, respostas de IA via Groq, e integração com Supabase para dados do usuário. A principal diferença técnica está no uso da <strong>WhatsApp Cloud API</strong> (oferecida pela Meta), que exige aprovação de negócio e cobra por conversação (R$0,035–R$0,075 por conversação de utilidade). Mesmo com esse custo, o ROI é extremamente positivo dado o LTV esperado de R$80–R$180 por usuário.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Métrica</th>
+                    <th>Telegram (Atual)</th>
+                    <th>WhatsApp (Expansão)</th>
+                    <th>Impacto Combinado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td-bold">Usuários Endereçáveis</td>
+                    <td>~40M (Brasil)</td>
+                    <td class="td-green">~165M (Brasil)</td>
+                    <td class="td-cyan">~205M combinados</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Custo por Conversação</td>
+                    <td class="td-green">Grátis</td>
+                    <td class="td-amber">R$0,035–R$0,075</td>
+                    <td class="td-amber">Custo marginal</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Demográfico Primário</td>
+                    <td>18–35 anos, tech</td>
+                    <td class="td-green">Todos os demographics</td>
+                    <td class="td-green">Cobertura universal</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Taxa de Conversão Estimada</td>
+                    <td>5–8%</td>
+                    <td class="td-green">7–12%</td>
+                    <td class="td-green">Maior confiança do WhatsApp</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Tempo de Implementação</td>
+                    <td>—</td>
+                    <td class="td-amber">6–8 semanas</td>
+                    <td>Arquitetura similar ao Telegram</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Custo Mensal (10K users)</td>
+                    <td class="td-green">~R$0</td>
+                    <td class="td-amber">~R$500–R$1.500</td>
+                    <td class="td-green">Ainda &lt; 1% do MRR</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🔄</span> Como Funciona a Integração WhatsApp</h3>
+        <ul>
+            <li><strong>WhatsApp Cloud API (Meta):</strong> API oficial da Meta para automação de mensagens. Requer conta Business verificada e aprovação de template de mensagens. Custo por conversação de utilidade (24h window): R$0,035–R$0,075 dependendo do volume.</li>
+            <li><strong>Fluxo idêntico ao Telegram:</strong> O usuário manda "Oi" ou "Quero estudar", recebe menu interativo com botões (escolher banca, matéria, gerar simulado, predição de prova), e a IA responde via Groq exatamente como no Telegram.</li>
+            <li><strong>Pagamento via PIX no WhatsApp:</strong> A Meta já suporta pagamentos nativos no WhatsApp em alguns mercados. No Brasil, o fluxo ideal é gerar QR Code PIX direto na conversa via MercadoPago ou Asaas, com confirmação automática de pagamento em segundos.</li>
+            <li><strong>Notificações proativas:</strong> Diferente do Telegram, o WhatsApp permite enviar notificações "push" que realmente chegam ao usuário (taxa de abertura de 98% vs. 20–30% de push notifications de apps). Isso é perfeito para lembretes de estudo, "sua matéria do dia" e engajamento de reativação.</li>
+            <li><strong>Compartilhamento viral:</strong> O WhatsApp tem o maior poder de compartilhamento do Brasil. Um usuário satisfeito pode enviar o contato do bot para 10 amigos em 2 minutos, com um CTA natural: "Olha que bot massa pra estudar pra concurso!". Essa viralidade orgânica pode gerar CAC próximo de zero.</li>
+        </ul>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🚀</span>
+        <span class="callout-text"><strong>Projeção com WhatsApp:</strong> Adicionar o WhatsApp no Ano 2 pode levar a base de usuários de 5K para 15K–25K pagantes em 6 meses, multiplicando o MRR de R$100K para R$300K–R$500K. O custo da API WhatsApp (~R$1.500/mês para 10K usuários) é insignificante frente ao MRR potencial.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 09 — CAMADAS OCULTAS -->
+<!-- ============================================================ -->
+<section class="section" id="sec9">
+    <div class="section-header">
+        <div class="section-label">Capítulo 09</div>
+        <h2>Camadas Ocultas — <span class="highlight">O que Poucos Enxergam</span></h2>
+        <p class="section-desc">Análise profunda das oportunidades, riscos e dinâmicas que não são óbvias à primeira vista, mas que podem definir o sucesso ou fracasso do Gabaritou.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🔮</span> Camada 1: O Moat Invisível dos Dados</h3>
+        <p>O ativo mais valioso do Gabaritou não é o bot, nem a IA, nem o preço — é o <strong>banco de dados de padrões de estudo e acertos/erros</strong> que se acumula com cada interação de cada usuário. Quando o Gabaritou atingir 10.000 usuários ativos gerando 50+ interações por mês cada, terá um dataset de 6 milhões de data points por mês sobre: quais questões são mais difíceis, quais bancas cobram mais de cada tópico, quais matérias os alunos mais erram, e como padrões de estudo se correlacionam com aprovação. Esse dataset é um <strong>ativo exclusivo e inimitável</strong> — nenhum concorrente pode comprar ou replicar esses dados, e ele melhora exponencialmente com o tamanho da base (efeito de rede data-driven). Em 3–5 anos, esse moat de dados pode valer mais que toda a infraestrutura tecnológica combinada.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🏛️</span> Camada 2: O Mercado B2B Invisível (R$5B+)</h3>
+        <p>O mercado B2B de preparação para servidores públicos é praticamente ignorado e pode ser ainda maior que o B2C. No Brasil, existem <strong>mais de 5.600 municípios</strong>, centenas de tribunais, e milhares de órgãos federais e estaduais que precisam capacitar servidores para concursos internos, progressões funcionais e certificações. Atualmente, a maioria dos órgãos gastam entre R$50.000 e R$500.000 por ano com cursinhos presenciais "genéricos" para seus servidores, com resultados questionáveis. O Gabaritou pode oferecer um SaaS B2B com: diagnóstico personalizado de cada servidor, plano de estudo adaptado ao cargo e concurso alvo, dashboard gerencial para o RH acompanhar o progresso da equipe, e relatórios de eficiência do investimento em capacitação. O preço B2B pode ser R$15–R$30 por servidor/mês (muito mais barato que cursinho presencial), com contratos de 12–24 meses e um market size endereçável estimado em R$5 bilhões apenas em municípios.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🌍</span> Camada 3: Expansão LATAM + CPLP (Mercado de 800M+)</h3>
+        <p>O modelo de concursos públicos não é exclusivo do Brasil — é uma instituição em <strong>Portugal, Angola, Moçambique, Cabo Verde e outros países da CPLP</strong>, além de ser similar a processos seletivos na Espanha, México, Colômbia e Argentina. O mercado total de preparação para concursos nos países de língua portuguesa e espanhola é estimado em mais de <strong>800 milhões de candidatos potenciais</strong>. A arquitetura do Gabaritou (bot + IA + pgvector) é nativamente escalável para outros países — basta: (1) alimentar o banco de dados com editais locais, (2) ajustar a IA para as bancas específicas de cada país, e (3) traduzir a interface. O custo de entrada em um novo país é estimado em R$50K–R$150K (principalmente dados + marketing), com payback de 6–12 meses. A expansão para Portugal e Angola pode ser feita já no Ano 3–4.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🧠</span> Camada 4: O Efeito Flywheel da IA (Maior Barreira Competitiva)</h3>
+        <p>Ao contrário de concorrentes que usam conteúdo estático (vídeos, PDFs, questões pré-escritas), o Gabaritou tem um <strong>flywheel de IA auto-reforçante</strong>: mais usuários geram mais dados de interação → mais dados melhoram a precisão das predições → melhores predições geram mais aprovações → mais aprovações geram mais marketing orgânico e confiança na marca → mais usuários. Esse ciclo cria uma vantagem competitiva que se fortalece exponencialmente com o tempo. Mesmo que um concorrente copie as features do Gabaritou hoje, levaria 2–3 anos para acumular um dataset comparável. É o mesmo moat que fez do Google search imbatível (mais queries → melhores resultados → mais queries) e do Netflix (mais visualizações → melhores recomendações → mais visualizações).</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">💰</span> Camada 5: A Armadilha do Preço Baixo (e Como Usar a Favor)</h3>
+        <p>Um preço de R$19,90 pode parecer "barato demais" para construir um negócio de alto valor, mas é exatamente o oposto — é uma estratégia <strong>deliberada de "land and expand"</strong> usada por empresas como Spotify (grátis no início), Netflix (R$15,90 em 2011) e Nubank (cartão grátis). A lógica é: capturar o máximo de usuários possível no entry level (R$19,90), construir hábito e dependência do produto, e depois expandir a receita via upsells naturais: (1) plano Pro com features avançadas a R$34,90/mês, (2) plano Mentoria com sessões ao vivo a R$49,90/mês, (3) marketplace de mentores com comissão, (4) B2B Enterprise, (5) ads e parcerias. O ARPU pode evoluir de R$19,90 para R$35–R$60 em 2–3 anos sem perder a vantagem competitiva do preço de entrada baixo. Essa é a mesma estratégia que levou o Nubank de "cartão grátis" para valer R$80 bilhões — a base massiva de usuários se torna a plataforma para múltiplas linhas de receita.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">⚡</span> Camada 6: Riscos Ocultos que Podem Matar o Negócio</h3>
+        <ul>
+            <li><strong>Dependência do Telegram:</strong> Se o Telegram mudar seus termos de serviço, limitar bots, ou ser banido no Brasil (como já aconteceu temporariamente), o negócio pode perder 60–80% da base instantaneamente. <span class="pill red">Risco Alto</span></li>
+            <li><strong>Dependência do Groq:</strong> Se a API gratuita do Groq mudar de modelo de preço, os custos operacionais podem aumentar 10x. Mitigação: ter fallback para Llama (local) ou outros LLMs. <span class="pill amber">Risco Médio</span></li>
+            <li><strong>Qualidade das Predições:</strong> Se a IA predizer errado frequentemente (ex: dizer que certo tema "não cai" e ele cair na prova), a reputação pode ser destruída em semanas. A precisão precisa ser >80% desde o início. <span class="pill red">Risco Alto</span></li>
+            <li><strong>Regulação de IA:</strong> O Marco Legal da IA no Brasil (PL 2338/2023) pode criar obrigações de transparência e auditoria para sistemas de IA na educação. O custo de compliance pode ser significativo. <span class="pill amber">Risco Médio</span></li>
+            <li><strong>Pirataria e Fraude:</strong> Contas compartilhadas, chargebacks de PIX, e uso indevido do bot para vazamento de provas são riscos reais. Mitigação: rate limiting, IP tracking, e termos de uso claros. <span class="pill amber">Risco Médio</span></li>
+        </ul>
+    </div>
+
+    <div class="callout danger">
+        <span class="callout-icon">🔴</span>
+        <span class="callout-text"><strong>Risco Crítico #1 — Dependência de Plataforma:</strong> O maior risco do Gabaritou é a dependência do Telegram como canal principal. Se o Telegram banir bots educacionais comerciais ou mudar drasticamente a API, o negócio fica paralisado. <strong>Atenção:</strong> A expansão para WhatsApp e Plataforma Web NÃO é opcional — é uma questão de sobrevivência. Recomenda-se ter pelo menos 2 canais operacionais até o final do Ano 2.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 10 — POTENCIAL DE VENDA -->
+<!-- ============================================================ -->
+<section class="section" id="sec10">
+    <div class="section-header">
+        <div class="section-label">Capítulo 10</div>
+        <h2>Potencial de Venda & <span class="highlight">Exit Strategy</span></h2>
+        <p class="section-desc">Análise do potencial de aquisição do Gabaritou por grandes players e cenários de exit com valuation projetado.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🏢</span> Possíveis Compradores — Com Analysis</h3>
+        <p>O mercado brasileiro de EdTech tem visto uma onda de consolidação nos últimos anos, com aquisições de bilhões de reais. O Gabaritou, com IA preditiva nativa e base de usuários recorrente, se torna um alvo natural de aquisição para players que querem agregar inteligência artificial ao seu portfólio. Abaixo, mapeamos os compradores mais prováveis e suas motivações estratégicas para adquirir o Gabaritou.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Potencial Comprador</th>
+                    <th>Motivação Estratégica</th>
+                    <th>Capacidade Financeira</th>
+                    <th>Probabilidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td-bold">Estratégia Concursos</td>
+                    <td>Adicionar IA preditiva à plataforma e capturar base de baixa renda</td>
+                    <td class="td-green">R$500M+ (backed by).</td>
+                    <td class="td-green">Alta</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Gran Cursos Online</td>
+                    <td>Complementar com IA e canal Telegram/WhatsApp</td>
+                    <td class="td-green">R$200M+ (aberta).)</td>
+                    <td class="td-green">Alta</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Grupo Cogna (Estácio+)</td>
+                    <td>Entrar no mercado de concursos via IA</td>
+                    <td class="td-green">Bolsa, R$2B+ market cap</td>
+                    <td class="td-amber">Média</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">YDUQS (Sistema>o)</td>
+                    <td>Diversificação para concursos com IA</td>
+                    <td class="td-green">Bolsa, R$3B+ market cap</td>
+                    <td class="td-amber">Média</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Coursera / Udemy</td>
+                    <td>Entrar no mercado brasileiro de concursos</td>
+                    <td class="td-green">US$500M+ cash</td>
+                    <td class="td-amber">Média-Baixa</td>
+                </tr>
+                <tr>
+                    <td class="td-bold">Private Equity (3G, etc.)</td>
+                    <td>Buy-and-build de plataforma EdTech lucrativa</td>
+                    <td class="td-green">R$1B+</td>
+                    <td class="td-amber">Média (Ano 4+)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">📈</span> Faixas de Valuation por Estágio (Exit)</h3>
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-value amber">R$1M–R$3M</div>
+                <div class="stat-label">Exit hoje (Pre-Receita)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">R$5M–R$15M</div>
+                <div class="stat-label">Exit Ano 2 (1K–5K pagantes)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value green">R$25M–R$80M</div>
+                <div class="stat-label">Exit Ano 3–4 (15K–50K)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">R$80M–R$200M+</div>
+                <div class="stat-label">Exit Ano 5+ (50K–100K+)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🏆</span>
+        <span class="callout-text"><strong>"Sweet Spot" de Exit:</strong> O momento ideal para um exit provavelmente será entre o Ano 3 e Ano 4, quando o Gabaritou tiver: (1) 15K–30K pagantes com churn estável, (2) Telegram + WhatsApp + Web operacionais, (3) dataset de IA com 12–24 meses de dados, e (4) tração B2B inicial. Nesse ponto, o valuation de R$25M–R$80M é realista e atrativo para acquirers estratégicos. O fundador pode negociar: 50–70% em cash + 30–50% em earnout baseado em retenção de usuários por 12–24 meses.</span>
+    </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============================================================ -->
+<!-- 11 — RESUMO EXECUTIVO -->
+<!-- ============================================================ -->
+<section class="section" id="sec11">
+    <div class="section-header">
+        <div class="section-label">Capítulo 11</div>
+        <h2>Resumo Executivo & <span class="highlight">Próximos Passos</span></h2>
+        <p class="section-desc">Consolidação de todas as análises em um plano de ação claro e priorizado.</p>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">📋</span> Números-Chave do Gabaritou</h3>
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-value">R$19,90</div>
+                <div class="stat-label">Preço mensal</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">R$15Bi</div>
+                <div class="stat-label">Mercado endereçável</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">85–96%</div>
+                <div class="stat-label">Margem bruta estimada</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">R$45M</div>
+                <div class="stat-label">Valuation Realista (Ano 5)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🎯</span> Próximos 90 Dias — Ações Prioritárias</h3>
+        <ul>
+            <li><strong>Semana 1–2: Soft Launch</strong> — Liberar o bot para 50–100 beta testers (comunidades de concursos, amigos, seguidores). Coletar feedback brutalmente honesto. Métrica-chave: pelo menos 20% dos beta testers usam mais de 3x por semana.</li>
+            <li><strong>Semana 3–4: Ajuste de PMF</strong> — Com base no feedback, ajustar as features principais: qualidade das predições, fluidez das conversas, clareza da proposta de valor. Implementar sistema de feedback inline ("Essa predição foi útil? Sim/Não").</li>
+            <li><strong>Semana 5–6: Marketing Orgânico</strong> — Criar presença nas redes sociais (Instagram, TikTok, X) com conteúdo de valor: dicas de estudo, predições de editais, resultados de aprovados. Meta: 1.000 seguidores em cada rede em 30 dias.</li>
+            <li><strong>Semana 7–8: First Paid Users</strong> — Ativar o paywall PIX. Oferecer trial de 7 dias grátis. Meta: 50 primeiros pagantes. Métrica-chave: taxa de conversão trial→paid > 5%.</li>
+            <li><strong>Semana 9–10: Viral Loop</strong> — Implementar "Convide um amigo e ganhe 15 dias grátis". Criar programa de embaixadores (top users ganham acesso vitalício). Meta: 30% dos novos usuários vêm de indicações.</li>
+            <li><strong>Semana 11–12: Retrospectiva e Planejamento</strong> — Analisar todas as métricas (MRR, churn, NPS, CAC, LTV). Decidir sobre: investir em paid ads, começar integração WhatsApp, ou focar em retenção.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3><span class="emoji">🔮</span> A Grande Visão (2031)</h3>
+        <p>Em 5 anos, o Gabaritou tem o potencial de se tornar a <strong>"plataforma de IA #1 para concursos públicos no Brasil"</strong> — um assistente inteligente que 500.000+ concurseiros usam diariamente no Telegram, WhatsApp e Web para estudar de forma personalizada, predizer o que vai cair nas provas, e aumentar suas chances de aprovação. A empresa pode atingir ARR de R$15M–R$60M, valuation de R$45M–R$200M+, e ser adquirida por um grande player de educação ou se tornar uma empresa autossustentável com margens de 85%+. Tudo isso começando com um bot de Telegram, IA grátis (Groq), um banco de dados (Supabase), e o preço mais acessível do mercado: <strong>R$19,90 por mês</strong>.</p>
+        <br>
+        <p>O jogo é simples, mas não é fácil: executar com disciplina nos próximos 12 meses para validar o PMF, manter o foco no usuário (não no código), e resistir à tentação de crescer rápido demais antes de ter um produto que as pessoas realmente amam. Os números mostram que o mercado é gigantesco, a tecnologia funciona, e o preço é imbatível. Agora é questão de execução.</p>
+    </div>
+
+    <div class="callout success">
+        <span class="callout-icon">🚀</span>
+        <span class="callout-text"><strong>Mensagem Final:</strong> O Gabaritou não é "apenas mais um bot de estudo" — é um <strong>oráculo de concursos</strong> que usa IA para democratizar o acesso à preparação de qualidade. A R$19,90, ele pode mudar a vida de milhões de brasileiros que hoje não têm R$200/mês para um cursinho. E se mudar a vida deles, o valuation cuida de si mesmo.</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer class="footer">
+    <div class="brand">GABARITOU CONCURSEIROS</div>
+    <p>Previsão de Mercado &bull; Análise de Valuation &bull; Projeções 2026–2031</p>
+    <p class="mt-10">Documento gerado em Abril 2026 &bull; Dados baseados em pesquisa de mercado e projeções conservadoras</p>
+    <p class="mt-10" style="color: var(--text-dim); font-size: 11px;">Este documento contém projeções e estimativas baseadas em dados públicos de mercado e não constitui garantia de resultados. Todos os cenários são hipotéticos e dependem de execução, condições de mercado e fatores competitivos.</p>
+</footer>
+
+</body>
+</html>

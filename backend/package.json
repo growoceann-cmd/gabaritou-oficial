@@ -1,0 +1,37 @@
+{
+  "name": "gabaritou-backend",
+  "version": "3.0.0",
+  "description": "Gabaritou v3 - Telegram Bot com IA ativa (modelo BeConfident) para concurseiros",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "db:reset": "echo 'Execute o schema.sql manualmente no SQL Editor do Supabase'"
+  },
+  "keywords": [
+    "gabaritou",
+    "concursos",
+    "telegram-bot",
+    "ai-tutor",
+    "predicao"
+  ],
+  "author": "Gabaritou Team",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.16.0",
+    "cors": "^2.8.5",
+    "docx": "^9.6.1",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.0",
+    "express-rate-limit": "^7.1.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "mercadopago": "^2.0.0",
+    "openai": "^4.20.0",
+    "pg": "^8.11.0",
+    "telegraf": "^4.15.0",
+    "uuid": "^9.0.0"
+  }
+}
