@@ -19,6 +19,7 @@ import adminRoutes from './api/routes/admin.js';
 
 // ─── Bot ────────────────────────────────────────────────────────
 import { Telegraf } from 'telegraf';
+import logger from './utils/logger.js';
 import { getCommandHandlers, showMenu } from './bot/commands.js';
 import { handleCallbackQuery } from './bot/callbacks.js';
 import { interceptMessage, getOrCreateUser, cleanupStaleSessions } from './bot/interceptor.js';
@@ -30,6 +31,8 @@ import { getTopTopicos } from './services/predictions.js';
 const PORT = process.env.PORT || 3000;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const NODE_ENV = process.env.NODE_ENV || 'development';
+
+const log = logger.child('Index');
 
 // ─── Telegram Bot Initialization ────────────────────────────────
 let bot = null;

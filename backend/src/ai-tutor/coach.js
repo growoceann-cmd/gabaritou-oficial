@@ -110,10 +110,26 @@ Responda EXCLUSIVAMENTE em JSON:
 }`;
 
   try {
-    const aiResponse = await dashScope.generateResponse([
-      { role: 'system', content: COACH_SYSTEM_PROMPT },
-      { role: 'user', content: prompt },
-    ], { temperature: 0.8 });
+    let aiResponse = null;
+    try {
+      aiResponse = await dashScope.generateResponse([
+        { role: 'system', content: COACH_SYSTEM_PROMPT },
+        { role: 'user', content: prompt },
+      ], { temperature: 0.8 });
+    } catch (dashError) {
+      log.warn('Coach: DashScope falhou ao gerar questão. Ativando fallback Groq...', { error: dashError.message });
+      const ai = getOpenAI();
+      const completion = await ai.chat.completions.create({
+        messages: [
+          { role: 'system', content: COACH_SYSTEM_PROMPT },
+          { role: 'user', content: prompt },
+        ],
+        model: process.env.OPENAI_MODEL || 'llama-3.3-70b-versatile',
+        temperature: 0.8,
+        response_format: { type: "json_object" }
+      });
+      aiResponse = completion.choices[0]?.message?.content;
+    }
 
     // Tratamento robusto para o formato de resposta do Qwen 3.6 (que pode vir com blocos de pensamento)
     let cleanContent = aiResponse.trim();
@@ -230,11 +246,23 @@ export async function respondNaturally(userMessage, context, user) {
   ];
 
   try {
-    const aiResponse = await dashScope.generateResponse(messages, { temperature: 0.7 });
+    let aiResponse = null;
+    try {
+      aiResponse = await dashScope.generateResponse(messages, { temperature: 0.7 });
+    } catch (dashError) {
+      log.warn('Coach: DashScope falhou na resposta natural. Ativando fallback Groq...', { error: dashError.message });
+      const ai = getOpenAI();
+      const completion = await ai.chat.completions.create({
+        messages,
+        model: process.env.OPENAI_MODEL || 'llama-3.3-70b-versatile',
+        temperature: 0.7,
+      });
+      aiResponse = completion.choices[0]?.message?.content;
+    }
 
     return aiResponse || '';
   } catch (err) {
-    log.error('Erro na resposta natural', { erro: err.message });
+    log.error('Erro na resposta natural (incluindo fallback)', { erro: err.message });
     return null;
   }
 }
