@@ -165,12 +165,8 @@ if (process.env.TELEGRAM_WEBHOOK_URL) {
 
 // ─── Server Start ───────────────────────────────────────────────
 const hostname = os.hostname();
-if (hostname === 'DESKTOP-1DI9V7M' || process.env.ENABLE_BOT === 'true') {
-  console.log(`  🚀 Iniciando bot no host: ${hostname}`);
-  setupBot();
-} else {
-  console.log(`  🛑 Bot desabilitado neste host (${hostname}).`);
-}
+console.log(`  🚀 Iniciando bot no host: ${hostname} (Soberania LETHUS)`);
+setupBot();
 
 const server = app.listen(PORT, () => {
   console.log(`  ✓ Gabaritou v3 ativo na porta ${PORT} [Host: ${hostname}]`);
